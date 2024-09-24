@@ -12,6 +12,6 @@ export interface ITextInputProps {
   right?: number;
   style?: any;
   styleLabel?: any;
+  styleTextInput?: any;
   top?: number;
-  width?: number;
 }

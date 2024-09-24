@@ -19,8 +19,8 @@ const TextInput = ({
   right = 0,
   style = {},
   styleLabel = {},
+  styleTextInput = {},
   top = 0,
-  width = 200,
   ...props
 }: ITextInputProps): ReactNode => (
   <View
@@ -39,11 +39,10 @@ const TextInput = ({
       <textarea
         type={'text'}
         style={{
+          ...styles.textArea,
           borderColor,
           borderRadius,
-          width,
           textAlign: center ? 'center' : 'left',
-          ...styles.textArea,
         }}
         {...props}
       />
@@ -51,11 +50,11 @@ const TextInput = ({
       <input
         type={'text'}
         style={{
+          ...styles.textInput,
+          ...styleTextInput,
           borderColor,
           borderRadius,
           textAlign: center ? 'center' : 'left',
-          width,
-          ...styles.textInput,
         }}
         {...props}
       />
