@@ -4265,6 +4265,7 @@ var Colors = {
     red100: '#FF4C47',
     red150: '#C52025',
     red200: '#A56767',
+    red240: '#6c394f',
     red50: '#FABDBE',
     red60: '#D90B10',
     redTransparent: '#E4DAD9',
