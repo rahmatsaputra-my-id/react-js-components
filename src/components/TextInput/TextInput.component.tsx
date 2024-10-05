@@ -1,10 +1,10 @@
-import { ReactNode } from 'react';
-import { Text } from '../Text';
-import { View } from '../View';
-import { Colors } from '../../constants/Colors';
+import { ReactNode } from "react";
+import { Text } from "../Text";
+import { View } from "../View";
+import { Colors } from "../../constants/Colors";
 
-import { ITextInputProps } from './TextInput.types';
-import { styles } from './TextInput.component.styles';
+import { ITextInputProps } from "./TextInput.types";
+import { styles } from "./TextInput.component.styles";
 
 const TextInput = ({
   bottom = 0,
@@ -22,46 +22,41 @@ const TextInput = ({
   styleTextInput = {},
   top = 0,
   ...props
-}: ITextInputProps): ReactNode => (
-  <View
-    style={{
-      marginTop: top,
-      marginRight: right,
-      marginBottom: bottom,
-      marginLeft: left,
-      padding,
-      ...style,
-    }}
-  >
-    {label && <Text style={{ ...styles.label, ...styleLabel }} children={label} />}
+}: ITextInputProps): ReactNode => {
+  const stylesTextInput = {
+    ...styles.textArea,
+    ...styleTextInput,
+    borderColor,
+    borderRadius,
+    textAlign: center ? "center" : "left",
+  };
 
-    {multiline ? (
-      <textarea
-        type={'text'}
-        style={{
-          ...styles.textArea,
-          borderColor,
-          borderRadius,
-          textAlign: center ? 'center' : 'left',
-        }}
-        {...props}
-      />
-    ) : (
-      <input
-        type={'text'}
-        style={{
-          ...styles.textInput,
-          ...styleTextInput,
-          borderColor,
-          borderRadius,
-          textAlign: center ? 'center' : 'left',
-        }}
-        {...props}
-      />
-    )}
+  return (
+    <View
+      style={{
+        marginTop: top,
+        marginRight: right,
+        marginBottom: bottom,
+        marginLeft: left,
+        padding,
+        ...style,
+      }}
+    >
+      {label && (
+        <Text style={{ ...styles.label, ...styleLabel }} children={label} />
+      )}
 
-    {labelError ? <Text style={styles.labelError} children={labelError} /> : null}
-  </View>
-);
+      {multiline ? (
+        <textarea type={"text"} style={stylesTextInput} {...props} />
+      ) : (
+        <input type={"text"} style={stylesTextInput} {...props} />
+      )}
+
+      {labelError ? (
+        <Text style={styles.labelError} children={labelError} />
+      ) : null}
+    </View>
+  );
+};
 
 export default TextInput;
