@@ -1,10 +1,10 @@
-import { ReactNode } from "react";
-import { Text } from "../Text";
-import { View } from "../View";
-import { Colors } from "../../constants/Colors";
+import {ReactNode} from 'react';
+import {Text} from '../Text';
+import {View} from '../View';
+import {Colors} from '../../constants/Colors';
 
-import { ITextInputProps } from "./TextInput.types";
-import { styles } from "./TextInput.component.styles";
+import {ITextInputProps} from './TextInput.types';
+import {styles} from './TextInput.component.styles';
 
 const TextInput = ({
   bottom = 0,
@@ -28,7 +28,8 @@ const TextInput = ({
     ...styleTextInput,
     borderColor,
     borderRadius,
-    textAlign: center ? "center" : "left",
+    width: '100%',
+    textAlign: center ? 'center' : 'left',
   };
 
   return (
@@ -40,16 +41,15 @@ const TextInput = ({
         marginLeft: left,
         padding,
         ...style,
-      }}
-    >
+      }}>
       {label && (
-        <Text style={{ ...styles.label, ...styleLabel }} children={label} />
+        <Text style={{...styles.label, ...styleLabel}} children={label} />
       )}
 
       {multiline ? (
-        <textarea type={"text"} style={stylesTextInput} {...props} />
+        <textarea type={'text'} style={stylesTextInput} {...props} />
       ) : (
-        <input type={"text"} style={stylesTextInput} {...props} />
+        <input type={'text'} style={stylesTextInput} {...props} />
       )}
 
       {labelError ? (
