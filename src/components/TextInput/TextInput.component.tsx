@@ -28,7 +28,6 @@ const TextInput = ({
     ...styleTextInput,
     borderColor,
     borderRadius,
-    width: '100%',
     textAlign: center ? 'center' : 'left',
   };
 
