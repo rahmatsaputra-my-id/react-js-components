@@ -47,7 +47,7 @@ const TextInput = ({
       )}
 
       {multiline ? (
-        <textarea type={'text'} style={stylesTextInput} {...props} />
+        <textarea rows={10} type={'text'} style={stylesTextInput} {...props} />
       ) : (
         <input type={'text'} style={stylesTextInput} {...props} />
       )}
