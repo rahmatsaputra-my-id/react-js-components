@@ -4285,18 +4285,6 @@ var Colors = {
     },
 };
 
-<<<<<<< HEAD
-var styles$6 = {
-    content: {
-        display: 'flex',
-        justifyContent: 'center',
-        border: 'none',
-        outline: 'none',
-        cursor: 'pointer',
-        opacity: 1,
-        transition: 'opacity 300ms ease',
-    },
-=======
 var styles$6 = {
     content: {
         display: 'flex',
@@ -4305,7 +4293,6 @@ var styles$6 = {
         opacity: 1,
         transition: 'opacity 300ms ease',
     },
->>>>>>> 83f6ecd (- update version v0.0.12)
 };
 
 var View = function (_a) {
@@ -4357,7 +4344,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z = "@keyframes spinner {\n  0% {\n    transform: rotate(0deg);\n  }\n\n  100% {\n    transform: rotate(360deg);\n  }\n}\n\n.loading-spinner {\n  width: 15px;\n  height: 15px;\n  /* Light grey */\n  border: 4px solid #ffffff;\n  /* Black */\n  border-top: 4px solid #000000;\n  border-radius: 50%;\n  animation: spinner 1s linear infinite;\n}\n\n.loading-spinner-section {\n  width: 120px;\n  height: 120px;\n  /* Light grey */\n  border: 15px solid rgb(220, 220, 226);\n  /* Black */\n  border-top: 15px solid #000000;\n  border-radius: 50%;\n  animation: spinner 1.5s linear infinite;\n}\n\n.loading-spinner-page {\n  width: 200px;\n  height: 200px;\n  /* Light grey */\n  border: 40px solid rgb(220, 220, 226);\n  /* Black */\n  border-top: 40px solid #000000;\n  border-radius: 50%;\n  animation: spinner 1.5s linear infinite;\n}\n";
+var css_248z = "@keyframes spinner {\r\n  0% {\r\n    transform: rotate(0deg);\r\n  }\r\n\r\n  100% {\r\n    transform: rotate(360deg);\r\n  }\r\n}\r\n\r\n.loading-spinner {\r\n  width: 15px;\r\n  height: 15px;\r\n  /* Light grey */\r\n  border: 4px solid #ffffff;\r\n  /* Black */\r\n  border-top: 4px solid #000000;\r\n  border-radius: 50%;\r\n  animation: spinner 1s linear infinite;\r\n}\r\n\r\n.loading-spinner-section {\r\n  width: 120px;\r\n  height: 120px;\r\n  /* Light grey */\r\n  border: 15px solid rgb(220, 220, 226);\r\n  /* Black */\r\n  border-top: 15px solid #000000;\r\n  border-radius: 50%;\r\n  animation: spinner 1.5s linear infinite;\r\n}\r\n\r\n.loading-spinner-page {\r\n  width: 200px;\r\n  height: 200px;\r\n  /* Light grey */\r\n  border: 40px solid rgb(220, 220, 226);\r\n  /* Black */\r\n  border-top: 40px solid #000000;\r\n  border-radius: 50%;\r\n  animation: spinner 1.5s linear infinite;\r\n}\r\n";
 styleInject(css_248z);
 
 var LoadingSpinner = function (_a) {
@@ -4372,17 +4359,6 @@ var LoadingSpinner = function (_a) {
                 : _renderSpinnerComponent() }));
 };
 
-<<<<<<< HEAD
-var Button = function (_a) {
-    var _b = _a.backgroundColor, backgroundColor = _b === void 0 ? Colors.black : _b, _c = _a.bold, bold = _c === void 0 ? false : _c, _d = _a.borderRadius, borderRadius = _d === void 0 ? 8 : _d, _e = _a.bottom, bottom = _e === void 0 ? 0 : _e, _f = _a.center, center = _f === void 0 ? true : _f, _g = _a.disabled, disabled = _g === void 0 ? false : _g, _h = _a.isLoading, isLoading = _h === void 0 ? false : _h, label = _a.label, _j = _a.left, left = _j === void 0 ? 0 : _j, _k = _a.onPress, onPress = _k === void 0 ? function () { } : _k, _l = _a.padding, padding = _l === void 0 ? 16 : _l, _m = _a.right, right = _m === void 0 ? 0 : _m, _o = _a.size, size = _o === void 0 ? 12 : _o, _p = _a.style, style = _p === void 0 ? {} : _p, _q = _a.top, top = _q === void 0 ? 0 : _q, _r = _a.transparent, transparent = _r === void 0 ? false : _r, props = __rest(_a, ["backgroundColor", "bold", "borderRadius", "bottom", "center", "disabled", "isLoading", "label", "left", "onPress", "padding", "right", "size", "style", "top", "transparent"]);
-    return (jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: jsxRuntimeExports.jsxs("button", __assign({ style: __assign(__assign({ backgroundColor: disabled || isLoading
-                    ? Colors.grey2
-                    : transparent
-                        ? 'transparent'
-                        : backgroundColor
-                            ? backgroundColor
-                            : Colors.black, borderRadius: borderRadius, color: Colors.white, fontSize: size, fontWeight: bold && 'bold', marginTop: top, marginRight: right, marginBottom: bottom, marginLeft: left, padding: padding, textAlign: center ? 'center' : 'left' }, style), styles$6.content), disabled: isLoading || disabled, onClick: onPress, type: 'submit' }, props, { children: [!isLoading ? label : null, isLoading && jsxRuntimeExports.jsx(LoadingSpinner, { loadingType: false })] })) }));
-=======
 var Button = function (_a) {
     var _b = _a.backgroundColor, backgroundColor = _b === void 0 ? Colors.black : _b, _c = _a.bold, bold = _c === void 0 ? false : _c, _d = _a.borderRadius, borderRadius = _d === void 0 ? 8 : _d, _e = _a.bottom, bottom = _e === void 0 ? 0 : _e, _f = _a.center, center = _f === void 0 ? true : _f, _g = _a.disabled, disabled = _g === void 0 ? false : _g, _h = _a.isLoading, isLoading = _h === void 0 ? false : _h, label = _a.label, _j = _a.left, left = _j === void 0 ? 0 : _j, _k = _a.onPress, onPress = _k === void 0 ? function () { } : _k, _l = _a.padding, padding = _l === void 0 ? 16 : _l, _m = _a.right, right = _m === void 0 ? 0 : _m, _o = _a.size, size = _o === void 0 ? 12 : _o, _p = _a.style, style = _p === void 0 ? {} : _p, _q = _a.top, top = _q === void 0 ? 0 : _q, _r = _a.transparent, transparent = _r === void 0 ? false : _r, _s = _a.outlineColor, outlineColor = _s === void 0 ? false : _s, props = __rest(_a, ["backgroundColor", "bold", "borderRadius", "bottom", "center", "disabled", "isLoading", "label", "left", "onPress", "padding", "right", "size", "style", "top", "transparent", "outlineColor"]);
     return (jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: jsxRuntimeExports.jsxs("button", __assign({ style: __assign(__assign({ backgroundColor: disabled || isLoading
@@ -4392,7 +4368,6 @@ var Button = function (_a) {
                         : backgroundColor
                             ? backgroundColor
                             : Colors.black, border: outlineColor ? '1px solid rgba(0, 0, 0, 1)' : 'none', borderRadius: borderRadius, color: outlineColor ? outlineColor : Colors.white, fontSize: size, fontWeight: bold && 'bold', marginBottom: bottom, marginLeft: left, marginRight: right, marginTop: top, outline: !outlineColor && 'none', padding: padding, textAlign: center ? 'center' : 'left' }, style), styles$6.content), disabled: isLoading || disabled, onClick: onPress, type: 'submit' }, props, { children: [!isLoading ? label : null, isLoading && jsxRuntimeExports.jsx(LoadingSpinner, { loadingType: false })] })) }));
->>>>>>> 83f6ecd (- update version v0.0.12)
 };
 
 var styles$4 = {
@@ -4519,43 +4494,6 @@ var Image = function (_a) {
     return (jsxRuntimeExports.jsx("img", __assign({ style: __assign({ height: height, marginBottom: bottom, marginRight: right, marginLeft: left, marginTop: top, resizeMode: resizeMode, textAlign: center ? 'center' : 'left', width: width }, style) }, props)));
 };
 
-<<<<<<< HEAD
-var styles$2 = {
-    container: {
-        position: 'fixed',
-        left: 0,
-        right: 0,
-        top: 0,
-        bottom: 0,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: 'rgba(0, 0, 0, 0.8)',
-    },
-    card: {
-        boxShadow: Colors.boxShadow,
-        padding: 24,
-        borderRadius: 8,
-        backgroundColor: Colors.grey7,
-        width: 300,
-        justifyContent: 'space-between',
-    },
-    headerTitle: {
-        alignSelf: 'center',
-        marginBottom: 16,
-        fontWeight: 'bold',
-        fontSize: 24,
-    },
-    headerDescription: {
-        alignSelf: 'center',
-        marginBottom: 50,
-        fontSize: 18,
-    },
-};
-
-var PopUp = function (_a) {
-    var _b = _a.backgroundButtonColor, backgroundButtonColor = _b === void 0 ? Colors.black : _b, _c = _a.isLoading, isLoading = _c === void 0 ? false : _c, popUpData = _a.popUpData, _d = _a.visible, visible = _d === void 0 ? false : _d;
-    return visible ? (jsxRuntimeExports.jsx(View, __assign({ style: styles$2.container }, { children: jsxRuntimeExports.jsxs(View, __assign({ style: styles$2.card }, { children: [jsxRuntimeExports.jsxs(View, { children: [jsxRuntimeExports.jsx(Text, { style: styles$2.headerTitle, children: popUpData === null || popUpData === void 0 ? void 0 : popUpData.title }), jsxRuntimeExports.jsx(Text, { style: styles$2.headerDescription, children: popUpData === null || popUpData === void 0 ? void 0 : popUpData.description })] }), jsxRuntimeExports.jsx(Button, { backgroundColor: backgroundButtonColor, isLoading: isLoading, label: popUpData === null || popUpData === void 0 ? void 0 : popUpData.labelAccept, onPress: popUpData === null || popUpData === void 0 ? void 0 : popUpData.onPressAccept })] })) }))) : null;
-=======
 var styles$2 = {
     container: {
         position: 'fixed',
@@ -4604,7 +4542,6 @@ var PopUp = function (_a) {
     return visible ? (jsxRuntimeExports.jsx(View, __assign({ style: styles$2.container }, { children: jsxRuntimeExports.jsxs(View, __assign({ style: styles$2.card }, { children: [jsxRuntimeExports.jsxs(View, { children: [jsxRuntimeExports.jsx(Text, { style: styles$2.headerTitle, children: popUpData === null || popUpData === void 0 ? void 0 : popUpData.title }), (popUpData === null || popUpData === void 0 ? void 0 : popUpData.description) ? (jsxRuntimeExports.jsx(Text, { style: styles$2.headerDescription, children: popUpData === null || popUpData === void 0 ? void 0 : popUpData.description })) : null] }), jsxRuntimeExports.jsxs(View, __assign({ style: styles$2.buttonContainer }, { children: [(popUpData === null || popUpData === void 0 ? void 0 : popUpData.labelDecline) && (popUpData === null || popUpData === void 0 ? void 0 : popUpData.onPressDecline) ? (jsxRuntimeExports.jsx(Button, { style: styles$2.button, backgroundColor: backgroundButtonColor, outlineColor: Colors.black, isLoading: isLoading, label: popUpData === null || popUpData === void 0 ? void 0 : popUpData.labelDecline, onPress: popUpData === null || popUpData === void 0 ? void 0 : popUpData.onPressDecline })) : null, jsxRuntimeExports.jsx(Button, { style: (popUpData === null || popUpData === void 0 ? void 0 : popUpData.labelDecline) && (popUpData === null || popUpData === void 0 ? void 0 : popUpData.onPressDecline)
                                 ? styles$2.button
                                 : styles$2.buttonFullWidth, backgroundColor: backgroundButtonColor, isLoading: isLoading, label: popUpData === null || popUpData === void 0 ? void 0 : popUpData.labelAccept, onPress: popUpData === null || popUpData === void 0 ? void 0 : popUpData.onPressAccept })] }))] })) }))) : null;
->>>>>>> 83f6ecd (- update version v0.0.12)
 };
 
 var Swipeable = function (_a) {

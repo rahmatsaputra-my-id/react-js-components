@@ -1,9 +1,9 @@
-import { FC } from 'react';
-import { Colors } from '../../constants/Colors';
-import { styles } from './Button.component.styles';
-import { LoadingSpinner } from '../LoadingSpinner';
+import {FC} from 'react';
+import {Colors} from '../../constants/Colors';
+import {styles} from './Button.component.styles';
+import {LoadingSpinner} from '../LoadingSpinner';
 
-import { IButtonProps } from './Button.types';
+import {IButtonProps} from './Button.types';
 
 const Button: FC<IButtonProps> = ({
   backgroundColor = Colors.black,
@@ -54,8 +54,7 @@ const Button: FC<IButtonProps> = ({
       disabled={isLoading || disabled}
       onClick={onPress}
       type={'submit'}
-      {...props}
-    >
+      {...props}>
       {!isLoading ? label : null}
       {isLoading && <LoadingSpinner loadingType={false} />}
     </button>
