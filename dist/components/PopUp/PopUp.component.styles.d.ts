@@ -7,6 +7,7 @@ export declare const styles: {
         bottom: number;
         justifyContent: string;
         alignItems: string;
+        zIndex: number;
         backgroundColor: string;
     };
     card: {

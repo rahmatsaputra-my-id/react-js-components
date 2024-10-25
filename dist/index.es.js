@@ -4499,6 +4499,7 @@ var styles$2 = {
         bottom: 0,
         justifyContent: 'center',
         alignItems: 'center',
+        zIndex: 5,
         backgroundColor: 'rgba(0, 0, 0, 0.8)',
     },
     card: {

@@ -1,4 +1,4 @@
-import { Colors } from '../../constants/Colors';
+import {Colors} from '../../constants/Colors';
 
 export const styles = {
   container: {
@@ -9,6 +9,7 @@ export const styles = {
     bottom: 0,
     justifyContent: 'center',
     alignItems: 'center',
+    zIndex: 5,
     backgroundColor: 'rgba(0, 0, 0, 0.8)',
   },
   card: {
