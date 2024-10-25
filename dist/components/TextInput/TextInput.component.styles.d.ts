@@ -13,7 +13,6 @@ export declare const styles: {
         paddingTop: number;
         paddingLeft: number;
         paddingRight: number;
-        paddingBottom: number;
     };
     textInput: {
         padding: number;

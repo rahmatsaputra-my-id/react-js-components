@@ -29,6 +29,7 @@ const TextInput = ({
     borderColor,
     borderRadius,
     textAlign: center ? 'center' : 'left',
+    paddingBottom: multiline ? 16 : 8,
   };
 
   return (

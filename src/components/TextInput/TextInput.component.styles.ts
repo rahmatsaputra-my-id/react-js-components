@@ -1,4 +1,4 @@
-import { Colors } from '../../constants/Colors';
+import {Colors} from '../../constants/Colors';
 
 export const styles = {
   label: {
@@ -15,7 +15,6 @@ export const styles = {
     paddingTop: 8,
     paddingLeft: 8,
     paddingRight: 8,
-    paddingBottom: 16,
   },
   textInput: {
     padding: 8,
