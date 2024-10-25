@@ -12,6 +12,7 @@ export const styles = {
     backgroundColor: 'rgba(0, 0, 0, 0.8)',
   },
   card: {
+    maxWidth: '60%',
     boxShadow: Colors.boxShadow,
     padding: 24,
     borderRadius: 8,
@@ -29,5 +30,15 @@ export const styles = {
     alignSelf: 'center',
     marginBottom: 50,
     fontSize: 18,
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  button: {
+    width: '45%',
+  },
+  buttonFullWidth: {
+    width: '100%',
   },
 };

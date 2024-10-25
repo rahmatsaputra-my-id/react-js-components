@@ -22,6 +22,7 @@ const Button: FC<IButtonProps> = ({
   style = {},
   top = 0,
   transparent = false,
+  outlineColor = false,
   ...props
 }: IButtonProps) => (
   <>
@@ -30,19 +31,21 @@ const Button: FC<IButtonProps> = ({
         backgroundColor:
           disabled || isLoading
             ? Colors.grey2
-            : transparent
+            : transparent || outlineColor
             ? 'transparent'
             : backgroundColor
             ? backgroundColor
             : Colors.black,
+        border: outlineColor ? '1px solid rgba(0, 0, 0, 1)' : 'none',
         borderRadius,
-        color: Colors.white,
+        color: outlineColor ? outlineColor : Colors.white,
         fontSize: size,
         fontWeight: bold && 'bold',
-        marginTop: top,
-        marginRight: right,
         marginBottom: bottom,
         marginLeft: left,
+        marginRight: right,
+        marginTop: top,
+        outline: !outlineColor && 'none',
         padding,
         textAlign: center ? 'center' : 'left',
         ...style,

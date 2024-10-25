@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 export declare const styles: {
     container: {
         position: string;
@@ -29,3 +30,47 @@ export declare const styles: {
         fontSize: number;
     };
 };
+=======
+export declare const styles: {
+    container: {
+        position: string;
+        left: number;
+        right: number;
+        top: number;
+        bottom: number;
+        justifyContent: string;
+        alignItems: string;
+        backgroundColor: string;
+    };
+    card: {
+        maxWidth: string;
+        boxShadow: "1px 2px 9px #000" | undefined;
+        padding: number;
+        borderRadius: number;
+        backgroundColor: "#E5E5E5" | undefined;
+        width: number;
+        justifyContent: string;
+    };
+    headerTitle: {
+        alignSelf: string;
+        marginBottom: number;
+        fontWeight: string;
+        fontSize: number;
+    };
+    headerDescription: {
+        alignSelf: string;
+        marginBottom: number;
+        fontSize: number;
+    };
+    buttonContainer: {
+        flexDirection: string;
+        justifyContent: string;
+    };
+    button: {
+        width: string;
+    };
+    buttonFullWidth: {
+        width: string;
+    };
+};
+>>>>>>> 83f6ecd (- update version v0.0.12)

@@ -14,5 +14,6 @@ export interface IButtonProps {
   size?: number;
   style?: any;
   transparent?: boolean;
+  outlineColor?: boolean | string;
   top?: number;
 }

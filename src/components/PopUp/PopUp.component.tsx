@@ -19,15 +19,35 @@ const PopUp: FC<IPopUpProps> = ({
         <View>
           <Text style={styles.headerTitle} children={popUpData?.title} />
 
-          <Text style={styles.headerDescription} children={popUpData?.description} />
+          {popUpData?.description ? (
+            <Text style={styles.headerDescription} children={popUpData?.description} />
+          ) : null}
         </View>
 
-        <Button
-          backgroundColor={backgroundButtonColor}
-          isLoading={isLoading}
-          label={popUpData?.labelAccept}
-          onPress={popUpData?.onPressAccept}
-        />
+        <View style={styles.buttonContainer}>
+          {popUpData?.labelDecline && popUpData?.onPressDecline ? (
+            <Button
+              style={styles.button}
+              backgroundColor={backgroundButtonColor}
+              outlineColor={Colors.black}
+              isLoading={isLoading}
+              label={popUpData?.labelDecline}
+              onPress={popUpData?.onPressDecline}
+            />
+          ) : null}
+
+          <Button
+            style={
+              popUpData?.labelDecline && popUpData?.onPressDecline
+                ? styles.button
+                : styles.buttonFullWidth
+            }
+            backgroundColor={backgroundButtonColor}
+            isLoading={isLoading}
+            label={popUpData?.labelAccept}
+            onPress={popUpData?.onPressAccept}
+          />
+        </View>
       </View>
     </View>
   ) : null;

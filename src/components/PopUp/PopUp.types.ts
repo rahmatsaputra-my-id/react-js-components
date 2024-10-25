@@ -8,6 +8,8 @@ export interface IPopUpProps {
 export type TpopUpData = {
   description?: string;
   labelAccept?: string;
+  labelDecline?: string;
   onPressAccept?: any;
+  onPressDecline?: any;
   title?: string;
 };
