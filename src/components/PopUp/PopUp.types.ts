@@ -3,6 +3,7 @@ export interface IPopUpProps {
   isLoading?: boolean;
   popUpData?: TpopUpData;
   visible?: boolean;
+  styleContainer?: any;
 }
 
 export type TpopUpData = {
