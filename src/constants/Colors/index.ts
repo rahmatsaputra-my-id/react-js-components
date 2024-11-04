@@ -1,4 +1,4 @@
-import { IColorsOption } from './Color.types';
+import {IColorsOption} from './Color.types';
 
 export const Colors: IColorsOption = {
   backgroundColor: '#F8F8F8',
@@ -55,6 +55,15 @@ export const Colors: IColorsOption = {
   white50: '#F5F9FC',
   white75: '#E6E6E6',
   whiteTransparent: 'rgba(250, 250, 250, 1)',
+  whiteTransparent15: 'rgba(250, 250, 250, 0.15)',
+  whiteTransparent25: 'rgba(250, 250, 250, 0.25)',
+  whiteTransparent35: 'rgba(250, 250, 250, 0.35)',
+  whiteTransparent45: 'rgba(250, 250, 250, 0.45)',
+  whiteTransparent55: 'rgba(250, 250, 250, 0.55)',
+  whiteTransparent65: 'rgba(250, 250, 250, 0.65)',
+  whiteTransparent75: 'rgba(250, 250, 250, 0.75)',
+  whiteTransparent85: 'rgba(250, 250, 250, 0.85)',
+  whiteTransparent95: 'rgba(250, 250, 250, 0.95)',
   yellow40: '#FDF76F',
   yellow50: '#EED202',
   theShop: {
