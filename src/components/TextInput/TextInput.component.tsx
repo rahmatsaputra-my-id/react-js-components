@@ -7,16 +7,17 @@ import {ITextInputProps} from './TextInput.types';
 import {styles} from './TextInput.component.styles';
 
 const TextInput = ({
-  bottom = 0,
   borderColor = Colors.grey2,
   borderRadius = 4,
+  bottom = 0,
   center = false,
-  left = 0,
   label = false,
   labelError = false,
+  left = 0,
   multiline = false,
   padding = 0,
   right = 0,
+  rows = 10,
   style = {},
   styleLabel = {},
   styleTextInput = {},
@@ -47,7 +48,12 @@ const TextInput = ({
       )}
 
       {multiline ? (
-        <textarea rows={10} type={'text'} style={stylesTextInput} {...props} />
+        <textarea
+          rows={rows}
+          type={'text'}
+          style={stylesTextInput}
+          {...props}
+        />
       ) : (
         <input type={'text'} style={stylesTextInput} {...props} />
       )}

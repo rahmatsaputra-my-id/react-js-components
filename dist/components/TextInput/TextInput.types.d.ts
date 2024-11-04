@@ -1,17 +1,18 @@
 export interface ITextInputProps {
-    bottom?: number;
     borderColor?: string;
     borderRadius: number;
+    bottom?: number;
     center?: boolean;
-    left?: number;
-    type?: string;
     label?: boolean | string;
     labelError?: boolean | string;
+    left?: number;
     multiline?: boolean;
     padding?: number;
     right?: number;
+    rows?: number;
     style?: any;
     styleLabel?: any;
     styleTextInput?: any;
     top?: number;
+    type?: string;
 }
