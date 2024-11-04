@@ -46,7 +46,6 @@ const TextInput = ({
       {label && (
         <Text style={{...styles.label, ...styleLabel}} children={label} />
       )}
-
       {multiline ? (
         <textarea
           rows={rows}
@@ -57,7 +56,6 @@ const TextInput = ({
       ) : (
         <input type={'text'} style={stylesTextInput} {...props} />
       )}
-
       {labelError ? (
         <Text style={styles.labelError} children={labelError} />
       ) : null}
