@@ -30,14 +30,11 @@ export declare const styles: {
         marginBottom: number;
         fontSize: number;
     };
-    buttonContainer: {
-        flexDirection: string;
-        justifyContent: string;
-    };
-    button: {
+    buttonPositive: {
         width: string;
     };
-    buttonFullWidth: {
+    buttonNegative: {
         width: string;
+        marginBottom: number;
     };
 };

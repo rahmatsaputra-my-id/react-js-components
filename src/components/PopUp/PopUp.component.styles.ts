@@ -32,14 +32,11 @@ export const styles = {
     marginBottom: 50,
     fontSize: 18,
   },
-  buttonContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  button: {
-    width: '45%',
-  },
-  buttonFullWidth: {
+  buttonPositive: {
     width: '100%',
+  },
+  buttonNegative: {
+    width: '100%',
+    marginBottom: 12,
   },
 };

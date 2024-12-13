@@ -28,10 +28,10 @@ const PopUp: FC<IPopUpProps> = ({
           ) : null}
         </View>
 
-        <View style={styles.buttonContainer}>
+        <View>
           {popUpData?.labelDecline && popUpData?.onPressDecline ? (
             <Button
-              style={styles.button}
+              style={styles.buttonNegative}
               backgroundColor={backgroundButtonColor}
               outlineColor={Colors.black}
               isLoading={isLoading}
@@ -41,11 +41,7 @@ const PopUp: FC<IPopUpProps> = ({
           ) : null}
 
           <Button
-            style={
-              popUpData?.labelDecline && popUpData?.onPressDecline
-                ? styles.button
-                : styles.buttonFullWidth
-            }
+            style={styles.buttonPositive}
             backgroundColor={backgroundButtonColor}
             isLoading={isLoading}
             label={popUpData?.labelAccept}

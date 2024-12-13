@@ -4535,23 +4535,18 @@ var styles$2 = {
         marginBottom: 50,
         fontSize: 18,
     },
-    buttonContainer: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-    },
-    button: {
-        width: '45%',
-    },
-    buttonFullWidth: {
+    buttonPositive: {
         width: '100%',
+    },
+    buttonNegative: {
+        width: '100%',
+        marginBottom: 12,
     },
 };
 
 var PopUp = function (_a) {
     var _b = _a.backgroundButtonColor, backgroundButtonColor = _b === void 0 ? Colors.black : _b, _c = _a.isLoading, isLoading = _c === void 0 ? false : _c, popUpData = _a.popUpData, _d = _a.visible, visible = _d === void 0 ? false : _d, _e = _a.styleContainer, styleContainer = _e === void 0 ? {} : _e;
-    return visible ? (jsxRuntimeExports.jsx(View, __assign({ style: __assign(__assign({}, styles$2.container), styleContainer) }, { children: jsxRuntimeExports.jsxs(View, __assign({ style: styles$2.card }, { children: [jsxRuntimeExports.jsxs(View, { children: [jsxRuntimeExports.jsx(Text, { style: styles$2.headerTitle, children: popUpData === null || popUpData === void 0 ? void 0 : popUpData.title }), (popUpData === null || popUpData === void 0 ? void 0 : popUpData.description) ? (jsxRuntimeExports.jsx(Text, { style: styles$2.headerDescription, children: popUpData === null || popUpData === void 0 ? void 0 : popUpData.description })) : null] }), jsxRuntimeExports.jsxs(View, __assign({ style: styles$2.buttonContainer }, { children: [(popUpData === null || popUpData === void 0 ? void 0 : popUpData.labelDecline) && (popUpData === null || popUpData === void 0 ? void 0 : popUpData.onPressDecline) ? (jsxRuntimeExports.jsx(Button, { style: styles$2.button, backgroundColor: backgroundButtonColor, outlineColor: Colors.black, isLoading: isLoading, label: popUpData === null || popUpData === void 0 ? void 0 : popUpData.labelDecline, onPress: popUpData === null || popUpData === void 0 ? void 0 : popUpData.onPressDecline })) : null, jsxRuntimeExports.jsx(Button, { style: (popUpData === null || popUpData === void 0 ? void 0 : popUpData.labelDecline) && (popUpData === null || popUpData === void 0 ? void 0 : popUpData.onPressDecline)
-                                ? styles$2.button
-                                : styles$2.buttonFullWidth, backgroundColor: backgroundButtonColor, isLoading: isLoading, label: popUpData === null || popUpData === void 0 ? void 0 : popUpData.labelAccept, onPress: popUpData === null || popUpData === void 0 ? void 0 : popUpData.onPressAccept })] }))] })) }))) : null;
+    return visible ? (jsxRuntimeExports.jsx(View, __assign({ style: __assign(__assign({}, styles$2.container), styleContainer) }, { children: jsxRuntimeExports.jsxs(View, __assign({ style: styles$2.card }, { children: [jsxRuntimeExports.jsxs(View, { children: [jsxRuntimeExports.jsx(Text, { style: styles$2.headerTitle, children: popUpData === null || popUpData === void 0 ? void 0 : popUpData.title }), (popUpData === null || popUpData === void 0 ? void 0 : popUpData.description) ? (jsxRuntimeExports.jsx(Text, { style: styles$2.headerDescription, children: popUpData === null || popUpData === void 0 ? void 0 : popUpData.description })) : null] }), jsxRuntimeExports.jsxs(View, { children: [(popUpData === null || popUpData === void 0 ? void 0 : popUpData.labelDecline) && (popUpData === null || popUpData === void 0 ? void 0 : popUpData.onPressDecline) ? (jsxRuntimeExports.jsx(Button, { style: styles$2.buttonNegative, backgroundColor: backgroundButtonColor, outlineColor: Colors.black, isLoading: isLoading, label: popUpData === null || popUpData === void 0 ? void 0 : popUpData.labelDecline, onPress: popUpData === null || popUpData === void 0 ? void 0 : popUpData.onPressDecline })) : null, jsxRuntimeExports.jsx(Button, { style: styles$2.buttonPositive, backgroundColor: backgroundButtonColor, isLoading: isLoading, label: popUpData === null || popUpData === void 0 ? void 0 : popUpData.labelAccept, onPress: popUpData === null || popUpData === void 0 ? void 0 : popUpData.onPressAccept })] })] })) }))) : null;
 };
 
 var Swipeable = function (_a) {
