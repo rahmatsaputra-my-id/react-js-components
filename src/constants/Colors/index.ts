@@ -64,11 +64,19 @@ export const Colors: IColorsOption = {
   whiteTransparent75: 'rgba(250, 250, 250, 0.75)',
   whiteTransparent85: 'rgba(250, 250, 250, 0.85)',
   whiteTransparent95: 'rgba(250, 250, 250, 0.95)',
+  yellow: '#FFFF00',
   yellow40: '#FDF76F',
   yellow50: '#EED202',
   theShop: {
     primary: '#2E3135',
     seconday: '#FFFFFF',
     tertiary: '#F6F6F6',
+  },
+  manise: {
+    primary: '#D45757',
+    seconday: '#FFFF00',
+    tertiary: '#F6F6F6',
+    fourth: '#E28612',
+    fifth: '#00986D',
   },
 };
