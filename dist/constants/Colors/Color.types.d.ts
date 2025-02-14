@@ -20,6 +20,7 @@ export interface IColorsOption {
     green100?: '#00986D';
     green50?: '#C6E4DC';
     green60?: '#3D9A62';
+    grey1?: '#f2f2f2';
     grey2?: '#D8D8D8';
     grey3?: '#979797';
     grey4?: '#FCFCFC';
@@ -31,6 +32,9 @@ export interface IColorsOption {
     grey8?: 'rgba(42, 42, 42, 0.5)';
     grey80?: '#66707A';
     grey9?: '#F6F6F6';
+    grey90?: '#C7C7C7';
+    grey100?: '#4E5764';
+    greyAntiFlash?: '#f2f2f4';
     lightishRed?: '#FF343A';
     orange?: '#E28612';
     orange10: '#F5F1EB';
