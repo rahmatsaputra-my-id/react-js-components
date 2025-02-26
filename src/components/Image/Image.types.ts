@@ -5,6 +5,7 @@ export interface IImageProps {
   left?: number;
   resizeMode?: string;
   right?: number;
+  src?: string;
   style?: any;
   top?: number;
   width?: number;

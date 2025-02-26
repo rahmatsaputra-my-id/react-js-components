@@ -1,3 +1,4 @@
 export interface ILoadingSpinnerProps {
-  loadingType?: string | boolean;
+  loadingType?: 'page' | 'section' | boolean;
+  loadingIcon?: string;
 }

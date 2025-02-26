@@ -1,22 +1,31 @@
-import { ReactNode } from 'react';
-import { View } from '../View';
-import { styles } from './LoadingSpinner.styles';
+import {ReactNode} from 'react';
+import {View} from '../View';
+import {styles} from './LoadingSpinner.styles';
 import './LoadingSpinner.styles.css';
 
-import { ILoadingSpinnerProps } from './LoadingSpinner.types';
+import {ILoadingSpinnerProps} from './LoadingSpinner.types';
+import Images from '../Image/Image.component';
 
-const LoadingSpinner = ({ loadingType = false }: ILoadingSpinnerProps) => {
+const LoadingSpinner = ({
+  loadingType = false,
+  loadingIcon = '',
+}: ILoadingSpinnerProps) => {
   const _renderSpinnerComponent = () => <div className="loading-spinner" />;
 
   const _renderSpinnerSection = () => (
-    <View style={styles.loadingSpinnerContainer}>
+    <View style={styles.loadingSpinnerSectionContainer}>
       <div className="loading-spinner-section" />
     </View>
   );
 
   const _renderSpinnerPage = () => (
-    <View style={styles.loadingSpinnerContainer}>
-      <div className="loading-spinner-page" />
+    <View style={styles.loadingSpinnerPageContainer}>
+      <View style={styles.loadingSpinnerPageContent}>
+        <div className="loading-spinner-pages" />
+        {loadingIcon ? (
+          <img style={styles.loadingIcon} src={loadingIcon} alt={''} />
+        ) : null}
+      </View>
     </View>
   );
 

@@ -1,8 +1,8 @@
-import { ReactNode } from 'react';
+import {ReactNode} from 'react';
 
-import { IImageProps } from './Image.types';
+import {IImageProps} from './Image.types';
 
-const Image = ({
+const Images = ({
   bottom = 0,
   center = false,
   height = 16,
@@ -26,8 +26,9 @@ const Image = ({
       width,
       ...style,
     }}
+    alt=""
     {...props}
   />
 );
 
-export default Image;
+export default Images;

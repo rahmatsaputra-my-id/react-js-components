@@ -4317,6 +4317,7 @@ var View = function (_a) {
     return (jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: jsxRuntimeExports.jsx("div", __assign({ style: __assign({ display: display, flexDirection: flexDirection, marginTop: top, marginRight: right, marginBottom: bottom, marginLeft: left }, style) }, props, { children: children })) }));
 };
 
+var isMobileDisplay = window.innerWidth <= 768;
 var styles$5 = {
     content: {
         display: 'flex',
@@ -4327,10 +4328,27 @@ var styles$5 = {
         opacity: 1,
         transition: 'opacity 300ms ease',
     },
-    loadingSpinnerContainer: {
+    loadingSpinnerSectionContainer: {
         justifyContent: 'center',
         alignItems: 'center',
         height: window.innerHeight,
+    },
+    loadingSpinnerPageContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: isMobileDisplay ? '83vh' : '100vh',
+    },
+    loadingSpinnerPageContent: {
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    loadingIcon: {
+        width: 120,
+        height: 120,
+        resizeMode: 'contain',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: -145,
     },
 };
 
@@ -4361,14 +4379,14 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z = "@keyframes spinner {\r\n  0% {\r\n    transform: rotate(0deg);\r\n  }\r\n\r\n  100% {\r\n    transform: rotate(360deg);\r\n  }\r\n}\r\n\r\n.loading-spinner {\r\n  width: 15px;\r\n  height: 15px;\r\n  /* Light grey */\r\n  border: 4px solid #ffffff;\r\n  /* Black */\r\n  border-top: 4px solid #000000;\r\n  border-radius: 50%;\r\n  animation: spinner 1s linear infinite;\r\n}\r\n\r\n.loading-spinner-section {\r\n  width: 120px;\r\n  height: 120px;\r\n  /* Light grey */\r\n  border: 15px solid rgb(220, 220, 226);\r\n  /* Black */\r\n  border-top: 15px solid #000000;\r\n  border-radius: 50%;\r\n  animation: spinner 1.5s linear infinite;\r\n}\r\n\r\n.loading-spinner-page {\r\n  width: 200px;\r\n  height: 200px;\r\n  /* Light grey */\r\n  border: 40px solid rgb(220, 220, 226);\r\n  /* Black */\r\n  border-top: 40px solid #000000;\r\n  border-radius: 50%;\r\n  animation: spinner 1.5s linear infinite;\r\n}\r\n";
+var css_248z = "@keyframes spinner {\r\n  0% {\r\n    transform: rotate(0deg);\r\n  }\r\n\r\n  100% {\r\n    transform: rotate(360deg);\r\n  }\r\n}\r\n\r\n.loading-spinner {\r\n  width: 15px;\r\n  height: 15px;\r\n  /* Light grey */\r\n  border: 4px solid #ffffff;\r\n  /* Black */\r\n  border-top: 4px solid #000000;\r\n  border-radius: 50%;\r\n  animation: spinner 1s linear infinite;\r\n}\r\n\r\n.loading-spinner-section {\r\n  width: 120px;\r\n  height: 120px;\r\n  /* Light grey */\r\n  border: 15px solid rgb(220, 220, 226);\r\n  /* Black */\r\n  border-top: 15px solid #000000;\r\n  border-radius: 50%;\r\n  animation: spinner 1.5s linear infinite;\r\n}\r\n\r\n.loading-spinner-pages {\r\n  width: 130px;\r\n  height: 130px;\r\n  border: 20px solid rgb(220, 220, 226);\r\n  border-top: 20px solid #000000;\r\n  border-radius: 50%;\r\n  animation: spinner 1.5s linear infinite;\r\n}\r\n";
 styleInject(css_248z);
 
 var LoadingSpinner = function (_a) {
-    var _b = _a.loadingType, loadingType = _b === void 0 ? false : _b;
+    var _b = _a.loadingType, loadingType = _b === void 0 ? false : _b, _c = _a.loadingIcon, loadingIcon = _c === void 0 ? '' : _c;
     var _renderSpinnerComponent = function () { return jsxRuntimeExports.jsx("div", { className: "loading-spinner" }); };
-    var _renderSpinnerSection = function () { return (jsxRuntimeExports.jsx(View, __assign({ style: styles$5.loadingSpinnerContainer }, { children: jsxRuntimeExports.jsx("div", { className: "loading-spinner-section" }) }))); };
-    var _renderSpinnerPage = function () { return (jsxRuntimeExports.jsx(View, __assign({ style: styles$5.loadingSpinnerContainer }, { children: jsxRuntimeExports.jsx("div", { className: "loading-spinner-page" }) }))); };
+    var _renderSpinnerSection = function () { return (jsxRuntimeExports.jsx(View, __assign({ style: styles$5.loadingSpinnerSectionContainer }, { children: jsxRuntimeExports.jsx("div", { className: "loading-spinner-section" }) }))); };
+    var _renderSpinnerPage = function () { return (jsxRuntimeExports.jsx(View, __assign({ style: styles$5.loadingSpinnerPageContainer }, { children: jsxRuntimeExports.jsxs(View, __assign({ style: styles$5.loadingSpinnerPageContent }, { children: [jsxRuntimeExports.jsx("div", { className: "loading-spinner-pages" }), loadingIcon ? (jsxRuntimeExports.jsx("img", { style: styles$5.loadingIcon, src: loadingIcon, alt: '' })) : null] })) }))); };
     return (jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: loadingType === 'page'
             ? _renderSpinnerPage()
             : loadingType === 'section'
@@ -4506,9 +4524,9 @@ var DropDown = function (_a) {
         }) })));
 };
 
-var Image = function (_a) {
+var Images = function (_a) {
     var _b = _a.bottom, bottom = _b === void 0 ? 0 : _b, _c = _a.center, center = _c === void 0 ? false : _c, _d = _a.height, height = _d === void 0 ? 16 : _d, _e = _a.left, left = _e === void 0 ? 0 : _e, _f = _a.resizeMode, resizeMode = _f === void 0 ? 'contain' : _f, _g = _a.right, right = _g === void 0 ? 0 : _g, _h = _a.style, style = _h === void 0 ? {} : _h, _j = _a.top, top = _j === void 0 ? 0 : _j, _k = _a.width, width = _k === void 0 ? 16 : _k, props = __rest(_a, ["bottom", "center", "height", "left", "resizeMode", "right", "style", "top", "width"]);
-    return (jsxRuntimeExports.jsx("img", __assign({ style: __assign({ height: height, marginBottom: bottom, marginRight: right, marginLeft: left, marginTop: top, resizeMode: resizeMode, textAlign: center ? 'center' : 'left', width: width }, style) }, props)));
+    return (jsxRuntimeExports.jsx("img", __assign({ style: __assign({ height: height, marginBottom: bottom, marginRight: right, marginLeft: left, marginTop: top, resizeMode: resizeMode, textAlign: center ? 'center' : 'left', width: width }, style), alt: "" }, props)));
 };
 
 var styles$2 = {
@@ -4625,5 +4643,5 @@ var TouchableOpacity = function (_a) {
     return (jsxRuntimeExports.jsx("div", __assign({ onClick: handleOnPress, style: __assign(__assign({}, styles.content), style) }, props, { children: children })));
 };
 
-export { Button, Colors, Container, Countdown as CountDown, DropDown, Image, LoadingSpinner, PopUp, Swipeable, Text, TextInput, TouchableOpacity, View };
+export { Button, Colors, Container, Countdown as CountDown, DropDown, Images as Image, LoadingSpinner, PopUp, Swipeable, Text, TextInput, TouchableOpacity, View };
 //# sourceMappingURL=index.es.js.map
