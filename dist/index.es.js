@@ -4257,6 +4257,7 @@ var Colors = {
     lightishRed: '#FF343A',
     orange: '#E28612',
     orange10: '#F5F1EB',
+    orange20: '#FFEED2',
     orange50: '#FFD8A1',
     palePeach: '#FFD6A2',
     pink: '#F2EBEC',
