@@ -1,7 +1,6 @@
-import { ReactNode } from 'react';
-
-import { styles } from './TouchableOpacity.component.styles';
-import { ITouchableOpacityProps } from './TouchableOpacity.types';
+import {ITouchableOpacityProps} from './TouchableOpacity.types';
+import {ReactNode} from 'react';
+import {styles} from './TouchableOpacity.component.styles';
 
 const TouchableOpacity = ({
   children,
@@ -14,7 +13,10 @@ const TouchableOpacity = ({
   };
 
   return (
-    <div onClick={handleOnPress} style={{ ...styles.content, ...style }} {...props}>
+    <div
+      onClick={handleOnPress}
+      style={{...styles.content, ...style}}
+      {...props}>
       {children}
     </div>
   );

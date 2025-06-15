@@ -4384,7 +4384,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z = "@keyframes spinner {\r\n  0% {\r\n    transform: rotate(0deg);\r\n  }\r\n\r\n  100% {\r\n    transform: rotate(360deg);\r\n  }\r\n}\r\n\r\n.loading-spinner {\r\n  width: 15px;\r\n  height: 15px;\r\n  /* Light grey */\r\n  border: 4px solid #ffffff;\r\n  /* Black */\r\n  border-top: 4px solid #000000;\r\n  border-radius: 50%;\r\n  animation: spinner 1s linear infinite;\r\n}\r\n\r\n.loading-spinner-section {\r\n  width: 120px;\r\n  height: 120px;\r\n  /* Light grey */\r\n  border: 15px solid rgb(220, 220, 226);\r\n  /* Black */\r\n  border-top: 15px solid #000000;\r\n  border-radius: 50%;\r\n  animation: spinner 1.5s linear infinite;\r\n}\r\n\r\n.loading-spinner-pages {\r\n  width: 130px;\r\n  height: 130px;\r\n  border: 20px solid rgb(220, 220, 226);\r\n  border-top: 20px solid #000000;\r\n  border-radius: 50%;\r\n  animation: spinner 1.5s linear infinite;\r\n}\r\n";
+var css_248z = "@keyframes spinner {\n  0% {\n    transform: rotate(0deg);\n  }\n\n  100% {\n    transform: rotate(360deg);\n  }\n}\n\n.loading-spinner {\n  width: 15px;\n  height: 15px;\n  /* Light grey */\n  border: 4px solid #ffffff;\n  /* Black */\n  border-top: 4px solid #000000;\n  border-radius: 50%;\n  animation: spinner 1s linear infinite;\n}\n\n.loading-spinner-section {\n  width: 120px;\n  height: 120px;\n  /* Light grey */\n  border: 15px solid rgb(220, 220, 226);\n  /* Black */\n  border-top: 15px solid #000000;\n  border-radius: 50%;\n  animation: spinner 1.5s linear infinite;\n}\n\n.loading-spinner-pages {\n  width: 130px;\n  height: 130px;\n  border: 20px solid rgb(220, 220, 226);\n  border-top: 20px solid #000000;\n  border-radius: 50%;\n  animation: spinner 1.5s linear infinite;\n}\n";
 styleInject(css_248z);
 
 var LoadingSpinner = function (_a) {
@@ -4529,9 +4529,82 @@ var DropDown = function (_a) {
         }) })));
 };
 
-var Images = function (_a) {
-    var _b = _a.bottom, bottom = _b === void 0 ? 0 : _b, _c = _a.center, center = _c === void 0 ? false : _c, _d = _a.height, height = _d === void 0 ? 16 : _d, _e = _a.left, left = _e === void 0 ? 0 : _e, _f = _a.resizeMode, resizeMode = _f === void 0 ? 'contain' : _f, _g = _a.right, right = _g === void 0 ? 0 : _g, _h = _a.style, style = _h === void 0 ? {} : _h, _j = _a.top, top = _j === void 0 ? 0 : _j, _k = _a.width, width = _k === void 0 ? 16 : _k, props = __rest(_a, ["bottom", "center", "height", "left", "resizeMode", "right", "style", "top", "width"]);
-    return (jsxRuntimeExports.jsx("img", __assign({ style: __assign({ height: height, marginBottom: bottom, marginRight: right, marginLeft: left, marginTop: top, resizeMode: resizeMode, textAlign: center ? 'center' : 'left', width: width }, style), alt: "" }, props)));
+var ImageCustom = function (_a) {
+    var _b = _a.bottom, bottom = _b === void 0 ? 0 : _b, _c = _a.category, category = _c === void 0 ? '' : _c, _d = _a.center, center = _d === void 0 ? false : _d, _e = _a.height, height = _e === void 0 ? 16 : _e, _f = _a.isShowLoading, isShowLoading = _f === void 0 ? false : _f, _g = _a.left, left = _g === void 0 ? 0 : _g, _h = _a.resizeMode, resizeMode = _h === void 0 ? 'contain' : _h, _j = _a.right, right = _j === void 0 ? 0 : _j, _k = _a.src, src = _k === void 0 ? '' : _k, _l = _a.style, style = _l === void 0 ? {} : _l, _m = _a.textAlign, textAlign = _m === void 0 ? center ? 'center' : 'left' : _m, _o = _a.top, top = _o === void 0 ? 0 : _o, _p = _a.width, width = _p === void 0 ? 16 : _p, props = __rest(_a, ["bottom", "category", "center", "height", "isShowLoading", "left", "resizeMode", "right", "src", "style", "textAlign", "top", "width"]);
+    var image = {
+        alter: 'https://raw.githubusercontent.com/rahmatsaputra-my-id/global-assets/refs/heads/master/personal-web/image-not-available.png',
+        alterBusiness: 'https://raw.githubusercontent.com/rahmatsaputra-my-id/global-assets/refs/heads/master/personal-web/image-alt-business.png',
+        alterGeneral: 'https://raw.githubusercontent.com/rahmatsaputra-my-id/global-assets/refs/heads/master/personal-web/image-alt-general.png',
+        alterSport: 'https://raw.githubusercontent.com/rahmatsaputra-my-id/global-assets/refs/heads/master/personal-web/image-alt-sport.png',
+        alterTechnology: 'https://raw.githubusercontent.com/rahmatsaputra-my-id/global-assets/refs/heads/master/personal-web/image-alt-technology.png',
+        alterEntertainment: 'https://raw.githubusercontent.com/rahmatsaputra-my-id/global-assets/refs/heads/master/personal-web/image-alt-entertainment.png',
+        alterHealth: 'https://raw.githubusercontent.com/rahmatsaputra-my-id/global-assets/refs/heads/master/personal-web/image-alt-health.png',
+        alterScience: 'https://raw.githubusercontent.com/rahmatsaputra-my-id/global-assets/refs/heads/master/personal-web/image-alt-science.png',
+    };
+    var _q = reactExports.useState(0), containerWidth = _q[0], setContainerWidth = _q[1];
+    var _r = reactExports.useState(0), containerHeight = _r[0], setContainerHeight = _r[1];
+    var _s = reactExports.useState(true), isLoading = _s[0], setIsLoading = _s[1];
+    var containerRef = reactExports.useRef(null);
+    var handleImageLoad = function () {
+        setIsLoading(false);
+    };
+    reactExports.useEffect(function () {
+        var handleResize = function () {
+            if (containerRef.current) {
+                setContainerWidth(containerRef.current.offsetWidth);
+                setContainerHeight(containerRef.current.offsetHeight);
+            }
+        };
+        window.addEventListener('resize', handleResize);
+        if (containerRef.current) {
+            setContainerWidth(containerRef.current.offsetWidth);
+            setContainerHeight(containerRef.current.offsetHeight);
+        }
+        return function () {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+    var handleAlterImage = function () {
+        var result = image.alter;
+        switch (category) {
+            case 'business':
+                result = image.alterBusiness;
+                break;
+            case 'general':
+                result = image.alterGeneral;
+                break;
+            case 'sport':
+                result = image.alterSport;
+                break;
+            case 'technology':
+                result = image.alterTechnology;
+                break;
+            case 'entertainment':
+                result = image.alterEntertainment;
+                break;
+            case 'health':
+                result = image.alterHealth;
+                break;
+            case 'science':
+                result = image.alterScience;
+                break;
+        }
+        return result;
+    };
+    return (jsxRuntimeExports.jsx("div", __assign({ ref: containerRef, style: __assign(__assign({ marginTop: top, marginRight: right, marginBottom: bottom, marginLeft: left, width: width, height: height, resizeMode: resizeMode, textAlign: textAlign }, style), { overflow: 'hidden', position: 'relative' }) }, { children: isLoading && isShowLoading ? (jsxRuntimeExports.jsx(LoadingSpinner, {})) : (jsxRuntimeExports.jsx("img", __assign({ src: src, alt: '', onLoad: handleImageLoad, onError: function (_a) {
+                var currentTarget = _a.currentTarget;
+                currentTarget.onerror = null;
+                currentTarget.src = handleAlterImage();
+            }, style: {
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                height: "".concat(containerHeight, "px"),
+                width: "".concat(containerWidth, "px"),
+                objectFit: 'cover',
+            } }, props))) })));
 };
 
 var styles$2 = {
@@ -4653,7 +4726,7 @@ exports.Colors = Colors;
 exports.Container = Container;
 exports.CountDown = Countdown;
 exports.DropDown = DropDown;
-exports.Image = Images;
+exports.Image = ImageCustom;
 exports.LoadingSpinner = LoadingSpinner;
 exports.PopUp = PopUp;
 exports.Swipeable = Swipeable;
