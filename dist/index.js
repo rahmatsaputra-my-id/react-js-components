@@ -4529,7 +4529,7 @@ var DropDown = function (_a) {
         }) })));
 };
 
-var ImageCustom = function (_a) {
+var Images = function (_a) {
     var _b = _a.bottom, bottom = _b === void 0 ? 0 : _b, _c = _a.category, category = _c === void 0 ? '' : _c, _d = _a.center, center = _d === void 0 ? false : _d, _e = _a.height, height = _e === void 0 ? 16 : _e, _f = _a.isShowLoading, isShowLoading = _f === void 0 ? false : _f, _g = _a.left, left = _g === void 0 ? 0 : _g, _h = _a.resizeMode, resizeMode = _h === void 0 ? 'contain' : _h, _j = _a.right, right = _j === void 0 ? 0 : _j, _k = _a.src, src = _k === void 0 ? '' : _k, _l = _a.style, style = _l === void 0 ? {} : _l, _m = _a.textAlign, textAlign = _m === void 0 ? center ? 'center' : 'left' : _m, _o = _a.top, top = _o === void 0 ? 0 : _o, _p = _a.width, width = _p === void 0 ? 16 : _p, props = __rest(_a, ["bottom", "category", "center", "height", "isShowLoading", "left", "resizeMode", "right", "src", "style", "textAlign", "top", "width"]);
     var image = {
         alter: 'https://raw.githubusercontent.com/rahmatsaputra-my-id/global-assets/refs/heads/master/personal-web/image-not-available.png',
@@ -4726,7 +4726,7 @@ exports.Colors = Colors;
 exports.Container = Container;
 exports.CountDown = Countdown;
 exports.DropDown = DropDown;
-exports.Image = ImageCustom;
+exports.Image = Images;
 exports.LoadingSpinner = LoadingSpinner;
 exports.PopUp = PopUp;
 exports.Swipeable = Swipeable;

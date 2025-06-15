@@ -2,7 +2,7 @@ import {useEffect, useRef, useState} from 'react';
 import {LoadingSpinner} from '../LoadingSpinner';
 import {IImageProps} from './Image.types';
 
-const ImageCustom = ({
+const Images = ({
   bottom = 0,
   category = '',
   center = false,
@@ -140,4 +140,4 @@ const ImageCustom = ({
   );
 };
 
-export default ImageCustom;
+export default Images;
