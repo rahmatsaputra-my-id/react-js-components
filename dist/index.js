@@ -4400,7 +4400,7 @@ var LoadingSpinner = function (_a) {
 };
 
 var Button = function (_a) {
-    var _b = _a.backgroundColor, backgroundColor = _b === void 0 ? Colors.black : _b, _c = _a.bold, bold = _c === void 0 ? false : _c, _d = _a.borderRadius, borderRadius = _d === void 0 ? 8 : _d, _e = _a.bottom, bottom = _e === void 0 ? 0 : _e, _f = _a.center, center = _f === void 0 ? true : _f, _g = _a.disabled, disabled = _g === void 0 ? false : _g, _h = _a.isLoading, isLoading = _h === void 0 ? false : _h, label = _a.label, _j = _a.left, left = _j === void 0 ? 0 : _j, _k = _a.onPress, onPress = _k === void 0 ? function () { } : _k, _l = _a.padding, padding = _l === void 0 ? 16 : _l, _m = _a.right, right = _m === void 0 ? 0 : _m, _o = _a.size, size = _o === void 0 ? 12 : _o, _p = _a.style, style = _p === void 0 ? {} : _p, _q = _a.top, top = _q === void 0 ? 0 : _q, _r = _a.transparent, transparent = _r === void 0 ? false : _r, _s = _a.outlineColor, outlineColor = _s === void 0 ? false : _s, props = __rest(_a, ["backgroundColor", "bold", "borderRadius", "bottom", "center", "disabled", "isLoading", "label", "left", "onPress", "padding", "right", "size", "style", "top", "transparent", "outlineColor"]);
+    var _b = _a.backgroundColor, backgroundColor = _b === void 0 ? Colors.black : _b, _c = _a.bold, bold = _c === void 0 ? false : _c, _d = _a.borderRadius, borderRadius = _d === void 0 ? 8 : _d, _e = _a.bottom, bottom = _e === void 0 ? 0 : _e, _f = _a.center, center = _f === void 0 ? true : _f, _g = _a.disabled, disabled = _g === void 0 ? false : _g, _h = _a.isLoading, isLoading = _h === void 0 ? false : _h, label = _a.label, _j = _a.left, left = _j === void 0 ? 0 : _j, _k = _a.onPress, onPress = _k === void 0 ? function () { } : _k, _l = _a.padding, padding = _l === void 0 ? 16 : _l, _m = _a.right, right = _m === void 0 ? 0 : _m, _o = _a.size, size = _o === void 0 ? 16 : _o, _p = _a.style, style = _p === void 0 ? {} : _p, _q = _a.top, top = _q === void 0 ? 0 : _q, _r = _a.transparent, transparent = _r === void 0 ? false : _r, _s = _a.outlineColor, outlineColor = _s === void 0 ? false : _s, props = __rest(_a, ["backgroundColor", "bold", "borderRadius", "bottom", "center", "disabled", "isLoading", "label", "left", "onPress", "padding", "right", "size", "style", "top", "transparent", "outlineColor"]);
     return (jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: jsxRuntimeExports.jsxs("button", __assign({ style: __assign(__assign({ backgroundColor: disabled || isLoading
                     ? Colors.grey2
                     : transparent || outlineColor
@@ -4431,7 +4431,7 @@ var Container = function (_a) {
 var reactExports = requireReact();
 
 var Text = function (_a) {
-    var _b = _a.bottom, bottom = _b === void 0 ? 0 : _b, _c = _a.center, center = _c === void 0 ? false : _c, children = _a.children, _d = _a.color, color = _d === void 0 ? Colors.black : _d, _e = _a.left, left = _e === void 0 ? 0 : _e, lineHeight = _a.lineHeight, _f = _a.right, right = _f === void 0 ? 0 : _f, _g = _a.size, size = _g === void 0 ? 12 : _g, _h = _a.style, style = _h === void 0 ? {} : _h, _j = _a.top, top = _j === void 0 ? 0 : _j, props = __rest(_a, ["bottom", "center", "children", "color", "left", "lineHeight", "right", "size", "style", "top"]);
+    var _b = _a.bottom, bottom = _b === void 0 ? 0 : _b, _c = _a.center, center = _c === void 0 ? false : _c, children = _a.children, _d = _a.color, color = _d === void 0 ? Colors.black : _d, _e = _a.left, left = _e === void 0 ? 0 : _e, lineHeight = _a.lineHeight, _f = _a.right, right = _f === void 0 ? 0 : _f, _g = _a.size, size = _g === void 0 ? 16 : _g, _h = _a.style, style = _h === void 0 ? {} : _h, _j = _a.top, top = _j === void 0 ? 0 : _j, props = __rest(_a, ["bottom", "center", "children", "color", "left", "lineHeight", "right", "size", "style", "top"]);
     return (jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: jsxRuntimeExports.jsx("p", __assign({ style: __assign({ marginTop: top, marginRight: right, marginBottom: bottom, marginLeft: left, color: color, fontSize: size, lineHeight: lineHeight, textAlign: center ? 'center' : 'left' }, style) }, props, { children: children })) }));
 };
 
@@ -4612,11 +4612,11 @@ var Swipeable = function (_a) {
 var styles$1 = {
     label: {
         marginBottom: 4,
-        fontSize: 14,
+        fontSize: 16,
     },
     labelError: {
         marginTop: 2,
-        fontSize: 14,
+        fontSize: 16,
         color: Colors.red,
         maxWidth: 300,
     },
@@ -4624,9 +4624,11 @@ var styles$1 = {
         paddingTop: 8,
         paddingLeft: 8,
         paddingRight: 8,
+        fontSize: 16
     },
     textInput: {
         padding: 8,
+        fontSize: 16
     },
 };
 

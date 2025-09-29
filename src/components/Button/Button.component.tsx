@@ -18,7 +18,7 @@ const Button: FC<IButtonProps> = ({
   onPress = () => {},
   padding = 16,
   right = 0,
-  size = 12,
+  size = 16,
   style = {},
   top = 0,
   transparent = false,

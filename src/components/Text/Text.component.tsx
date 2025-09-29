@@ -1,7 +1,7 @@
-import { FC } from 'react';
-import { Colors } from '../../constants/Colors';
+import {FC} from 'react';
+import {Colors} from '../../constants/Colors';
 
-import { ITextProps } from './Text.types';
+import {ITextProps} from './Text.types';
 
 const Text: FC<ITextProps> = ({
   bottom = 0,
@@ -11,7 +11,7 @@ const Text: FC<ITextProps> = ({
   left = 0,
   lineHeight,
   right = 0,
-  size = 12,
+  size = 16,
   style = {},
   top = 0,
   ...props
@@ -29,8 +29,7 @@ const Text: FC<ITextProps> = ({
         textAlign: center ? 'center' : 'left',
         ...style,
       }}
-      {...props}
-    >
+      {...props}>
       {children}
     </p>
   </>

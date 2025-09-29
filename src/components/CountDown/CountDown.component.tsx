@@ -1,8 +1,8 @@
-import { FC, ReactNode, useEffect, useState } from 'react';
-import { ICountDownProps, TItems } from './CountDown.types';
-import { View } from '../View';
-import { Text } from '../Text';
-import { styles } from './CountDown.component.style';
+import {FC, useEffect, useState} from 'react';
+import {ICountDownProps, TItems} from './CountDown.types';
+import {View} from '../View';
+import {Text} from '../Text';
+import {styles} from './CountDown.component.style';
 
 const Countdown: FC<ICountDownProps> = ({
   cardStyle,
@@ -53,21 +53,24 @@ const Countdown: FC<ICountDownProps> = ({
     return () => clearInterval(intervalId);
   }, [weddingDate?.reception?.start]);
 
-  const renderCardBox = ({ label, value }: TItems, idx: number) => (
+  const renderCardBox = ({label, value}: TItems, idx: number) => (
     <View
       key={idx}
-      style={{ ...styles.cardBox, cardStyle, marginRight: idx === data.length - 1 ? 0 : 8 }}
-    >
+      style={{
+        ...styles.cardBox,
+        cardStyle,
+        marginRight: idx === data.length - 1 ? 0 : 8,
+      }}>
       <Text
-        style={{ ...styles.cardTitle, fontStyle }}
+        style={{...styles.cardTitle, fontStyle}}
         children={value ? (value < 0 ? '00' : value) : ''}
       />
-      <Text children={label} style={{ ...styles.cardDescription, fontStyle }} />
+      <Text children={label} style={{...styles.cardDescription, fontStyle}} />
     </View>
   );
 
   const render = () => (
-    <View style={{ ...styles.cardWrapper, containerStyle }}>
+    <View style={{...styles.cardWrapper, containerStyle}}>
       {data?.map((val, idx) => renderCardBox(val, idx))}
     </View>
   );

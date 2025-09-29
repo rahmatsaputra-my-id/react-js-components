@@ -13,8 +13,10 @@ export declare const styles: {
         paddingTop: number;
         paddingLeft: number;
         paddingRight: number;
+        fontSize: number;
     };
     textInput: {
         padding: number;
+        fontSize: number;
     };
 };
