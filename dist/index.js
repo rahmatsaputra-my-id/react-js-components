@@ -4241,6 +4241,7 @@ var Colors = {
     gradientWhite: 'linear-gradient(#FFFFFF, transparent)',
     green1: '#008388',
     green100: '#00986D',
+    green30: '#D8FDD4',
     green40: '#1DAA61',
     green50: '#C6E4DC',
     green60: '#3D9A62',
