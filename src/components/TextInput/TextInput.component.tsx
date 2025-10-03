@@ -25,12 +25,12 @@ const TextInput = ({
   ...props
 }: ITextInputProps): ReactNode => {
   const stylesTextInput = {
-    ...styles.textArea,
-    ...styleTextInput,
     borderColor,
     borderRadius,
     textAlign: center ? 'center' : 'left',
     paddingBottom: multiline ? 16 : 8,
+    ...styles.textArea,
+    ...styleTextInput,
   };
 
   return (
