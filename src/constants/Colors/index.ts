@@ -43,6 +43,7 @@ export const Colors: IColorsOption = {
   orange: '#E28612',
   orange10: '#F5F1EB',
   orange20: '#FFEED2',
+  orange30: '#F6F1EA',
   orange50: '#FFD8A1',
   palePeach: '#FFD6A2',
   pink: '#F2EBEC',
