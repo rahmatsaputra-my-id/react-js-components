@@ -36,7 +36,7 @@ const SearchBox = ({
         }}
       />
 
-      {search?.length > 0 ? (
+      {search && search?.length > 0 ? (
         <TouchableOpacity
           style={styles.closeSearchButton}
           onPress={() => {

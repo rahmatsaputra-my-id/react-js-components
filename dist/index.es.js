@@ -508,7 +508,7 @@ var SearchBox = function (_a) {
                     if (event.key === 'Enter' && handleOnSubmitSearch) {
                         handleOnSubmitSearch(search);
                     }
-                } }), (search === null || search === void 0 ? void 0 : search.length) > 0 ? (jsx(TouchableOpacity, __assign({ style: styles.closeSearchButton, onPress: function () {
+                } }), search && (search === null || search === void 0 ? void 0 : search.length) > 0 ? (jsx(TouchableOpacity, __assign({ style: styles.closeSearchButton, onPress: function () {
                     handleOnChangeSearch('');
                     if (handleOnClearSearch) {
                         handleOnClearSearch();
