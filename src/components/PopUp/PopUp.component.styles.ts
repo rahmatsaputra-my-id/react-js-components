@@ -10,7 +10,7 @@ export const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     zIndex: 5,
-    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+    backgroundColor: Colors.blackTransparent8,
   },
   card: {
     maxWidth: '60%',

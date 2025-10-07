@@ -4548,7 +4548,7 @@ var styles$3 = {
         justifyContent: 'center',
         alignItems: 'center',
         zIndex: 5,
-        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+        backgroundColor: Colors.blackTransparent8,
     },
     card: {
         maxWidth: '60%',
@@ -4581,7 +4581,9 @@ var styles$3 = {
 
 var PopUp = function (_a) {
     var _b = _a.backgroundButtonColor, backgroundButtonColor = _b === void 0 ? Colors.black : _b, _c = _a.isLoading, isLoading = _c === void 0 ? false : _c, popUpData = _a.popUpData, _d = _a.visible, visible = _d === void 0 ? false : _d, _e = _a.styleContainer, styleContainer = _e === void 0 ? {} : _e;
-    return visible ? (jsxRuntimeExports.jsx(View, __assign({ style: __assign(__assign({}, styles$3.container), styleContainer) }, { children: jsxRuntimeExports.jsxs(View, __assign({ style: styles$3.card }, { children: [jsxRuntimeExports.jsxs(View, { children: [jsxRuntimeExports.jsx(Text, { style: styles$3.headerTitle, children: popUpData === null || popUpData === void 0 ? void 0 : popUpData.title }), (popUpData === null || popUpData === void 0 ? void 0 : popUpData.description) ? (jsxRuntimeExports.jsx(Text, { style: styles$3.headerDescription, children: popUpData === null || popUpData === void 0 ? void 0 : popUpData.description })) : null] }), jsxRuntimeExports.jsxs(View, { children: [(popUpData === null || popUpData === void 0 ? void 0 : popUpData.labelDecline) && (popUpData === null || popUpData === void 0 ? void 0 : popUpData.onPressDecline) ? (jsxRuntimeExports.jsx(Button, { style: styles$3.buttonNegative, backgroundColor: backgroundButtonColor, outlineColor: Colors.black, isLoading: isLoading, label: popUpData === null || popUpData === void 0 ? void 0 : popUpData.labelDecline, onPress: popUpData === null || popUpData === void 0 ? void 0 : popUpData.onPressDecline })) : null, jsxRuntimeExports.jsx(Button, { style: styles$3.buttonPositive, backgroundColor: backgroundButtonColor, isLoading: isLoading, label: popUpData === null || popUpData === void 0 ? void 0 : popUpData.labelAccept, onPress: popUpData === null || popUpData === void 0 ? void 0 : popUpData.onPressAccept })] })] })) }))) : null;
+    if (!visible)
+        return null;
+    return (jsxRuntimeExports.jsx(View, __assign({ style: __assign(__assign({}, styles$3.container), styleContainer) }, { children: jsxRuntimeExports.jsxs(View, __assign({ style: styles$3.card }, { children: [jsxRuntimeExports.jsxs(View, { children: [jsxRuntimeExports.jsx(Text, __assign({ style: styles$3.headerTitle }, { children: popUpData === null || popUpData === void 0 ? void 0 : popUpData.title })), (popUpData === null || popUpData === void 0 ? void 0 : popUpData.description) && (jsxRuntimeExports.jsx(Text, __assign({ style: styles$3.headerDescription }, { children: popUpData.description })))] }), jsxRuntimeExports.jsxs(View, { children: [(popUpData === null || popUpData === void 0 ? void 0 : popUpData.labelDecline) && (popUpData === null || popUpData === void 0 ? void 0 : popUpData.onPressDecline) && (jsxRuntimeExports.jsx(Button, { style: styles$3.buttonNegative, backgroundColor: backgroundButtonColor, outlineColor: Colors.black, isLoading: isLoading, label: popUpData.labelDecline, onPress: popUpData.onPressDecline })), jsxRuntimeExports.jsx(Button, { style: styles$3.buttonPositive, backgroundColor: backgroundButtonColor, isLoading: isLoading, label: popUpData === null || popUpData === void 0 ? void 0 : popUpData.labelAccept, onPress: popUpData === null || popUpData === void 0 ? void 0 : popUpData.onPressAccept })] })] })) })));
 };
 
 var IMAGE_URL_WEDDING = 'https://raw.githubusercontent.com/rahmatsaputra-my-id/global-assets/master/my-wedding';
@@ -4694,13 +4696,11 @@ var Swipeable = function (_a) {
     var children = _a.children, _b = _a.onSwipeLeft, onSwipeLeft = _b === void 0 ? function () { } : _b, _c = _a.onSwipeRight, onSwipeRight = _c === void 0 ? function () { } : _c, _d = _a.style, style = _d === void 0 ? {} : _d, props = __rest(_a, ["children", "onSwipeLeft", "onSwipeRight", "style"]);
     var _e = reactExports.useState(null), startX = _e[0], setStartX = _e[1];
     var handleTouchStart = function (event) {
-        var _a, _b;
-        setStartX((_b = (_a = event === null || event === void 0 ? void 0 : event.touches) === null || _a === void 0 ? void 0 : _a[0]) === null || _b === void 0 ? void 0 : _b.clientX); // Store initial touch position (X-coordinate)
+        setStartX(event.touches[0].clientX);
     };
     var handleTouchEnd = function (event) {
-        var _a, _b;
         if (startX !== null) {
-            var endX = (_b = (_a = event === null || event === void 0 ? void 0 : event.changedTouches) === null || _a === void 0 ? void 0 : _a[0]) === null || _b === void 0 ? void 0 : _b.clientX;
+            var endX = event.changedTouches[0].clientX;
             var deltaX = endX - startX;
             if (deltaX > 50) {
                 onSwipeLeft();
@@ -4708,7 +4708,7 @@ var Swipeable = function (_a) {
             else if (deltaX < -50) {
                 onSwipeRight();
             }
-            setStartX(null); // Reset touch position for next swipe
+            setStartX(null);
         }
     };
     return (jsxRuntimeExports.jsx("div", __assign({ style: style, onTouchStart: handleTouchStart, onTouchEnd: handleTouchEnd }, props, { children: children })));

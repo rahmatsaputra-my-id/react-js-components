@@ -1,6 +1,5 @@
-import { ReactNode, useState } from 'react';
-
-import { ISwipeableProps } from './Swipeable.types';
+import {useState} from 'react';
+import {ISwipeableProps} from './Swipeable.types';
 
 const Swipeable = ({
   children,
@@ -8,16 +7,16 @@ const Swipeable = ({
   onSwipeRight = () => {},
   style = {},
   ...props
-}: ISwipeableProps): ReactNode => {
-  const [startX, setStartX] = useState(null);
+}: ISwipeableProps): JSX.Element => {
+  const [startX, setStartX] = useState<number | null>(null);
 
-  const handleTouchStart = (event: any) => {
-    setStartX(event?.touches?.[0]?.clientX); // Store initial touch position (X-coordinate)
+  const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
+    setStartX(event.touches[0].clientX);
   };
 
-  const handleTouchEnd = (event: any) => {
+  const handleTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
     if (startX !== null) {
-      const endX = event?.changedTouches?.[0]?.clientX;
+      const endX = event.changedTouches[0].clientX;
       const deltaX = endX - startX;
 
       if (deltaX > 50) {
@@ -26,12 +25,16 @@ const Swipeable = ({
         onSwipeRight();
       }
 
-      setStartX(null); // Reset touch position for next swipe
+      setStartX(null);
     }
   };
 
   return (
-    <div style={style} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd} {...props}>
+    <div
+      style={style}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+      {...props}>
       {children}
     </div>
   );

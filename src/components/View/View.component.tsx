@@ -1,8 +1,6 @@
-import {FC} from 'react';
-
 import {IViewProps} from './View.types';
 
-const View: FC<IViewProps> = ({
+const View = ({
   bottom = 0,
   children,
   display = 'flex',
@@ -12,7 +10,7 @@ const View: FC<IViewProps> = ({
   style = {},
   top = 0,
   ...props
-}: IViewProps) => (
+}: IViewProps): JSX.Element => (
   <>
     <div
       style={{

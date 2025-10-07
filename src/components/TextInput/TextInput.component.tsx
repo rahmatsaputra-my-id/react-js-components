@@ -4,7 +4,6 @@ import {Colors} from '../../constants/Colors';
 
 import {ITextInputProps} from './TextInput.types';
 import {styles} from './TextInput.component.styles';
-import React from 'react';
 
 const TextInput = ({
   borderColor = Colors.grey2,

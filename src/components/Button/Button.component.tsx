@@ -1,11 +1,10 @@
-import {FC} from 'react';
 import {Colors} from '../../constants/Colors';
 import {styles} from './Button.component.styles';
 import {LoadingSpinner} from '../LoadingSpinner';
 
 import {IButtonProps} from './Button.types';
 
-const Button: FC<IButtonProps> = ({
+const Button = ({
   backgroundColor = Colors.black,
   bold = false,
   borderRadius = 8,
@@ -24,7 +23,7 @@ const Button: FC<IButtonProps> = ({
   transparent = false,
   outlineColor = false,
   ...props
-}: IButtonProps) => (
+}: IButtonProps): JSX.Element => (
   <>
     <button
       style={{

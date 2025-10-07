@@ -1,4 +1,3 @@
-import {FC} from 'react';
 import {View} from '../View';
 import {Text} from '../Text';
 import {Button} from '../Button';
@@ -7,38 +6,39 @@ import {IPopUpProps} from './PopUp.types';
 import {styles} from './PopUp.component.styles';
 import {Colors} from '../../constants/Colors';
 
-const PopUp: FC<IPopUpProps> = ({
+const PopUp = ({
   backgroundButtonColor = Colors.black,
   isLoading = false,
   popUpData,
   visible = false,
   styleContainer = {},
-}: IPopUpProps) =>
-  visible ? (
+}: IPopUpProps): JSX.Element | null => {
+  if (!visible) return null;
+
+  return (
     <View style={{...styles.container, ...styleContainer}}>
       <View style={styles.card}>
         <View>
-          <Text style={styles.headerTitle} children={popUpData?.title} />
+          <Text style={styles.headerTitle}>{popUpData?.title}</Text>
 
-          {popUpData?.description ? (
-            <Text
-              style={styles.headerDescription}
-              children={popUpData?.description}
-            />
-          ) : null}
+          {popUpData?.description && (
+            <Text style={styles.headerDescription}>
+              {popUpData.description}
+            </Text>
+          )}
         </View>
 
         <View>
-          {popUpData?.labelDecline && popUpData?.onPressDecline ? (
+          {popUpData?.labelDecline && popUpData?.onPressDecline && (
             <Button
               style={styles.buttonNegative}
               backgroundColor={backgroundButtonColor}
               outlineColor={Colors.black}
               isLoading={isLoading}
-              label={popUpData?.labelDecline}
-              onPress={popUpData?.onPressDecline}
+              label={popUpData.labelDecline}
+              onPress={popUpData.onPressDecline}
             />
-          ) : null}
+          )}
 
           <Button
             style={styles.buttonPositive}
@@ -50,6 +50,7 @@ const PopUp: FC<IPopUpProps> = ({
         </View>
       </View>
     </View>
-  ) : null;
+  );
+};
 
 export default PopUp;

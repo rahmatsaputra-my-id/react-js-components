@@ -8,7 +8,7 @@ export declare const styles: {
         justifyContent: string;
         alignItems: string;
         zIndex: number;
-        backgroundColor: string;
+        backgroundColor: "rgba(0, 0, 0, 0.8)" | undefined;
     };
     card: {
         maxWidth: string;

@@ -7,7 +7,7 @@ import {ILoadingSpinnerProps} from './LoadingSpinner.types';
 const LoadingSpinner = ({
   loadingType = false,
   loadingIcon = '',
-}: ILoadingSpinnerProps) => {
+}: ILoadingSpinnerProps): JSX.Element => {
   const _renderSpinnerComponent = () => <div className="loading-spinner" />;
 
   const _renderSpinnerSection = () => (

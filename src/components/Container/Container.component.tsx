@@ -1,15 +1,14 @@
-import { FC } from 'react';
-import { IContainerProps } from './Container.types';
-import { styles } from './Container.component.styles';
-import { View } from '../View';
+import {IContainerProps} from './Container.types';
+import {styles} from './Container.component.styles';
+import {View} from '../View';
 
-const Container: FC<IContainerProps> = ({
+const Container = ({
   children,
   containerStyle,
   contentStyle,
-}: IContainerProps) => (
-  <View style={{ ...styles.container, containerStyle }}>
-    <View style={{ ...styles.content, contentStyle }}>{children}</View>
+}: IContainerProps): JSX.Element => (
+  <View style={{...styles.container, containerStyle}}>
+    <View style={{...styles.content, contentStyle}}>{children}</View>
   </View>
 );
 

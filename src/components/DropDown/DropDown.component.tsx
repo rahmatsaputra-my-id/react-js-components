@@ -1,7 +1,5 @@
-import { ReactNode } from 'react';
-import { Colors } from '../../constants/Colors';
-
-import { IDropDownProps } from './DropDown.types';
+import {Colors} from '../../constants/Colors';
+import {IDropDownProps} from './DropDown.types';
 
 const DropDown = ({
   backgroundColor = Colors.darkBlue,
@@ -12,14 +10,14 @@ const DropDown = ({
   left = 0,
   onChange = () => {},
   options = [
-    { value: 'y', label: 'Present' },
-    { value: 'n', label: 'Not Present' },
+    {value: 'y', label: 'Present'},
+    {value: 'n', label: 'Not Present'},
   ],
   right = 0,
   style = {},
   top = 0,
   ...props
-}: IDropDownProps): ReactNode => (
+}: IDropDownProps): JSX.Element => (
   <select
     id={id}
     onChange={onChange}
@@ -33,9 +31,8 @@ const DropDown = ({
       marginBottom: bottom,
       marginLeft: left,
       ...style,
-    }}
-  >
-    {options?.map(({ value, label }, idx) => (
+    }}>
+    {options?.map(({value, label}, idx) => (
       <option key={idx} value={value}>
         {label}
       </option>

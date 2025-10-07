@@ -1,9 +1,7 @@
-import {FC} from 'react';
 import {Colors} from '../../constants/Colors';
-
 import {ITextProps} from './Text.types';
 
-const Text: FC<ITextProps> = ({
+const Text = ({
   bottom = 0,
   center = false,
   children,
@@ -15,7 +13,7 @@ const Text: FC<ITextProps> = ({
   style = {},
   top = 0,
   ...props
-}: ITextProps) => (
+}: ITextProps): JSX.Element => (
   <>
     <p
       style={{

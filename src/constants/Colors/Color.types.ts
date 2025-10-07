@@ -5,6 +5,7 @@ export interface IColorsOption {
   black100?: '#1A1A1A';
   blackTransparent15?: 'rgba(0, 0, 0, 0.15)';
   blackTransparent7?: 'rgba(0, 0, 0, 0.7)';
+  blackTransparent8?: 'rgba(0, 0, 0, 0.8)';
   blackTransparent85?: 'rgba(0, 0, 0, 0.85)';
   blue?: '#227AEA';
   blueTransparent?: 'rgba(93, 102, 147, 0.5)';

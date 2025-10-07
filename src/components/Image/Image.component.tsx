@@ -1,4 +1,3 @@
-import React from 'react';
 import {IImageProps} from './Image.types';
 
 const Images = ({
