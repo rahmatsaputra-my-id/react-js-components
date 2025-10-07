@@ -1,10 +1,8 @@
-import {ReactNode} from 'react';
 import {View} from '../View';
 import {styles} from './LoadingSpinner.styles';
 import './LoadingSpinner.styles.css';
 
 import {ILoadingSpinnerProps} from './LoadingSpinner.types';
-import Images from '../Image/Image.component';
 
 const LoadingSpinner = ({
   loadingType = false,
