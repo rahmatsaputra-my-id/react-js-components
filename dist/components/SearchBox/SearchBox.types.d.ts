@@ -3,4 +3,5 @@ export interface ISearchBoxProps {
     handleOnClearSearch: () => void;
     placeholder?: string;
     value: any;
+    onChange: any;
 }

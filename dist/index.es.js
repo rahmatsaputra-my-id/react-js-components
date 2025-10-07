@@ -457,9 +457,9 @@ var styles$1 = {
 };
 
 var TextInput = function (_a) {
-    var _b = _a.borderColor, borderColor = _b === void 0 ? Colors.grey2 : _b, _c = _a.borderRadius, borderRadius = _c === void 0 ? 4 : _c, _d = _a.bottom, bottom = _d === void 0 ? 0 : _d, _e = _a.center, center = _e === void 0 ? false : _e, _f = _a.label, label = _f === void 0 ? false : _f, _g = _a.labelError, labelError = _g === void 0 ? false : _g, _h = _a.left, left = _h === void 0 ? 0 : _h, _j = _a.multiline, multiline = _j === void 0 ? false : _j, _k = _a.padding, padding = _k === void 0 ? 0 : _k, _l = _a.right, right = _l === void 0 ? 0 : _l, _m = _a.rows, rows = _m === void 0 ? 10 : _m, _o = _a.style, style = _o === void 0 ? {} : _o, _p = _a.styleLabel, styleLabel = _p === void 0 ? {} : _p, _q = _a.styleTextInput, styleTextInput = _q === void 0 ? {} : _q, _r = _a.top, top = _r === void 0 ? 0 : _r, props = __rest(_a, ["borderColor", "borderRadius", "bottom", "center", "label", "labelError", "left", "multiline", "padding", "right", "rows", "style", "styleLabel", "styleTextInput", "top"]);
+    var _b = _a.borderColor, borderColor = _b === void 0 ? Colors.grey2 : _b, _c = _a.borderRadius, borderRadius = _c === void 0 ? 4 : _c, _d = _a.bottom, bottom = _d === void 0 ? 0 : _d, _e = _a.center, center = _e === void 0 ? false : _e, _f = _a.label, label = _f === void 0 ? false : _f, _g = _a.labelError, labelError = _g === void 0 ? false : _g, _h = _a.left, left = _h === void 0 ? 0 : _h, _j = _a.multiline, multiline = _j === void 0 ? false : _j, _k = _a.padding, padding = _k === void 0 ? 0 : _k, _l = _a.right, right = _l === void 0 ? 0 : _l, _m = _a.rows, rows = _m === void 0 ? 10 : _m, _o = _a.style, style = _o === void 0 ? {} : _o, _p = _a.styleLabel, styleLabel = _p === void 0 ? {} : _p, _q = _a.styleTextInput, styleTextInput = _q === void 0 ? {} : _q, _r = _a.top, top = _r === void 0 ? 0 : _r, value = _a.value, onChange = _a.onChange, props = __rest(_a, ["borderColor", "borderRadius", "bottom", "center", "label", "labelError", "left", "multiline", "padding", "right", "rows", "style", "styleLabel", "styleTextInput", "top", "value", "onChange"]);
     var stylesTextInput = __assign(__assign({ borderColor: borderColor, borderRadius: borderRadius, textAlign: center ? 'center' : 'left', paddingBottom: multiline ? 16 : 8 }, styles$1.textArea), styleTextInput);
-    return (jsxs(View, __assign({ style: __assign({ marginTop: top, marginRight: right, marginBottom: bottom, marginLeft: left, padding: padding }, style) }, { children: [label && (jsx(Text, { style: __assign(__assign({}, styles$1.label), styleLabel), children: label })), multiline ? (jsx("textarea", __assign({ rows: rows, type: 'text', style: stylesTextInput }, props))) : (jsx("input", __assign({ type: 'text', style: stylesTextInput }, props))), labelError ? (jsx(Text, { style: styles$1.labelError, children: labelError })) : null] })));
+    return (jsxs(View, __assign({ style: __assign({ marginTop: top, marginRight: right, marginBottom: bottom, marginLeft: left, padding: padding }, style) }, { children: [label && (jsx(Text, { style: __assign(__assign({}, styles$1.label), styleLabel), children: label })), multiline ? (jsx("textarea", __assign({ rows: rows, type: 'text', style: stylesTextInput, value: value, onChange: onChange }, props))) : (jsx("input", __assign({ type: 'text', value: value, onChange: onChange, style: stylesTextInput }, props))), labelError ? (jsx(Text, { style: styles$1.labelError, children: labelError })) : null] })));
 };
 
 var styles = {
@@ -496,12 +496,12 @@ var styles = {
 };
 
 var SearchBox = function (_a) {
-    var handleOnSubmitSearch = _a.handleOnSubmitSearch, handleOnClearSearch = _a.handleOnClearSearch, _b = _a.placeholder, placeholder = _b === void 0 ? 'Type to search ...' : _b, value = _a.value, props = __rest(_a, ["handleOnSubmitSearch", "handleOnClearSearch", "placeholder", "value"]);
+    var handleOnSubmitSearch = _a.handleOnSubmitSearch, handleOnClearSearch = _a.handleOnClearSearch, _b = _a.placeholder, placeholder = _b === void 0 ? 'Type to search ...' : _b, value = _a.value, onChange = _a.onChange, props = __rest(_a, ["handleOnSubmitSearch", "handleOnClearSearch", "placeholder", "value", "onChange"]);
     var renderScreen = function () { return (jsxs(View, __assign({ style: styles.searchContainer }, { children: [jsx(Text, __assign({ style: styles.iconSearch }, { children: "\uD83D\uDD0D" })), jsx(TextInput, __assign({ style: styles.textInputContainer, styleTextInput: styles.textInput, placeholder: placeholder, onKeyPress: function (event) {
                     if (event.key === 'Enter' && handleOnSubmitSearch) {
                         handleOnSubmitSearch(value);
                     }
-                }, onBlur: function () {
+                }, value: value, onChange: onChange, onBlur: function () {
                     if (handleOnSubmitSearch) {
                         handleOnSubmitSearch(value);
                     }

@@ -13,6 +13,7 @@ const SearchBox = ({
   handleOnClearSearch,
   placeholder = 'Type to search ...',
   value,
+  onChange,
   ...props
 }: ISearchBoxProps): JSX.Element => {
   const renderScreen = () => (
@@ -27,6 +28,8 @@ const SearchBox = ({
             handleOnSubmitSearch(value);
           }
         }}
+        value={value}
+        onChange={onChange}
         onBlur={() => {
           if (handleOnSubmitSearch) {
             handleOnSubmitSearch(value);

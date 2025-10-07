@@ -21,6 +21,8 @@ const TextInput = ({
   styleLabel = {},
   styleTextInput = {},
   top = 0,
+  value,
+  onChange,
   ...props
 }: ITextInputProps): JSX.Element => {
   const stylesTextInput = {
@@ -50,10 +52,18 @@ const TextInput = ({
           rows={rows}
           type={'text'}
           style={stylesTextInput}
+          value={value}
+          onChange={onChange}
           {...props}
         />
       ) : (
-        <input type={'text'} style={stylesTextInput} {...props} />
+        <input
+          type={'text'}
+          value={value}
+          onChange={onChange}
+          style={stylesTextInput}
+          {...props}
+        />
       )}
       {labelError ? (
         <Text style={styles.labelError} children={labelError} />
