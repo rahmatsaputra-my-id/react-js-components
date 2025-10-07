@@ -1,4 +1,4 @@
+/// <reference types="react" />
 import { ITouchableOpacityProps } from './TouchableOpacity.types';
-import { ReactNode } from 'react';
-declare const TouchableOpacity: ({ children, onPress, style, ...props }: ITouchableOpacityProps) => ReactNode;
+declare const TouchableOpacity: ({ children, onPress, style, ...props }: ITouchableOpacityProps) => JSX.Element | null;
 export default TouchableOpacity;

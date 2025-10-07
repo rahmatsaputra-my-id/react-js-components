@@ -8,11 +8,11 @@ import {View} from '../View';
 import {styles} from './SearchBox.styles';
 import {ISearchBoxProps} from './SearchBox.types';
 
-const RenderWebMobile = ({
+const SearchBox = ({
   handleOnSubmitSearch,
   handleOnClearSearch,
   placeholder = 'Type to search ...',
-}: ISearchBoxProps) => {
+}: ISearchBoxProps): JSX.Element => {
   const [search, setSearch] = useState('');
   const handleOnChangeSearch = useCallback((value: string) => {
     setSearch(value);
@@ -54,4 +54,4 @@ const RenderWebMobile = ({
   return renderScreen();
 };
 
-export default RenderWebMobile;
+export default SearchBox;

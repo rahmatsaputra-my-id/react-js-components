@@ -1,5 +1,4 @@
-import {ReactNode} from 'react';
-
+import React from 'react';
 import {IImageProps} from './Image.types';
 
 const Images = ({
@@ -13,7 +12,7 @@ const Images = ({
   top = 0,
   width = 16,
   ...props
-}: IImageProps): ReactNode => (
+}: IImageProps): JSX.Element => (
   <img
     style={{
       height,
@@ -21,7 +20,7 @@ const Images = ({
       marginRight: right,
       marginLeft: left,
       marginTop: top,
-      resizeMode,
+      objectFit: resizeMode,
       textAlign: center ? 'center' : 'left',
       width,
       ...style,

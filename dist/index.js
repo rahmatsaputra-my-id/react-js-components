@@ -4310,7 +4310,7 @@ var Colors = {
     },
 };
 
-var styles$6 = {
+var styles$7 = {
     content: {
         display: 'flex',
         justifyContent: 'center',
@@ -4326,7 +4326,7 @@ var View = function (_a) {
 };
 
 var isMobileDisplay = window.innerWidth <= 768;
-var styles$5 = {
+var styles$6 = {
     content: {
         display: 'flex',
         justifyContent: 'center',
@@ -4393,8 +4393,8 @@ styleInject(css_248z);
 var LoadingSpinner = function (_a) {
     var _b = _a.loadingType, loadingType = _b === void 0 ? false : _b, _c = _a.loadingIcon, loadingIcon = _c === void 0 ? '' : _c;
     var _renderSpinnerComponent = function () { return jsxRuntimeExports.jsx("div", { className: "loading-spinner" }); };
-    var _renderSpinnerSection = function () { return (jsxRuntimeExports.jsx(View, __assign({ style: styles$5.loadingSpinnerSectionContainer }, { children: jsxRuntimeExports.jsx("div", { className: "loading-spinner-section" }) }))); };
-    var _renderSpinnerPage = function () { return (jsxRuntimeExports.jsx(View, __assign({ style: styles$5.loadingSpinnerPageContainer }, { children: jsxRuntimeExports.jsxs(View, __assign({ style: styles$5.loadingSpinnerPageContent }, { children: [jsxRuntimeExports.jsx("div", { className: "loading-spinner-pages" }), loadingIcon ? (jsxRuntimeExports.jsx("img", { style: styles$5.loadingIcon, src: loadingIcon, alt: '' })) : null] })) }))); };
+    var _renderSpinnerSection = function () { return (jsxRuntimeExports.jsx(View, __assign({ style: styles$6.loadingSpinnerSectionContainer }, { children: jsxRuntimeExports.jsx("div", { className: "loading-spinner-section" }) }))); };
+    var _renderSpinnerPage = function () { return (jsxRuntimeExports.jsx(View, __assign({ style: styles$6.loadingSpinnerPageContainer }, { children: jsxRuntimeExports.jsxs(View, __assign({ style: styles$6.loadingSpinnerPageContent }, { children: [jsxRuntimeExports.jsx("div", { className: "loading-spinner-pages" }), loadingIcon ? (jsxRuntimeExports.jsx("img", { style: styles$6.loadingIcon, src: loadingIcon, alt: '' })) : null] })) }))); };
     return (jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: loadingType === 'page'
             ? _renderSpinnerPage()
             : loadingType === 'section'
@@ -4410,10 +4410,10 @@ var Button = function (_a) {
                         ? 'transparent'
                         : backgroundColor
                             ? backgroundColor
-                            : Colors.black, border: outlineColor ? '1px solid rgba(0, 0, 0, 1)' : 'none', borderRadius: borderRadius, color: outlineColor ? outlineColor : Colors.white, fontSize: size, fontWeight: bold && 'bold', marginBottom: bottom, marginLeft: left, marginRight: right, marginTop: top, outline: !outlineColor && 'none', padding: padding, textAlign: center ? 'center' : 'left' }, style), styles$6.content), disabled: isLoading || disabled, onClick: onPress, type: 'submit' }, props, { children: [!isLoading ? label : null, isLoading && jsxRuntimeExports.jsx(LoadingSpinner, { loadingType: false })] })) }));
+                            : Colors.black, border: outlineColor ? '1px solid rgba(0, 0, 0, 1)' : 'none', borderRadius: borderRadius, color: outlineColor ? outlineColor : Colors.white, fontSize: size, fontWeight: bold && 'bold', marginBottom: bottom, marginLeft: left, marginRight: right, marginTop: top, outline: !outlineColor && 'none', padding: padding, textAlign: center ? 'center' : 'left' }, style), styles$7.content), disabled: isLoading || disabled, onClick: onPress, type: 'submit' }, props, { children: [!isLoading ? label : null, isLoading && jsxRuntimeExports.jsx(LoadingSpinner, { loadingType: false })] })) }));
 };
 
-var styles$4 = {
+var styles$5 = {
     container: {
         flex: 1,
         minHeight: '100vh',
@@ -4428,7 +4428,7 @@ var styles$4 = {
 
 var Container = function (_a) {
     var children = _a.children, containerStyle = _a.containerStyle, contentStyle = _a.contentStyle;
-    return (jsxRuntimeExports.jsx(View, __assign({ style: __assign(__assign({}, styles$4.container), { containerStyle: containerStyle }) }, { children: jsxRuntimeExports.jsx(View, __assign({ style: __assign(__assign({}, styles$4.content), { contentStyle: contentStyle }) }, { children: children })) })));
+    return (jsxRuntimeExports.jsx(View, __assign({ style: __assign(__assign({}, styles$5.container), { containerStyle: containerStyle }) }, { children: jsxRuntimeExports.jsx(View, __assign({ style: __assign(__assign({}, styles$5.content), { contentStyle: contentStyle }) }, { children: children })) })));
 };
 
 var reactExports = requireReact();
@@ -4438,7 +4438,7 @@ var Text = function (_a) {
     return (jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: jsxRuntimeExports.jsx("p", __assign({ style: __assign({ marginTop: top, marginRight: right, marginBottom: bottom, marginLeft: left, color: color, fontSize: size, lineHeight: lineHeight, textAlign: center ? 'center' : 'left' }, style) }, props, { children: children })) }));
 };
 
-var styles$3 = {
+var styles$4 = {
     cardWrapper: {
         flexDirection: 'row',
         width: '100%',
@@ -4515,9 +4515,9 @@ var Countdown = function (_a) {
     }, [(_b = weddingDate === null || weddingDate === void 0 ? void 0 : weddingDate.reception) === null || _b === void 0 ? void 0 : _b.start]);
     var renderCardBox = function (_a, idx) {
         var label = _a.label, value = _a.value;
-        return (jsxRuntimeExports.jsxs(View, __assign({ style: __assign(__assign({}, styles$3.cardBox), { cardStyle: cardStyle, marginRight: idx === data.length - 1 ? 0 : 8 }) }, { children: [jsxRuntimeExports.jsx(Text, { style: __assign(__assign({}, styles$3.cardTitle), { fontStyle: fontStyle }), children: value ? (value < 0 ? '00' : value) : '' }), jsxRuntimeExports.jsx(Text, { children: label, style: __assign(__assign({}, styles$3.cardDescription), { fontStyle: fontStyle }) })] }), idx));
+        return (jsxRuntimeExports.jsxs(View, __assign({ style: __assign(__assign({}, styles$4.cardBox), { cardStyle: cardStyle, marginRight: idx === data.length - 1 ? 0 : 8 }) }, { children: [jsxRuntimeExports.jsx(Text, { style: __assign(__assign({}, styles$4.cardTitle), { fontStyle: fontStyle }), children: value ? (value < 0 ? '00' : value) : '' }), jsxRuntimeExports.jsx(Text, { children: label, style: __assign(__assign({}, styles$4.cardDescription), { fontStyle: fontStyle }) })] }), idx));
     };
-    var render = function () { return (jsxRuntimeExports.jsx(View, __assign({ style: __assign(__assign({}, styles$3.cardWrapper), { containerStyle: containerStyle }) }, { children: data === null || data === void 0 ? void 0 : data.map(function (val, idx) { return renderCardBox(val, idx); }) }))); };
+    var render = function () { return (jsxRuntimeExports.jsx(View, __assign({ style: __assign(__assign({}, styles$4.cardWrapper), { containerStyle: containerStyle }) }, { children: data === null || data === void 0 ? void 0 : data.map(function (val, idx) { return renderCardBox(val, idx); }) }))); };
     return render();
 };
 
@@ -4534,7 +4534,7 @@ var DropDown = function (_a) {
 
 var Images = function (_a) {
     var _b = _a.bottom, bottom = _b === void 0 ? 0 : _b, _c = _a.center, center = _c === void 0 ? false : _c, _d = _a.height, height = _d === void 0 ? 16 : _d, _e = _a.left, left = _e === void 0 ? 0 : _e, _f = _a.resizeMode, resizeMode = _f === void 0 ? 'contain' : _f, _g = _a.right, right = _g === void 0 ? 0 : _g, _h = _a.style, style = _h === void 0 ? {} : _h, _j = _a.top, top = _j === void 0 ? 0 : _j, _k = _a.width, width = _k === void 0 ? 16 : _k, props = __rest(_a, ["bottom", "center", "height", "left", "resizeMode", "right", "style", "top", "width"]);
-    return (jsxRuntimeExports.jsx("img", __assign({ style: __assign({ height: height, marginBottom: bottom, marginRight: right, marginLeft: left, marginTop: top, resizeMode: resizeMode, textAlign: center ? 'center' : 'left', width: width }, style), alt: '', onError: function (_a) {
+    return (jsxRuntimeExports.jsx("img", __assign({ style: __assign({ height: height, marginBottom: bottom, marginRight: right, marginLeft: left, marginTop: top, objectFit: resizeMode, textAlign: center ? 'center' : 'left', width: width }, style), alt: '', onError: function (_a) {
             var currentTarget = _a.currentTarget;
             currentTarget.onerror = null;
             currentTarget.src =
@@ -4542,7 +4542,7 @@ var Images = function (_a) {
         } }, props)));
 };
 
-var styles$2 = {
+var styles$3 = {
     container: {
         position: 'fixed',
         left: 0,
@@ -4585,31 +4585,29 @@ var styles$2 = {
 
 var PopUp = function (_a) {
     var _b = _a.backgroundButtonColor, backgroundButtonColor = _b === void 0 ? Colors.black : _b, _c = _a.isLoading, isLoading = _c === void 0 ? false : _c, popUpData = _a.popUpData, _d = _a.visible, visible = _d === void 0 ? false : _d, _e = _a.styleContainer, styleContainer = _e === void 0 ? {} : _e;
-    return visible ? (jsxRuntimeExports.jsx(View, __assign({ style: __assign(__assign({}, styles$2.container), styleContainer) }, { children: jsxRuntimeExports.jsxs(View, __assign({ style: styles$2.card }, { children: [jsxRuntimeExports.jsxs(View, { children: [jsxRuntimeExports.jsx(Text, { style: styles$2.headerTitle, children: popUpData === null || popUpData === void 0 ? void 0 : popUpData.title }), (popUpData === null || popUpData === void 0 ? void 0 : popUpData.description) ? (jsxRuntimeExports.jsx(Text, { style: styles$2.headerDescription, children: popUpData === null || popUpData === void 0 ? void 0 : popUpData.description })) : null] }), jsxRuntimeExports.jsxs(View, { children: [(popUpData === null || popUpData === void 0 ? void 0 : popUpData.labelDecline) && (popUpData === null || popUpData === void 0 ? void 0 : popUpData.onPressDecline) ? (jsxRuntimeExports.jsx(Button, { style: styles$2.buttonNegative, backgroundColor: backgroundButtonColor, outlineColor: Colors.black, isLoading: isLoading, label: popUpData === null || popUpData === void 0 ? void 0 : popUpData.labelDecline, onPress: popUpData === null || popUpData === void 0 ? void 0 : popUpData.onPressDecline })) : null, jsxRuntimeExports.jsx(Button, { style: styles$2.buttonPositive, backgroundColor: backgroundButtonColor, isLoading: isLoading, label: popUpData === null || popUpData === void 0 ? void 0 : popUpData.labelAccept, onPress: popUpData === null || popUpData === void 0 ? void 0 : popUpData.onPressAccept })] })] })) }))) : null;
+    return visible ? (jsxRuntimeExports.jsx(View, __assign({ style: __assign(__assign({}, styles$3.container), styleContainer) }, { children: jsxRuntimeExports.jsxs(View, __assign({ style: styles$3.card }, { children: [jsxRuntimeExports.jsxs(View, { children: [jsxRuntimeExports.jsx(Text, { style: styles$3.headerTitle, children: popUpData === null || popUpData === void 0 ? void 0 : popUpData.title }), (popUpData === null || popUpData === void 0 ? void 0 : popUpData.description) ? (jsxRuntimeExports.jsx(Text, { style: styles$3.headerDescription, children: popUpData === null || popUpData === void 0 ? void 0 : popUpData.description })) : null] }), jsxRuntimeExports.jsxs(View, { children: [(popUpData === null || popUpData === void 0 ? void 0 : popUpData.labelDecline) && (popUpData === null || popUpData === void 0 ? void 0 : popUpData.onPressDecline) ? (jsxRuntimeExports.jsx(Button, { style: styles$3.buttonNegative, backgroundColor: backgroundButtonColor, outlineColor: Colors.black, isLoading: isLoading, label: popUpData === null || popUpData === void 0 ? void 0 : popUpData.labelDecline, onPress: popUpData === null || popUpData === void 0 ? void 0 : popUpData.onPressDecline })) : null, jsxRuntimeExports.jsx(Button, { style: styles$3.buttonPositive, backgroundColor: backgroundButtonColor, isLoading: isLoading, label: popUpData === null || popUpData === void 0 ? void 0 : popUpData.labelAccept, onPress: popUpData === null || popUpData === void 0 ? void 0 : popUpData.onPressAccept })] })] })) }))) : null;
 };
 
-var Swipeable = function (_a) {
-    var children = _a.children, _b = _a.onSwipeLeft, onSwipeLeft = _b === void 0 ? function () { } : _b, _c = _a.onSwipeRight, onSwipeRight = _c === void 0 ? function () { } : _c, _d = _a.style, style = _d === void 0 ? {} : _d, props = __rest(_a, ["children", "onSwipeLeft", "onSwipeRight", "style"]);
-    var _e = reactExports.useState(null), startX = _e[0], setStartX = _e[1];
-    var handleTouchStart = function (event) {
-        var _a, _b;
-        setStartX((_b = (_a = event === null || event === void 0 ? void 0 : event.touches) === null || _a === void 0 ? void 0 : _a[0]) === null || _b === void 0 ? void 0 : _b.clientX); // Store initial touch position (X-coordinate)
+var IMAGE_URL_WEDDING = 'https://raw.githubusercontent.com/rahmatsaputra-my-id/global-assets/master/my-wedding';
+var Icons = {
+    close: "".concat(IMAGE_URL_WEDDING, "/icon-close.png")
+};
+
+var styles$2 = {
+    content: {
+        display: 'flex',
+        cursor: 'pointer',
+        flexDirection: 'column',
+    },
+};
+
+var TouchableOpacity = function (_a) {
+    var children = _a.children, onPress = _a.onPress, style = _a.style, props = __rest(_a, ["children", "onPress", "style"]);
+    var handleOnPress = function () {
+        if (onPress)
+            onPress();
     };
-    var handleTouchEnd = function (event) {
-        var _a, _b;
-        if (startX !== null) {
-            var endX = (_b = (_a = event === null || event === void 0 ? void 0 : event.changedTouches) === null || _a === void 0 ? void 0 : _a[0]) === null || _b === void 0 ? void 0 : _b.clientX;
-            var deltaX = endX - startX;
-            if (deltaX > 50) {
-                onSwipeLeft();
-            }
-            else if (deltaX < -50) {
-                onSwipeRight();
-            }
-            setStartX(null); // Reset touch position for next swipe
-        }
-    };
-    return (jsxRuntimeExports.jsx("div", __assign({ style: style, onTouchStart: handleTouchStart, onTouchEnd: handleTouchEnd }, props, { children: children })));
+    return (jsxRuntimeExports.jsx("div", __assign({ onClick: handleOnPress, style: __assign(__assign({}, styles$2.content), style) }, props, { children: children })));
 };
 
 var styles$1 = {
@@ -4642,20 +4640,82 @@ var TextInput = function (_a) {
 };
 
 var styles = {
-    content: {
-        display: 'flex',
-        cursor: 'pointer',
-        flexDirection: 'column',
+    textInputContainer: {
+        width: '100%',
+    },
+    textInput: {
+        paddingRight: 40,
+        paddingLeft: 32,
+    },
+    searchContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        position: 'relative',
+    },
+    closeSearchButton: {
+        position: 'absolute',
+        right: 0,
+        height: 38,
+        color: Colors.black,
+        justifyContent: 'center',
+        zIndex: 4,
+        paddingRight: 16,
+    },
+    closeSearchButtonImage: {
+        height: 18,
+        width: 18,
+    },
+    iconSearch: {
+        position: 'absolute',
+        alignSelf: 'center',
+        paddingLeft: 12,
     },
 };
 
-var TouchableOpacity = function (_a) {
-    var children = _a.children, onPress = _a.onPress, style = _a.style, props = __rest(_a, ["children", "onPress", "style"]);
-    var handleOnPress = function () {
-        if (onPress)
-            onPress();
+var SearchBox = function (_a) {
+    var handleOnSubmitSearch = _a.handleOnSubmitSearch, handleOnClearSearch = _a.handleOnClearSearch, _b = _a.placeholder, placeholder = _b === void 0 ? 'Type to search ...' : _b;
+    var _c = reactExports.useState(''), search = _c[0], setSearch = _c[1];
+    var handleOnChangeSearch = reactExports.useCallback(function (value) {
+        setSearch(value);
+    }, []);
+    var renderScreen = function () { return (jsxRuntimeExports.jsxs(View, __assign({ style: styles.searchContainer }, { children: [jsxRuntimeExports.jsx(Text, __assign({ style: styles.iconSearch }, { children: "\uD83D\uDD0D" })), jsxRuntimeExports.jsx(TextInput, { style: styles.textInputContainer, styleTextInput: styles.textInput, onChange: function (event) {
+                    var _a;
+                    handleOnChangeSearch((_a = event === null || event === void 0 ? void 0 : event.target) === null || _a === void 0 ? void 0 : _a.value);
+                }, value: search, placeholder: placeholder, onKeyPress: function (event) {
+                    if (event.key === 'Enter' && handleOnSubmitSearch) {
+                        handleOnSubmitSearch(search);
+                    }
+                } }), (search === null || search === void 0 ? void 0 : search.length) > 0 ? (jsxRuntimeExports.jsx(TouchableOpacity, __assign({ style: styles.closeSearchButton, onPress: function () {
+                    handleOnChangeSearch('');
+                    if (handleOnClearSearch) {
+                        handleOnClearSearch();
+                    }
+                } }, { children: jsxRuntimeExports.jsx(Images, { style: styles.closeSearchButtonImage, src: Icons.close }) }))) : null] }))); };
+    return renderScreen();
+};
+
+var Swipeable = function (_a) {
+    var children = _a.children, _b = _a.onSwipeLeft, onSwipeLeft = _b === void 0 ? function () { } : _b, _c = _a.onSwipeRight, onSwipeRight = _c === void 0 ? function () { } : _c, _d = _a.style, style = _d === void 0 ? {} : _d, props = __rest(_a, ["children", "onSwipeLeft", "onSwipeRight", "style"]);
+    var _e = reactExports.useState(null), startX = _e[0], setStartX = _e[1];
+    var handleTouchStart = function (event) {
+        var _a, _b;
+        setStartX((_b = (_a = event === null || event === void 0 ? void 0 : event.touches) === null || _a === void 0 ? void 0 : _a[0]) === null || _b === void 0 ? void 0 : _b.clientX); // Store initial touch position (X-coordinate)
     };
-    return (jsxRuntimeExports.jsx("div", __assign({ onClick: handleOnPress, style: __assign(__assign({}, styles.content), style) }, props, { children: children })));
+    var handleTouchEnd = function (event) {
+        var _a, _b;
+        if (startX !== null) {
+            var endX = (_b = (_a = event === null || event === void 0 ? void 0 : event.changedTouches) === null || _a === void 0 ? void 0 : _a[0]) === null || _b === void 0 ? void 0 : _b.clientX;
+            var deltaX = endX - startX;
+            if (deltaX > 50) {
+                onSwipeLeft();
+            }
+            else if (deltaX < -50) {
+                onSwipeRight();
+            }
+            setStartX(null); // Reset touch position for next swipe
+        }
+    };
+    return (jsxRuntimeExports.jsx("div", __assign({ style: style, onTouchStart: handleTouchStart, onTouchEnd: handleTouchEnd }, props, { children: children })));
 };
 
 exports.Button = Button;
@@ -4663,9 +4723,12 @@ exports.Colors = Colors;
 exports.Container = Container;
 exports.CountDown = Countdown;
 exports.DropDown = DropDown;
+exports.IMAGE_URL_WEDDING = IMAGE_URL_WEDDING;
+exports.Icons = Icons;
 exports.Image = Images;
 exports.LoadingSpinner = LoadingSpinner;
 exports.PopUp = PopUp;
+exports.SearchBox = SearchBox;
 exports.Swipeable = Swipeable;
 exports.Text = Text;
 exports.TextInput = TextInput;

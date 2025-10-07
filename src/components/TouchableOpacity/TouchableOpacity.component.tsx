@@ -1,5 +1,4 @@
 import {ITouchableOpacityProps} from './TouchableOpacity.types';
-import {ReactNode} from 'react';
 import {styles} from './TouchableOpacity.component.styles';
 
 const TouchableOpacity = ({
@@ -7,7 +6,7 @@ const TouchableOpacity = ({
   onPress,
   style,
   ...props
-}: ITouchableOpacityProps): ReactNode => {
+}: ITouchableOpacityProps): JSX.Element | null => {
   const handleOnPress = () => {
     if (onPress) onPress();
   };

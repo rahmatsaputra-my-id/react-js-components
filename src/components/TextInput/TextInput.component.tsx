@@ -1,10 +1,10 @@
-import {ReactNode} from 'react';
 import {Text} from '../Text';
 import {View} from '../View';
 import {Colors} from '../../constants/Colors';
 
 import {ITextInputProps} from './TextInput.types';
 import {styles} from './TextInput.component.styles';
+import React from 'react';
 
 const TextInput = ({
   borderColor = Colors.grey2,
@@ -23,7 +23,7 @@ const TextInput = ({
   styleTextInput = {},
   top = 0,
   ...props
-}: ITextInputProps): ReactNode => {
+}: ITextInputProps): JSX.Element => {
   const stylesTextInput = {
     borderColor,
     borderRadius,

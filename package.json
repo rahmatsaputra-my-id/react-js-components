@@ -1,11 +1,15 @@
 {
   "name": "@rahmatsaputra-my-id/react-js-components",
-  "version": "0.0.66",
+  "version": "0.0.72",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "files": [
     "dist"
   ],
+  "scripts": {
+    "clean": "rm -rf dist .turbo .rpt2_cache && npm cache clean --force",
+    "build": "npm run clean && rollup -c"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/rahmatsaputra-my-id/react-js-components.git"
@@ -26,9 +30,6 @@
     "react-scripts": "5.0.1",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
-  },
-  "scripts": {
-    "build": "rollup -c"
   },
   "eslintConfig": {
     "extends": [

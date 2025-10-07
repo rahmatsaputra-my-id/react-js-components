@@ -1,6 +1,6 @@
-import { FC } from 'react';
+import {FC} from 'react';
 
-import { IViewProps } from './View.types';
+import {IViewProps} from './View.types';
 
 const View: FC<IViewProps> = ({
   bottom = 0,
@@ -24,8 +24,7 @@ const View: FC<IViewProps> = ({
         marginLeft: left,
         ...style,
       }}
-      {...props}
-    >
+      {...props}>
       {children}
     </div>
   </>
