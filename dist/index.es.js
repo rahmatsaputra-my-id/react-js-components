@@ -1,5 +1,5 @@
 import { jsx, Fragment, jsxs } from 'react/jsx-runtime';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 
 /******************************************************************************
 Copyright (c) Microsoft Corporation.
@@ -496,20 +496,16 @@ var styles = {
 };
 
 var SearchBox = function (_a) {
-    var handleOnSubmitSearch = _a.handleOnSubmitSearch, handleOnClearSearch = _a.handleOnClearSearch, _b = _a.placeholder, placeholder = _b === void 0 ? 'Type to search ...' : _b;
-    var _c = useState(''), search = _c[0], setSearch = _c[1];
-    var handleOnChangeSearch = useCallback(function (value) {
-        setSearch(value);
-    }, []);
-    var renderScreen = function () { return (jsxs(View, __assign({ style: styles.searchContainer }, { children: [jsx(Text, __assign({ style: styles.iconSearch }, { children: "\uD83D\uDD0D" })), jsx(TextInput, { style: styles.textInputContainer, styleTextInput: styles.textInput, onChange: function (event) {
-                    var _a;
-                    handleOnChangeSearch((_a = event === null || event === void 0 ? void 0 : event.target) === null || _a === void 0 ? void 0 : _a.value);
-                }, value: search, placeholder: placeholder, onKeyPress: function (event) {
+    var handleOnSubmitSearch = _a.handleOnSubmitSearch, handleOnClearSearch = _a.handleOnClearSearch, _b = _a.placeholder, placeholder = _b === void 0 ? 'Type to search ...' : _b, value = _a.value, props = __rest(_a, ["handleOnSubmitSearch", "handleOnClearSearch", "placeholder", "value"]);
+    var renderScreen = function () { return (jsxs(View, __assign({ style: styles.searchContainer }, { children: [jsx(Text, __assign({ style: styles.iconSearch }, { children: "\uD83D\uDD0D" })), jsx(TextInput, __assign({ style: styles.textInputContainer, styleTextInput: styles.textInput, placeholder: placeholder, onKeyPress: function (event) {
                     if (event.key === 'Enter' && handleOnSubmitSearch) {
-                        handleOnSubmitSearch(search);
+                        handleOnSubmitSearch(value);
                     }
-                } }), search && (search === null || search === void 0 ? void 0 : search.length) > 0 ? (jsx(TouchableOpacity, __assign({ style: styles.closeSearchButton, onPress: function () {
-                    handleOnChangeSearch('');
+                }, onBlur: function () {
+                    if (handleOnSubmitSearch) {
+                        handleOnSubmitSearch(value);
+                    }
+                } }, props)), value && (value === null || value === void 0 ? void 0 : value.length) > 0 ? (jsx(TouchableOpacity, __assign({ style: styles.closeSearchButton, onPress: function () {
                     if (handleOnClearSearch) {
                         handleOnClearSearch();
                     }

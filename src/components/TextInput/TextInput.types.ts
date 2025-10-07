@@ -7,8 +7,9 @@ export interface ITextInputProps {
   labelError?: boolean | string;
   left?: number;
   multiline?: boolean;
+  onBlur?: any;
   onChange?: any;
-  onKeyPress?: any
+  onKeyPress?: any;
   padding?: number;
   placeholder?: string;
   right?: number;
