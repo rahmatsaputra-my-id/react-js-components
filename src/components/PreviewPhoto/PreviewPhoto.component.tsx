@@ -29,13 +29,6 @@ const PhotoPreviewModal = ({
   return ReactDOM.createPortal(
     <div onClick={onDismiss} style={styles.backdrop}>
       <div onClick={e => e.stopPropagation()} style={styles.modalContent}>
-        <button
-          onClick={onDismiss}
-          style={styles.closeButton}
-          aria-label="Close Preview">
-          ✖
-        </button>
-
         {imageUrl ? (
           <Image src={imageUrl} style={styles.image} />
         ) : (

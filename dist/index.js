@@ -540,42 +540,31 @@ var styles$3 = {
         left: 0,
         width: '100vw',
         height: '100vh',
-        backgroundColor: 'rgba(0, 0, 0, 0.6)',
+        backgroundColor: Colors.blackTransparent85,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        zIndex: 1000,
+        zIndex: 9999,
     },
     modalContent: {
-        position: 'relative',
-        backgroundColor: '#fff',
-        padding: 16,
+        width: '90%',
+        height: '70%',
+        backgroundColor: Colors.black,
         borderRadius: 8,
-        maxWidth: '90%',
-        maxHeight: '90%',
-        boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+        overflow: 'hidden',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     image: {
         maxWidth: '100%',
-        maxHeight: '80vh',
-        borderRadius: 4,
+        maxHeight: '100%',
+        objectFit: 'contain',
     },
     noImageContainer: {
-        fontSize: 16,
-        color: '#666',
-        padding: 20,
-        textAlign: 'center',
-    },
-    closeButton: {
-        position: 'absolute',
-        top: 8,
-        right: 8,
-        backgroundColor: 'transparent',
-        border: 'none',
-        fontSize: 20,
-        cursor: 'pointer',
-        color: '#333',
-    },
+        color: Colors.white,
+        textAlign: 'center'
+    }
 };
 
 var PhotoPreviewModal = function (_a) {
@@ -595,7 +584,7 @@ var PhotoPreviewModal = function (_a) {
     }, [visible, onDismiss]);
     if (!visible)
         return null;
-    return ReactDOM__default["default"].createPortal(jsxRuntime.jsx("div", __assign({ onClick: onDismiss, style: styles$3.backdrop }, { children: jsxRuntime.jsxs("div", __assign({ onClick: function (e) { return e.stopPropagation(); }, style: styles$3.modalContent }, { children: [jsxRuntime.jsx("button", __assign({ onClick: onDismiss, style: styles$3.closeButton, "aria-label": "Close Preview" }, { children: "\u2716" })), imageUrl ? (jsxRuntime.jsx(Images, { src: imageUrl, style: styles$3.image })) : (jsxRuntime.jsx(Text, { style: styles$3.noImageContainer, children: 'No image provided' }))] })) })), document.body);
+    return ReactDOM__default["default"].createPortal(jsxRuntime.jsx("div", __assign({ onClick: onDismiss, style: styles$3.backdrop }, { children: jsxRuntime.jsx("div", __assign({ onClick: function (e) { return e.stopPropagation(); }, style: styles$3.modalContent }, { children: imageUrl ? (jsxRuntime.jsx(Images, { src: imageUrl, style: styles$3.image })) : (jsxRuntime.jsx(Text, { style: styles$3.noImageContainer, children: 'No image provided' })) })) })), document.body);
 };
 
 var IMAGE_URL_WEDDING = 'https://raw.githubusercontent.com/rahmatsaputra-my-id/global-assets/master/my-wedding';
