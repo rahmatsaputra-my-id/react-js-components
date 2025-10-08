@@ -133,7 +133,7 @@ var Colors = {
     },
 };
 
-var styles$8 = {
+var styles$9 = {
     content: {
         display: 'flex',
         justifyContent: 'center',
@@ -149,7 +149,7 @@ var View = function (_a) {
 };
 
 var isMobileDisplay = window.innerWidth <= 768;
-var styles$7 = {
+var styles$8 = {
     content: {
         display: 'flex',
         justifyContent: 'center',
@@ -216,8 +216,8 @@ styleInject(css_248z);
 var LoadingSpinner = function (_a) {
     var _b = _a.loadingType, loadingType = _b === void 0 ? false : _b, _c = _a.loadingIcon, loadingIcon = _c === void 0 ? '' : _c;
     var _renderSpinnerComponent = function () { return jsx("div", { className: "loading-spinner" }); };
-    var _renderSpinnerSection = function () { return (jsx(View, __assign({ style: styles$7.loadingSpinnerSectionContainer }, { children: jsx("div", { className: "loading-spinner-section" }) }))); };
-    var _renderSpinnerPage = function () { return (jsx(View, __assign({ style: styles$7.loadingSpinnerPageContainer }, { children: jsxs(View, __assign({ style: styles$7.loadingSpinnerPageContent }, { children: [jsx("div", { className: "loading-spinner-pages" }), loadingIcon ? (jsx("img", { style: styles$7.loadingIcon, src: loadingIcon, alt: '' })) : null] })) }))); };
+    var _renderSpinnerSection = function () { return (jsx(View, __assign({ style: styles$8.loadingSpinnerSectionContainer }, { children: jsx("div", { className: "loading-spinner-section" }) }))); };
+    var _renderSpinnerPage = function () { return (jsx(View, __assign({ style: styles$8.loadingSpinnerPageContainer }, { children: jsxs(View, __assign({ style: styles$8.loadingSpinnerPageContent }, { children: [jsx("div", { className: "loading-spinner-pages" }), loadingIcon ? (jsx("img", { style: styles$8.loadingIcon, src: loadingIcon, alt: '' })) : null] })) }))); };
     return (jsx(Fragment, { children: loadingType === 'page'
             ? _renderSpinnerPage()
             : loadingType === 'section'
@@ -233,10 +233,10 @@ var Button = function (_a) {
                         ? 'transparent'
                         : backgroundColor
                             ? backgroundColor
-                            : Colors.black, border: outlineColor ? '1px solid rgba(0, 0, 0, 1)' : 'none', borderRadius: borderRadius, color: outlineColor ? outlineColor : Colors.white, fontSize: size, fontWeight: bold && 'bold', marginBottom: bottom, marginLeft: left, marginRight: right, marginTop: top, outline: !outlineColor && 'none', padding: padding, textAlign: center ? 'center' : 'left' }, style), styles$8.content), disabled: isLoading || disabled, onClick: onPress, type: 'submit' }, props, { children: [!isLoading ? label : null, isLoading && jsx(LoadingSpinner, { loadingType: false })] })) }));
+                            : Colors.black, border: outlineColor ? '1px solid rgba(0, 0, 0, 1)' : 'none', borderRadius: borderRadius, color: outlineColor ? outlineColor : Colors.white, fontSize: size, fontWeight: bold && 'bold', marginBottom: bottom, marginLeft: left, marginRight: right, marginTop: top, outline: !outlineColor && 'none', padding: padding, textAlign: center ? 'center' : 'left' }, style), styles$9.content), disabled: isLoading || disabled, onClick: onPress, type: 'submit' }, props, { children: [!isLoading ? label : null, isLoading && jsx(LoadingSpinner, { loadingType: false })] })) }));
 };
 
-var styles$6 = {
+var styles$7 = {
     container: {
         flex: 1,
         minHeight: '100vh',
@@ -251,12 +251,129 @@ var styles$6 = {
 
 var Container = function (_a) {
     var children = _a.children, containerStyle = _a.containerStyle, contentStyle = _a.contentStyle;
-    return (jsx(View, __assign({ style: __assign(__assign({}, styles$6.container), { containerStyle: containerStyle }) }, { children: jsx(View, __assign({ style: __assign(__assign({}, styles$6.content), { contentStyle: contentStyle }) }, { children: children })) })));
+    return (jsx(View, __assign({ style: __assign(__assign({}, styles$7.container), { containerStyle: containerStyle }) }, { children: jsx(View, __assign({ style: __assign(__assign({}, styles$7.content), { contentStyle: contentStyle }) }, { children: children })) })));
+};
+
+var styles$6 = {
+    h1: {
+        fontSize: 32,
+        lineHeight: 40,
+    },
+    h2: {
+        fontSize: 28,
+        lineHeight: 36,
+    },
+    h3: {
+        fontSize: 24,
+        lineHeight: 32,
+    },
+    h4: {
+        fontSize: 18,
+        lineHeight: 24,
+    },
+    h5: {
+        fontSize: 16,
+        lineHeight: 24,
+    },
+    h6: {
+        fontSize: 14,
+        lineHeight: 20,
+    },
+    normal_10: {
+        fontSize: 10,
+        lineHeight: 12,
+    },
+    normal_10_grey: {
+        color: Colors.grey5,
+        fontSize: 10,
+        lineHeight: 12,
+    },
+    bold_10: {
+        fontSize: 10,
+        fontWeight: 'bold',
+        lineHeight: 12,
+    },
+    normal_12: {
+        fontSize: 12,
+        lineHeight: 16,
+    },
+    normal_12_blue: {
+        color: Colors.blue,
+        fontSize: 12,
+        lineHeight: 16,
+    },
+    normal_12_grey: {
+        color: Colors.grey5,
+        fontSize: 12,
+        lineHeight: 16,
+    },
+    bold_12: {
+        fontSize: 12,
+        fontWeight: 'bold',
+        lineHeight: 16,
+    },
+    normal_14: {
+        fontSize: 14,
+        lineHeight: 20,
+    },
+    bold_14: {
+        fontSize: 14,
+        fontWeight: 'bold',
+        lineHeight: 20,
+    },
+    normal_16: {
+        fontSize: 16,
+        lineHeight: 24,
+    },
+    bold_16: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        lineHeight: 24,
+    },
+    normal_18: {
+        fontSize: 18,
+        lineHeight: 26,
+    },
+    bold_18: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        lineHeight: 26,
+    },
+    normal_20: {
+        fontSize: 20,
+        lineHeight: 28,
+    },
+    bold_20: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        lineHeight: 28,
+    },
+    bold_20_white: {
+        color: Colors.white,
+        fontSize: 20,
+        fontWeight: 'bold',
+        lineHeight: 28,
+    },
+    normal_80: {
+        fontSize: 80,
+        lineHeight: 88,
+    },
+    bold_80: {
+        fontSize: 80,
+        fontWeight: 'bold',
+        lineHeight: 88,
+    },
+    bold_80_white: {
+        color: Colors.white,
+        fontSize: 80,
+        fontWeight: 'bold',
+        lineHeight: 88,
+    },
 };
 
 var Text = function (_a) {
-    var _b = _a.bottom, bottom = _b === void 0 ? 0 : _b, _c = _a.center, center = _c === void 0 ? false : _c, children = _a.children, _d = _a.color, color = _d === void 0 ? Colors.black : _d, _e = _a.left, left = _e === void 0 ? 0 : _e, lineHeight = _a.lineHeight, _f = _a.right, right = _f === void 0 ? 0 : _f, _g = _a.size, size = _g === void 0 ? 16 : _g, _h = _a.style, style = _h === void 0 ? {} : _h, _j = _a.top, top = _j === void 0 ? 0 : _j, props = __rest(_a, ["bottom", "center", "children", "color", "left", "lineHeight", "right", "size", "style", "top"]);
-    return (jsx(Fragment, { children: jsx("p", __assign({ style: __assign({ marginTop: top, marginRight: right, marginBottom: bottom, marginLeft: left, color: color, fontSize: size, lineHeight: lineHeight, textAlign: center ? 'center' : 'left' }, style) }, props, { children: children })) }));
+    var _b = _a.bottom, bottom = _b === void 0 ? 0 : _b, _c = _a.center, center = _c === void 0 ? false : _c, children = _a.children, _d = _a.color, color = _d === void 0 ? Colors.black : _d, _e = _a.left, left = _e === void 0 ? 0 : _e, _f = _a.right, right = _f === void 0 ? 0 : _f, _g = _a.style, style = _g === void 0 ? {} : _g, _h = _a.top, top = _h === void 0 ? 0 : _h, _j = _a.type, type = _j === void 0 ? 'normal_16' : _j, props = __rest(_a, ["bottom", "center", "children", "color", "left", "right", "style", "top", "type"]);
+    return (jsx(Fragment, { children: jsx("p", __assign({ style: __assign(__assign({ marginTop: top, marginRight: right, marginBottom: bottom, marginLeft: left, color: color, textAlign: center ? 'center' : 'left' }, style), styles$6[type]) }, props, { children: children })) }));
 };
 
 var styles$5 = {
