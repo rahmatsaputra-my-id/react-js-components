@@ -4,6 +4,7 @@ export * from './components/CountDown';
 export * from './components/DropDown';
 export * from './components/Image';
 export * from './components/LoadingSpinner';
+export * from './components/NoRecord';
 export * from './components/PopUp';
 export * from './components/SearchBox';
 export * from './components/Swipeable';

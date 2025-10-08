@@ -133,7 +133,7 @@ var Colors = {
     },
 };
 
-var styles$7 = {
+var styles$8 = {
     content: {
         display: 'flex',
         justifyContent: 'center',
@@ -149,7 +149,7 @@ var View = function (_a) {
 };
 
 var isMobileDisplay = window.innerWidth <= 768;
-var styles$6 = {
+var styles$7 = {
     content: {
         display: 'flex',
         justifyContent: 'center',
@@ -216,8 +216,8 @@ styleInject(css_248z);
 var LoadingSpinner = function (_a) {
     var _b = _a.loadingType, loadingType = _b === void 0 ? false : _b, _c = _a.loadingIcon, loadingIcon = _c === void 0 ? '' : _c;
     var _renderSpinnerComponent = function () { return jsx("div", { className: "loading-spinner" }); };
-    var _renderSpinnerSection = function () { return (jsx(View, __assign({ style: styles$6.loadingSpinnerSectionContainer }, { children: jsx("div", { className: "loading-spinner-section" }) }))); };
-    var _renderSpinnerPage = function () { return (jsx(View, __assign({ style: styles$6.loadingSpinnerPageContainer }, { children: jsxs(View, __assign({ style: styles$6.loadingSpinnerPageContent }, { children: [jsx("div", { className: "loading-spinner-pages" }), loadingIcon ? (jsx("img", { style: styles$6.loadingIcon, src: loadingIcon, alt: '' })) : null] })) }))); };
+    var _renderSpinnerSection = function () { return (jsx(View, __assign({ style: styles$7.loadingSpinnerSectionContainer }, { children: jsx("div", { className: "loading-spinner-section" }) }))); };
+    var _renderSpinnerPage = function () { return (jsx(View, __assign({ style: styles$7.loadingSpinnerPageContainer }, { children: jsxs(View, __assign({ style: styles$7.loadingSpinnerPageContent }, { children: [jsx("div", { className: "loading-spinner-pages" }), loadingIcon ? (jsx("img", { style: styles$7.loadingIcon, src: loadingIcon, alt: '' })) : null] })) }))); };
     return (jsx(Fragment, { children: loadingType === 'page'
             ? _renderSpinnerPage()
             : loadingType === 'section'
@@ -233,10 +233,10 @@ var Button = function (_a) {
                         ? 'transparent'
                         : backgroundColor
                             ? backgroundColor
-                            : Colors.black, border: outlineColor ? '1px solid rgba(0, 0, 0, 1)' : 'none', borderRadius: borderRadius, color: outlineColor ? outlineColor : Colors.white, fontSize: size, fontWeight: bold && 'bold', marginBottom: bottom, marginLeft: left, marginRight: right, marginTop: top, outline: !outlineColor && 'none', padding: padding, textAlign: center ? 'center' : 'left' }, style), styles$7.content), disabled: isLoading || disabled, onClick: onPress, type: 'submit' }, props, { children: [!isLoading ? label : null, isLoading && jsx(LoadingSpinner, { loadingType: false })] })) }));
+                            : Colors.black, border: outlineColor ? '1px solid rgba(0, 0, 0, 1)' : 'none', borderRadius: borderRadius, color: outlineColor ? outlineColor : Colors.white, fontSize: size, fontWeight: bold && 'bold', marginBottom: bottom, marginLeft: left, marginRight: right, marginTop: top, outline: !outlineColor && 'none', padding: padding, textAlign: center ? 'center' : 'left' }, style), styles$8.content), disabled: isLoading || disabled, onClick: onPress, type: 'submit' }, props, { children: [!isLoading ? label : null, isLoading && jsx(LoadingSpinner, { loadingType: false })] })) }));
 };
 
-var styles$5 = {
+var styles$6 = {
     container: {
         flex: 1,
         minHeight: '100vh',
@@ -251,7 +251,7 @@ var styles$5 = {
 
 var Container = function (_a) {
     var children = _a.children, containerStyle = _a.containerStyle, contentStyle = _a.contentStyle;
-    return (jsx(View, __assign({ style: __assign(__assign({}, styles$5.container), { containerStyle: containerStyle }) }, { children: jsx(View, __assign({ style: __assign(__assign({}, styles$5.content), { contentStyle: contentStyle }) }, { children: children })) })));
+    return (jsx(View, __assign({ style: __assign(__assign({}, styles$6.container), { containerStyle: containerStyle }) }, { children: jsx(View, __assign({ style: __assign(__assign({}, styles$6.content), { contentStyle: contentStyle }) }, { children: children })) })));
 };
 
 var Text = function (_a) {
@@ -259,7 +259,7 @@ var Text = function (_a) {
     return (jsx(Fragment, { children: jsx("p", __assign({ style: __assign({ marginTop: top, marginRight: right, marginBottom: bottom, marginLeft: left, color: color, fontSize: size, lineHeight: lineHeight, textAlign: center ? 'center' : 'left' }, style) }, props, { children: children })) }));
 };
 
-var styles$4 = {
+var styles$5 = {
     cardWrapper: {
         flexDirection: 'row',
         width: '100%',
@@ -336,9 +336,9 @@ var Countdown = function (_a) {
     }, [(_b = weddingDate === null || weddingDate === void 0 ? void 0 : weddingDate.reception) === null || _b === void 0 ? void 0 : _b.start]);
     var renderCardBox = function (_a, idx) {
         var label = _a.label, value = _a.value;
-        return (jsxs(View, __assign({ style: __assign(__assign({}, styles$4.cardBox), { cardStyle: cardStyle, marginRight: idx === data.length - 1 ? 0 : 8 }) }, { children: [jsx(Text, { style: __assign(__assign({}, styles$4.cardTitle), { fontStyle: fontStyle }), children: value ? (value < 0 ? '00' : value) : '' }), jsx(Text, { children: label, style: __assign(__assign({}, styles$4.cardDescription), { fontStyle: fontStyle }) })] }), idx));
+        return (jsxs(View, __assign({ style: __assign(__assign({}, styles$5.cardBox), { cardStyle: cardStyle, marginRight: idx === data.length - 1 ? 0 : 8 }) }, { children: [jsx(Text, { style: __assign(__assign({}, styles$5.cardTitle), { fontStyle: fontStyle }), children: value ? (value < 0 ? '00' : value) : '' }), jsx(Text, { children: label, style: __assign(__assign({}, styles$5.cardDescription), { fontStyle: fontStyle }) })] }), idx));
     };
-    var render = function () { return (jsx(View, __assign({ style: __assign(__assign({}, styles$4.cardWrapper), { containerStyle: containerStyle }) }, { children: data === null || data === void 0 ? void 0 : data.map(function (val, idx) { return renderCardBox(val, idx); }) }))); };
+    var render = function () { return (jsx(View, __assign({ style: __assign(__assign({}, styles$5.cardWrapper), { containerStyle: containerStyle }) }, { children: data === null || data === void 0 ? void 0 : data.map(function (val, idx) { return renderCardBox(val, idx); }) }))); };
     return render();
 };
 
@@ -361,6 +361,19 @@ var Images = function (_a) {
             currentTarget.src =
                 'https://raw.githubusercontent.com/rahmatsaputra-my-id/global-assets/refs/heads/master/personal-web/image-not-available.png';
         } }, props)));
+};
+
+var styles$4 = {
+    container: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingTop: 16,
+    },
+};
+
+var NoRecord = function (_a) {
+    _a.children; var _b = _a.style, style = _b === void 0 ? {} : _b, props = __rest(_a, ["children", "style"]);
+    return (jsx(View, __assign({ style: __assign(__assign({}, styles$4.container), style) }, props, { children: jsx(Text, { children: 'No Record Found' }) })));
 };
 
 var styles$3 = {
@@ -535,5 +548,5 @@ var Swipeable = function (_a) {
     return (jsx("div", __assign({ style: style, onTouchStart: handleTouchStart, onTouchEnd: handleTouchEnd }, props, { children: children })));
 };
 
-export { Button, Colors, Container, Countdown as CountDown, DropDown, IMAGE_URL_WEDDING, Icons, Images as Image, LoadingSpinner, PopUp, SearchBox, Swipeable, Text, TextInput, TouchableOpacity, View };
+export { Button, Colors, Container, Countdown as CountDown, DropDown, IMAGE_URL_WEDDING, Icons, Images as Image, LoadingSpinner, NoRecord, PopUp, SearchBox, Swipeable, Text, TextInput, TouchableOpacity, View };
 //# sourceMappingURL=index.es.js.map
