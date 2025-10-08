@@ -39,11 +39,19 @@ export declare const styles: {
         color: "#B0B0B0" | undefined;
         fontSize: number;
     };
+    normal_12_red: {
+        color: "#D45757" | undefined;
+        fontSize: number;
+    };
     bold_12: {
         fontSize: number;
         fontWeight: string;
     };
     normal_14: {
+        fontSize: number;
+    };
+    normal_14_red: {
+        color: "#D45757" | undefined;
         fontSize: number;
     };
     bold_14: {

@@ -41,11 +41,19 @@ export const styles = {
     color: Colors.grey5,
     fontSize: 12,
   },
+  normal_12_red: {
+    color: Colors.red,
+    fontSize: 12,
+  },
   bold_12: {
     fontSize: 12,
     fontWeight: 'bold',
   },
   normal_14: {
+    fontSize: 14,
+  },
+  normal_14_red: {
+    color: Colors.red,
     fontSize: 14,
   },
   bold_14: {
