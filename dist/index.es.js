@@ -348,7 +348,7 @@ var styles$6 = {
 
 var Text = function (_a) {
     var _b = _a.bottom, bottom = _b === void 0 ? 0 : _b, _c = _a.center, center = _c === void 0 ? false : _c, children = _a.children, _d = _a.color, color = _d === void 0 ? Colors.black : _d, _e = _a.left, left = _e === void 0 ? 0 : _e, _f = _a.right, right = _f === void 0 ? 0 : _f, _g = _a.style, style = _g === void 0 ? {} : _g, _h = _a.top, top = _h === void 0 ? 0 : _h, _j = _a.type, type = _j === void 0 ? 'normal_16' : _j, props = __rest(_a, ["bottom", "center", "children", "color", "left", "right", "style", "top", "type"]);
-    return (jsx(Fragment, { children: jsx("p", __assign({ style: __assign(__assign({ marginTop: top, marginRight: right, marginBottom: bottom, marginLeft: left, color: color, textAlign: center ? 'center' : 'left' }, style), styles$6[type]) }, props, { children: children })) }));
+    return (jsx(Fragment, { children: jsx("p", __assign({ style: __assign(__assign({ marginTop: top, marginRight: right, marginBottom: bottom, marginLeft: left, color: color, textAlign: center ? 'center' : 'left' }, styles$6[type]), style) }, props, { children: children })) }));
 };
 
 var styles$5 = {

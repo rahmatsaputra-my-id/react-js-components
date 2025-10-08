@@ -23,8 +23,8 @@ const Text = ({
         marginLeft: left,
         color,
         textAlign: center ? 'center' : 'left',
-        ...style,
         ...styles[type],
+        ...style,
       }}
       {...props}>
       {children}
