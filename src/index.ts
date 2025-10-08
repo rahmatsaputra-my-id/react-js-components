@@ -6,6 +6,7 @@ export * from './components/Image';
 export * from './components/LoadingSpinner';
 export * from './components/NoRecord';
 export * from './components/PopUp';
+export * from './components/PreviewPhoto';
 export * from './components/SearchBox';
 export * from './components/Swipeable';
 export * from './components/Text';

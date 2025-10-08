@@ -1,5 +1,6 @@
 import { jsx, Fragment, jsxs } from 'react/jsx-runtime';
 import { useState, useEffect } from 'react';
+import ReactDOM from 'react-dom';
 
 /******************************************************************************
 Copyright (c) Microsoft Corporation.
@@ -133,7 +134,7 @@ var Colors = {
     },
 };
 
-var styles$9 = {
+var styles$a = {
     content: {
         display: 'flex',
         justifyContent: 'center',
@@ -149,7 +150,7 @@ var View = function (_a) {
 };
 
 var isMobileDisplay = window.innerWidth <= 768;
-var styles$8 = {
+var styles$9 = {
     content: {
         display: 'flex',
         justifyContent: 'center',
@@ -216,8 +217,8 @@ styleInject(css_248z);
 var LoadingSpinner = function (_a) {
     var _b = _a.loadingType, loadingType = _b === void 0 ? false : _b, _c = _a.loadingIcon, loadingIcon = _c === void 0 ? '' : _c;
     var _renderSpinnerComponent = function () { return jsx("div", { className: "loading-spinner" }); };
-    var _renderSpinnerSection = function () { return (jsx(View, __assign({ style: styles$8.loadingSpinnerSectionContainer }, { children: jsx("div", { className: "loading-spinner-section" }) }))); };
-    var _renderSpinnerPage = function () { return (jsx(View, __assign({ style: styles$8.loadingSpinnerPageContainer }, { children: jsxs(View, __assign({ style: styles$8.loadingSpinnerPageContent }, { children: [jsx("div", { className: "loading-spinner-pages" }), loadingIcon ? (jsx("img", { style: styles$8.loadingIcon, src: loadingIcon, alt: '' })) : null] })) }))); };
+    var _renderSpinnerSection = function () { return (jsx(View, __assign({ style: styles$9.loadingSpinnerSectionContainer }, { children: jsx("div", { className: "loading-spinner-section" }) }))); };
+    var _renderSpinnerPage = function () { return (jsx(View, __assign({ style: styles$9.loadingSpinnerPageContainer }, { children: jsxs(View, __assign({ style: styles$9.loadingSpinnerPageContent }, { children: [jsx("div", { className: "loading-spinner-pages" }), loadingIcon ? (jsx("img", { style: styles$9.loadingIcon, src: loadingIcon, alt: '' })) : null] })) }))); };
     return (jsx(Fragment, { children: loadingType === 'page'
             ? _renderSpinnerPage()
             : loadingType === 'section'
@@ -233,10 +234,10 @@ var Button = function (_a) {
                         ? 'transparent'
                         : backgroundColor
                             ? backgroundColor
-                            : Colors.black, border: outlineColor ? '1px solid rgba(0, 0, 0, 1)' : 'none', borderRadius: borderRadius, color: outlineColor ? outlineColor : Colors.white, fontSize: size, fontWeight: bold && 'bold', marginBottom: bottom, marginLeft: left, marginRight: right, marginTop: top, outline: !outlineColor && 'none', padding: padding, textAlign: center ? 'center' : 'left' }, style), styles$9.content), disabled: isLoading || disabled, onClick: onPress, type: 'submit' }, props, { children: [!isLoading ? label : null, isLoading && jsx(LoadingSpinner, { loadingType: false })] })) }));
+                            : Colors.black, border: outlineColor ? '1px solid rgba(0, 0, 0, 1)' : 'none', borderRadius: borderRadius, color: outlineColor ? outlineColor : Colors.white, fontSize: size, fontWeight: bold && 'bold', marginBottom: bottom, marginLeft: left, marginRight: right, marginTop: top, outline: !outlineColor && 'none', padding: padding, textAlign: center ? 'center' : 'left' }, style), styles$a.content), disabled: isLoading || disabled, onClick: onPress, type: 'submit' }, props, { children: [!isLoading ? label : null, isLoading && jsx(LoadingSpinner, { loadingType: false })] })) }));
 };
 
-var styles$7 = {
+var styles$8 = {
     container: {
         flex: 1,
         minHeight: '100vh',
@@ -251,10 +252,10 @@ var styles$7 = {
 
 var Container = function (_a) {
     var children = _a.children, containerStyle = _a.containerStyle, contentStyle = _a.contentStyle;
-    return (jsx(View, __assign({ style: __assign(__assign({}, styles$7.container), { containerStyle: containerStyle }) }, { children: jsx(View, __assign({ style: __assign(__assign({}, styles$7.content), { contentStyle: contentStyle }) }, { children: children })) })));
+    return (jsx(View, __assign({ style: __assign(__assign({}, styles$8.container), { containerStyle: containerStyle }) }, { children: jsx(View, __assign({ style: __assign(__assign({}, styles$8.content), { contentStyle: contentStyle }) }, { children: children })) })));
 };
 
-var styles$6 = {
+var styles$7 = {
     h1: {
         fontSize: 32,
     },
@@ -348,10 +349,10 @@ var styles$6 = {
 
 var Text = function (_a) {
     var _b = _a.bottom, bottom = _b === void 0 ? 0 : _b, _c = _a.center, center = _c === void 0 ? false : _c, children = _a.children, _d = _a.color, color = _d === void 0 ? Colors.black : _d, _e = _a.left, left = _e === void 0 ? 0 : _e, _f = _a.right, right = _f === void 0 ? 0 : _f, _g = _a.style, style = _g === void 0 ? {} : _g, _h = _a.top, top = _h === void 0 ? 0 : _h, _j = _a.type, type = _j === void 0 ? 'normal_16' : _j, props = __rest(_a, ["bottom", "center", "children", "color", "left", "right", "style", "top", "type"]);
-    return (jsx(Fragment, { children: jsx("p", __assign({ style: __assign(__assign({ marginTop: top, marginRight: right, marginBottom: bottom, marginLeft: left, color: color, textAlign: center ? 'center' : 'left' }, styles$6[type]), style) }, props, { children: children })) }));
+    return (jsx(Fragment, { children: jsx("p", __assign({ style: __assign(__assign({ marginTop: top, marginRight: right, marginBottom: bottom, marginLeft: left, color: color, textAlign: center ? 'center' : 'left' }, styles$7[type]), style) }, props, { children: children })) }));
 };
 
-var styles$5 = {
+var styles$6 = {
     cardWrapper: {
         flexDirection: 'row',
         width: '100%',
@@ -428,9 +429,9 @@ var Countdown = function (_a) {
     }, [(_b = weddingDate === null || weddingDate === void 0 ? void 0 : weddingDate.reception) === null || _b === void 0 ? void 0 : _b.start]);
     var renderCardBox = function (_a, idx) {
         var label = _a.label, value = _a.value;
-        return (jsxs(View, __assign({ style: __assign(__assign({}, styles$5.cardBox), { cardStyle: cardStyle, marginRight: idx === data.length - 1 ? 0 : 8 }) }, { children: [jsx(Text, { style: __assign(__assign({}, styles$5.cardTitle), { fontStyle: fontStyle }), children: value ? (value < 0 ? '00' : value) : '' }), jsx(Text, { children: label, style: __assign(__assign({}, styles$5.cardDescription), { fontStyle: fontStyle }) })] }), idx));
+        return (jsxs(View, __assign({ style: __assign(__assign({}, styles$6.cardBox), { cardStyle: cardStyle, marginRight: idx === data.length - 1 ? 0 : 8 }) }, { children: [jsx(Text, { style: __assign(__assign({}, styles$6.cardTitle), { fontStyle: fontStyle }), children: value ? (value < 0 ? '00' : value) : '' }), jsx(Text, { children: label, style: __assign(__assign({}, styles$6.cardDescription), { fontStyle: fontStyle }) })] }), idx));
     };
-    var render = function () { return (jsx(View, __assign({ style: __assign(__assign({}, styles$5.cardWrapper), { containerStyle: containerStyle }) }, { children: data === null || data === void 0 ? void 0 : data.map(function (val, idx) { return renderCardBox(val, idx); }) }))); };
+    var render = function () { return (jsx(View, __assign({ style: __assign(__assign({}, styles$6.cardWrapper), { containerStyle: containerStyle }) }, { children: data === null || data === void 0 ? void 0 : data.map(function (val, idx) { return renderCardBox(val, idx); }) }))); };
     return render();
 };
 
@@ -455,7 +456,7 @@ var Images = function (_a) {
         } }, props)));
 };
 
-var styles$4 = {
+var styles$5 = {
     container: {
         justifyContent: 'center',
         alignItems: 'center',
@@ -465,10 +466,10 @@ var styles$4 = {
 
 var NoRecord = function (_a) {
     _a.children; var _b = _a.style, style = _b === void 0 ? {} : _b, props = __rest(_a, ["children", "style"]);
-    return (jsx(View, __assign({ style: __assign(__assign({}, styles$4.container), style) }, props, { children: jsx(Text, { children: 'No Record Found' }) })));
+    return (jsx(View, __assign({ style: __assign(__assign({}, styles$5.container), style) }, props, { children: jsx(Text, { children: 'No Record Found' }) })));
 };
 
-var styles$3 = {
+var styles$4 = {
     container: {
         position: 'fixed',
         left: 0,
@@ -513,7 +514,60 @@ var PopUp = function (_a) {
     var _b = _a.backgroundButtonColor, backgroundButtonColor = _b === void 0 ? Colors.black : _b, _c = _a.isLoading, isLoading = _c === void 0 ? false : _c, popUpData = _a.popUpData, _d = _a.visible, visible = _d === void 0 ? false : _d, _e = _a.styleContainer, styleContainer = _e === void 0 ? {} : _e;
     if (!visible)
         return null;
-    return (jsx(View, __assign({ style: __assign(__assign({}, styles$3.container), styleContainer) }, { children: jsxs(View, __assign({ style: styles$3.card }, { children: [jsxs(View, { children: [jsx(Text, __assign({ style: styles$3.headerTitle }, { children: popUpData === null || popUpData === void 0 ? void 0 : popUpData.title })), (popUpData === null || popUpData === void 0 ? void 0 : popUpData.description) && (jsx(Text, __assign({ style: styles$3.headerDescription }, { children: popUpData.description })))] }), jsxs(View, { children: [(popUpData === null || popUpData === void 0 ? void 0 : popUpData.labelDecline) && (popUpData === null || popUpData === void 0 ? void 0 : popUpData.onPressDecline) && (jsx(Button, { style: styles$3.buttonNegative, backgroundColor: backgroundButtonColor, outlineColor: Colors.black, isLoading: isLoading, label: popUpData.labelDecline, onPress: popUpData.onPressDecline })), jsx(Button, { style: styles$3.buttonPositive, backgroundColor: backgroundButtonColor, isLoading: isLoading, label: popUpData === null || popUpData === void 0 ? void 0 : popUpData.labelAccept, onPress: popUpData === null || popUpData === void 0 ? void 0 : popUpData.onPressAccept })] })] })) })));
+    return (jsx(View, __assign({ style: __assign(__assign({}, styles$4.container), styleContainer) }, { children: jsxs(View, __assign({ style: styles$4.card }, { children: [jsxs(View, { children: [jsx(Text, __assign({ style: styles$4.headerTitle }, { children: popUpData === null || popUpData === void 0 ? void 0 : popUpData.title })), (popUpData === null || popUpData === void 0 ? void 0 : popUpData.description) && (jsx(Text, __assign({ style: styles$4.headerDescription }, { children: popUpData.description })))] }), jsxs(View, { children: [(popUpData === null || popUpData === void 0 ? void 0 : popUpData.labelDecline) && (popUpData === null || popUpData === void 0 ? void 0 : popUpData.onPressDecline) && (jsx(Button, { style: styles$4.buttonNegative, backgroundColor: backgroundButtonColor, outlineColor: Colors.black, isLoading: isLoading, label: popUpData.labelDecline, onPress: popUpData.onPressDecline })), jsx(Button, { style: styles$4.buttonPositive, backgroundColor: backgroundButtonColor, isLoading: isLoading, label: popUpData === null || popUpData === void 0 ? void 0 : popUpData.labelAccept, onPress: popUpData === null || popUpData === void 0 ? void 0 : popUpData.onPressAccept })] })] })) })));
+};
+
+var styles$3 = {
+    backdrop: {
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100vw',
+        height: '100vh',
+        backgroundColor: 'rgba(0,0,0,0.85)',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        zIndex: 9999,
+    },
+    modalContent: {
+        width: '90%',
+        height: '70%',
+        backgroundColor: '#000',
+        borderRadius: 8,
+        overflow: 'hidden',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    image: {
+        maxWidth: '100%',
+        maxHeight: '100%',
+        objectFit: 'contain',
+    },
+    noImageContainer: {
+        color: '#fff', textAlign: 'center'
+    }
+};
+
+var PhotoPreviewModal = function (_a) {
+    var visible = _a.visible, onDismiss = _a.onDismiss, imageUrl = _a.imageUrl;
+    useEffect(function () {
+        var handleKeyDown = function (e) {
+            if (e.key === 'Escape') {
+                onDismiss();
+            }
+        };
+        if (visible) {
+            document.addEventListener('keydown', handleKeyDown);
+        }
+        return function () {
+            document.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [visible, onDismiss]);
+    if (!visible)
+        return null;
+    return ReactDOM.createPortal(jsx("div", __assign({ onClick: onDismiss, style: styles$3.backdrop }, { children: jsx("div", __assign({ onClick: function (e) { return e.stopPropagation(); }, style: styles$3.modalContent }, { children: imageUrl ? (jsx("img", { src: imageUrl, alt: 'Preview', style: styles$3.image })) : (jsx("p", __assign({ style: styles$3.noImageContainer }, { children: "No image provided" }))) })) })), document.body);
 };
 
 var IMAGE_URL_WEDDING = 'https://raw.githubusercontent.com/rahmatsaputra-my-id/global-assets/master/my-wedding';
@@ -640,5 +694,5 @@ var Swipeable = function (_a) {
     return (jsx("div", __assign({ style: style, onTouchStart: handleTouchStart, onTouchEnd: handleTouchEnd }, props, { children: children })));
 };
 
-export { Button, Colors, Container, Countdown as CountDown, DropDown, IMAGE_URL_WEDDING, Icons, Images as Image, LoadingSpinner, NoRecord, PopUp, SearchBox, Swipeable, Text, TextInput, TouchableOpacity, View };
+export { Button, Colors, Container, Countdown as CountDown, DropDown, IMAGE_URL_WEDDING, Icons, Images as Image, LoadingSpinner, NoRecord, PopUp, PhotoPreviewModal as PreviewPhoto, SearchBox, Swipeable, Text, TextInput, TouchableOpacity, View };
 //# sourceMappingURL=index.es.js.map
