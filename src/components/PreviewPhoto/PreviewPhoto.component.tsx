@@ -2,6 +2,8 @@ import {useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import {styles} from './PreviewPhoto.styles';
 import {IPreviewPhotoProps} from './PreviewPhoto.types';
+import {Image} from '../Image';
+import {Text} from '../Text';
 
 const PhotoPreviewModal = ({
   visible,
@@ -27,10 +29,20 @@ const PhotoPreviewModal = ({
   return ReactDOM.createPortal(
     <div onClick={onDismiss} style={styles.backdrop}>
       <div onClick={e => e.stopPropagation()} style={styles.modalContent}>
+        <button
+          onClick={onDismiss}
+          style={styles.closeButton}
+          aria-label="Close Preview">
+          ✖
+        </button>
+
         {imageUrl ? (
-          <img src={imageUrl} alt={'Preview'} style={styles.image} />
+          <Image src={imageUrl} style={styles.image} />
         ) : (
-          <p style={styles.noImageContainer}>No image provided</p>
+          <Text
+            style={styles.noImageContainer}
+            children={'No image provided'}
+          />
         )}
       </div>
     </div>,
