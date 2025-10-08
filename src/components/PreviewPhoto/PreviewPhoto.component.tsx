@@ -2,8 +2,6 @@ import {useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import {styles} from './PreviewPhoto.styles';
 import {IPreviewPhotoProps} from './PreviewPhoto.types';
-import {Image} from '../Image';
-import {Text} from '../Text';
 
 const PhotoPreviewModal = ({
   visible,
@@ -30,12 +28,9 @@ const PhotoPreviewModal = ({
     <div onClick={onDismiss} style={styles.backdrop}>
       <div onClick={e => e.stopPropagation()} style={styles.modalContent}>
         {imageUrl ? (
-          <Image src={imageUrl} style={styles.image} />
+          <img src={imageUrl} alt={'Preview'} style={styles.image} />
         ) : (
-          <Text
-            style={styles.noImageContainer}
-            children={'No image provided'}
-          />
+          <p style={styles.noImageContainer}>No image provided</p>
         )}
       </div>
     </div>,

@@ -576,7 +576,7 @@ var PhotoPreviewModal = function (_a) {
     }, [visible, onDismiss]);
     if (!visible)
         return null;
-    return ReactDOM.createPortal(jsx("div", __assign({ onClick: onDismiss, style: styles$3.backdrop }, { children: jsx("div", __assign({ onClick: function (e) { return e.stopPropagation(); }, style: styles$3.modalContent }, { children: imageUrl ? (jsx(Images, { src: imageUrl, style: styles$3.image })) : (jsx(Text, { style: styles$3.noImageContainer, children: 'No image provided' })) })) })), document.body);
+    return ReactDOM.createPortal(jsx("div", __assign({ onClick: onDismiss, style: styles$3.backdrop }, { children: jsx("div", __assign({ onClick: function (e) { return e.stopPropagation(); }, style: styles$3.modalContent }, { children: imageUrl ? (jsx("img", { src: imageUrl, alt: 'Preview', style: styles$3.image })) : (jsx("p", __assign({ style: styles$3.noImageContainer }, { children: "No image provided" }))) })) })), document.body);
 };
 
 var IMAGE_URL_WEDDING = 'https://raw.githubusercontent.com/rahmatsaputra-my-id/global-assets/master/my-wedding';
