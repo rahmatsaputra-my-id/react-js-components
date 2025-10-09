@@ -536,14 +536,17 @@ var CameraModal = function (_a) {
         });
     }); };
     react.useEffect(function () {
-        var checkForRearCamera = function () { return __awaiter(void 0, void 0, void 0, function () {
-            var devices, videoDevices, rearCameraExists, err_2;
+        var detectCameras = function () { return __awaiter(void 0, void 0, void 0, function () {
+            var stream, devices, videoDevices, rearCameraExists, error_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, navigator.mediaDevices.enumerateDevices()];
+                        _a.trys.push([0, 3, , 4]);
+                        return [4 /*yield*/, navigator.mediaDevices.getUserMedia({ video: true })];
                     case 1:
+                        stream = _a.sent();
+                        return [4 /*yield*/, navigator.mediaDevices.enumerateDevices()];
+                    case 2:
                         devices = _a.sent();
                         videoDevices = devices.filter(function (d) { return d.kind === 'videoinput'; });
                         rearCameraExists = videoDevices.some(function (device) {
@@ -552,17 +555,19 @@ var CameraModal = function (_a) {
                                 device.label.toLowerCase().includes('environment');
                         }) || videoDevices.length > 1;
                         setHasRearCamera(rearCameraExists);
-                        return [3 /*break*/, 3];
-                    case 2:
-                        err_2 = _a.sent();
-                        console.warn('Could not check devices', err_2);
+                        // Stop the temporary stream immediately
+                        stream.getTracks().forEach(function (track) { return track.stop(); });
+                        return [3 /*break*/, 4];
+                    case 3:
+                        error_1 = _a.sent();
+                        console.warn('Camera permission denied or error:', error_1);
                         setHasRearCamera(false);
-                        return [3 /*break*/, 3];
-                    case 3: return [2 /*return*/];
+                        return [3 /*break*/, 4];
+                    case 4: return [2 /*return*/];
                 }
             });
         }); };
-        checkForRearCamera();
+        detectCameras();
     }, []);
     react.useEffect(function () {
         openCamera();

@@ -53,15 +53,16 @@ const CameraModal: React.FC<CameraModalProps> = ({onClose, onCapture}) => {
       onClose();
     }
   };
-
   useEffect(() => {
-    const checkForRearCamera = async () => {
+    const detectCameras = async () => {
       try {
+        // Request permission with any camera first
+        const stream = await navigator.mediaDevices.getUserMedia({video: true});
+
+        // Now labels should be populated
         const devices = await navigator.mediaDevices.enumerateDevices();
         const videoDevices = devices.filter(d => d.kind === 'videoinput');
 
-        // Rear camera detection by label keywords
-        // Note: labels might be empty without permission, fallback to device count > 1
         const rearCameraExists =
           videoDevices.some(
             device =>
@@ -71,13 +72,16 @@ const CameraModal: React.FC<CameraModalProps> = ({onClose, onCapture}) => {
           ) || videoDevices.length > 1;
 
         setHasRearCamera(rearCameraExists);
-      } catch (err) {
-        console.warn('Could not check devices', err);
+
+        // Stop the temporary stream immediately
+        stream.getTracks().forEach(track => track.stop());
+      } catch (error) {
+        console.warn('Camera permission denied or error:', error);
         setHasRearCamera(false);
       }
     };
 
-    checkForRearCamera();
+    detectCameras();
   }, []);
 
   useEffect(() => {
