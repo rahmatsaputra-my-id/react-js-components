@@ -488,6 +488,7 @@ var CameraModal = function (_a) {
     var _b = react.useState(null), capturedImage = _b[0], setCapturedImage = _b[1];
     var _c = react.useState(false), isCameraReady = _c[0], setIsCameraReady = _c[1];
     var _d = react.useState(true), isFrontCamera = _d[0], setIsFrontCamera = _d[1];
+    var _e = react.useState(false), hasRearCamera = _e[0], setHasRearCamera = _e[1];
     var stopCamera = function () {
         var video = videoRef.current;
         if (video && video.srcObject) {
@@ -535,13 +536,42 @@ var CameraModal = function (_a) {
         });
     }); };
     react.useEffect(function () {
+        var checkForRearCamera = function () { return __awaiter(void 0, void 0, void 0, function () {
+            var devices, videoDevices, rearCameraExists, err_2;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, navigator.mediaDevices.enumerateDevices()];
+                    case 1:
+                        devices = _a.sent();
+                        videoDevices = devices.filter(function (d) { return d.kind === 'videoinput'; });
+                        rearCameraExists = videoDevices.some(function (device) {
+                            return device.label.toLowerCase().includes('back') ||
+                                device.label.toLowerCase().includes('rear') ||
+                                device.label.toLowerCase().includes('environment');
+                        }) || videoDevices.length > 1;
+                        setHasRearCamera(rearCameraExists);
+                        return [3 /*break*/, 3];
+                    case 2:
+                        err_2 = _a.sent();
+                        console.warn('Could not check devices', err_2);
+                        setHasRearCamera(false);
+                        return [3 /*break*/, 3];
+                    case 3: return [2 /*return*/];
+                }
+            });
+        }); };
+        checkForRearCamera();
+    }, []);
+    react.useEffect(function () {
         openCamera();
         window.addEventListener('beforeunload', stopCamera);
         return function () {
             stopCamera();
             window.removeEventListener('beforeunload', stopCamera);
         };
-    }, []);
+    }, [isFrontCamera]);
     var handleCapture = function () {
         var video = videoRef.current;
         var canvas = canvasRef.current;
@@ -553,10 +583,12 @@ var CameraModal = function (_a) {
         canvas.width = video.videoWidth;
         canvas.height = video.videoHeight;
         if (isFrontCamera) {
+            // Flip canvas horizontally for front camera
             context.translate(canvas.width, 0);
             context.scale(-1, 1);
         }
         context.drawImage(video, 0, 0, canvas.width, canvas.height);
+        // Reset transform after drawing
         if (isFrontCamera) {
             context.setTransform(1, 0, 0, 1, 0, 0);
         }
@@ -585,7 +617,7 @@ var CameraModal = function (_a) {
     var toggleCamera = function () {
         setIsFrontCamera(function (prev) { return !prev; });
     };
-    return ReactDOM__default["default"].createPortal(jsxRuntime.jsxs("div", __assign({ style: cameraStyles.overlay }, { children: [capturedImage ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("img", { src: capturedImage, alt: "Captured", style: cameraStyles.previewImage }), jsxRuntime.jsx(TouchableOpacity, __assign({ onPress: handleUsePhoto, style: cameraStyles.floatingBottomButtons }, { children: jsxRuntime.jsx(View, __assign({ style: cameraStyles.captureButton }, { children: jsxRuntime.jsx(View, __assign({ style: cameraStyles.innerButton }, { children: jsxRuntime.jsx(Images, { src: Icons.send, style: cameraStyles.sendButton }) })) })) }))] })) : (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("video", { ref: videoRef, autoPlay: true, playsInline: true, style: __assign(__assign({}, cameraStyles.video), { transform: isFrontCamera ? 'scaleX(-1)' : 'none' }) }), jsxRuntime.jsx("canvas", { ref: canvasRef, style: { display: 'none' } }), isCameraReady && (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(TouchableOpacity, __assign({ onPress: handleCapture, style: cameraStyles.floatingBottomButtons }, { children: jsxRuntime.jsx(View, __assign({ style: cameraStyles.captureButton }, { children: jsxRuntime.jsx(View, { style: cameraStyles.innerButton }) })) })), jsxRuntime.jsx("button", __assign({ onClick: toggleCamera, style: cameraStyles.switchCamera }, { children: "Switch Camera" }))] }))] })), jsxRuntime.jsx("button", __assign({ onClick: handleOnPressClose, style: cameraStyles.closeButton }, { children: "\u00D7" }))] })), document.body);
+    return ReactDOM__default["default"].createPortal(jsxRuntime.jsxs("div", __assign({ style: cameraStyles.overlay }, { children: [capturedImage ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("img", { src: capturedImage, alt: "Captured", style: cameraStyles.previewImage }), jsxRuntime.jsx(TouchableOpacity, __assign({ onPress: handleUsePhoto, style: cameraStyles.floatingBottomButtons }, { children: jsxRuntime.jsx(View, __assign({ style: cameraStyles.captureButton }, { children: jsxRuntime.jsx(View, __assign({ style: cameraStyles.innerButton }, { children: jsxRuntime.jsx(Images, { src: Icons.send, style: cameraStyles.sendButton }) })) })) }))] })) : (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("video", { ref: videoRef, autoPlay: true, playsInline: true, style: __assign(__assign({}, cameraStyles.video), { transform: isFrontCamera ? 'scaleX(-1)' : 'none' }) }), jsxRuntime.jsx("canvas", { ref: canvasRef, style: { display: 'none' } }), isCameraReady && (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(TouchableOpacity, __assign({ onPress: handleCapture, style: cameraStyles.floatingBottomButtons }, { children: jsxRuntime.jsx(View, __assign({ style: cameraStyles.captureButton }, { children: jsxRuntime.jsx(View, { style: cameraStyles.innerButton }) })) })), hasRearCamera && (jsxRuntime.jsx("button", __assign({ onClick: toggleCamera, style: cameraStyles.switchCamera }, { children: "Switch Camera" })))] }))] })), jsxRuntime.jsx("button", __assign({ onClick: handleOnPressClose, style: cameraStyles.closeButton }, { children: "\u00D7" }))] })), document.body);
 };
 
 var styles$9 = {

@@ -15,6 +15,7 @@ const CameraModal: React.FC<CameraModalProps> = ({onClose, onCapture}) => {
   const [capturedImage, setCapturedImage] = useState<string | null>(null);
   const [isCameraReady, setIsCameraReady] = useState<boolean>(false);
   const [isFrontCamera, setIsFrontCamera] = useState<boolean>(true);
+  const [hasRearCamera, setHasRearCamera] = useState<boolean>(false);
 
   const stopCamera = () => {
     const video = videoRef.current;
@@ -54,13 +55,39 @@ const CameraModal: React.FC<CameraModalProps> = ({onClose, onCapture}) => {
   };
 
   useEffect(() => {
+    const checkForRearCamera = async () => {
+      try {
+        const devices = await navigator.mediaDevices.enumerateDevices();
+        const videoDevices = devices.filter(d => d.kind === 'videoinput');
+
+        // Rear camera detection by label keywords
+        // Note: labels might be empty without permission, fallback to device count > 1
+        const rearCameraExists =
+          videoDevices.some(
+            device =>
+              device.label.toLowerCase().includes('back') ||
+              device.label.toLowerCase().includes('rear') ||
+              device.label.toLowerCase().includes('environment'),
+          ) || videoDevices.length > 1;
+
+        setHasRearCamera(rearCameraExists);
+      } catch (err) {
+        console.warn('Could not check devices', err);
+        setHasRearCamera(false);
+      }
+    };
+
+    checkForRearCamera();
+  }, []);
+
+  useEffect(() => {
     openCamera();
     window.addEventListener('beforeunload', stopCamera);
     return () => {
       stopCamera();
       window.removeEventListener('beforeunload', stopCamera);
     };
-  }, []);
+  }, [isFrontCamera]);
 
   const handleCapture = () => {
     const video = videoRef.current;
@@ -74,12 +101,14 @@ const CameraModal: React.FC<CameraModalProps> = ({onClose, onCapture}) => {
     canvas.height = video.videoHeight;
 
     if (isFrontCamera) {
+      // Flip canvas horizontally for front camera
       context.translate(canvas.width, 0);
       context.scale(-1, 1);
     }
 
     context.drawImage(video, 0, 0, canvas.width, canvas.height);
 
+    // Reset transform after drawing
     if (isFrontCamera) {
       context.setTransform(1, 0, 0, 1, 0, 0);
     }
@@ -154,9 +183,14 @@ const CameraModal: React.FC<CameraModalProps> = ({onClose, onCapture}) => {
                   <View style={cameraStyles.innerButton} />
                 </View>
               </TouchableOpacity>
-              <button onClick={toggleCamera} style={cameraStyles.switchCamera}>
-                Switch Camera
-              </button>
+
+              {hasRearCamera && (
+                <button
+                  onClick={toggleCamera}
+                  style={cameraStyles.switchCamera}>
+                  Switch Camera
+                </button>
+              )}
             </>
           )}
         </>
