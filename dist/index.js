@@ -437,8 +437,8 @@ var cameraStyles = {
     },
     floatingBottomRotateButtons: {
         position: 'absolute',
-        bottom: 60,
-        left: '90%',
+        bottom: 65,
+        left: '85%',
         transform: 'translate(-50%, 0)',
     },
     captureButton: {
@@ -805,7 +805,7 @@ var BottomSheetPhoto = function (_a) {
         function detectPadding() {
             var basePadding = 20;
             if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
-                basePadding = 34; // default safe area for iPhones with notch
+                basePadding = 70; // default safe area for iPhones with notch
             }
             else if (/Android/.test(navigator.userAgent)) {
                 basePadding = 16;

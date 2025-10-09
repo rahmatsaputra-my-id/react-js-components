@@ -61,8 +61,8 @@ export const cameraStyles: StyleMap = {
   },
   floatingBottomRotateButtons: {
     position: 'absolute',
-    bottom: 60,
-    left: '90%',
+    bottom: 65,
+    left: '85%',
     transform: 'translate(-50%, 0)',
   },
   captureButton: {
