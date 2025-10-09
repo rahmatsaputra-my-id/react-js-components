@@ -723,7 +723,7 @@ var Text = function (_a) {
     return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("p", __assign({ style: __assign(__assign({ marginTop: top, marginRight: right, marginBottom: bottom, marginLeft: left, color: color, textAlign: center ? 'center' : 'left' }, styles$8[type]), style) }, props, { children: children })) }));
 };
 
-var BottomSheetDocument = function (_a) {
+var BottomSheetPhoto = function (_a) {
     var visible = _a.visible, onClose = _a.onClose, _b = _a.title, title = _b === void 0 ? '' : _b, onUploadBase64 = _a.onUploadBase64;
     var fileInputRef = react.useRef(null);
     var _c = react.useState(false), cameraVisible = _c[0], setCameraVisible = _c[1];
@@ -1163,7 +1163,7 @@ var Swipeable = function (_a) {
 };
 
 exports.BottomSheet = BottomSheet;
-exports.BottomSheetPhoto = BottomSheetDocument;
+exports.BottomSheetPhoto = BottomSheetPhoto;
 exports.Button = Button;
 exports.Colors = Colors;
 exports.Container = Container;

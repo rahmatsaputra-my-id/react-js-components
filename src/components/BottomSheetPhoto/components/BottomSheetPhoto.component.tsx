@@ -6,7 +6,7 @@ import {styles} from '../styles/BottomSheetPhoto.component.style';
 import {TouchableOpacity} from '../../TouchableOpacity';
 import {Text} from '../../Text';
 
-const BottomSheetDocument: React.FC<BottomSheetPhotoProps> = ({
+const BottomSheetPhoto: React.FC<BottomSheetPhotoProps> = ({
   visible,
   onClose,
   title = '',
@@ -108,4 +108,4 @@ const BottomSheetDocument: React.FC<BottomSheetPhotoProps> = ({
   );
 };
 
-export default BottomSheetDocument;
+export default BottomSheetPhoto;

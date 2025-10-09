@@ -715,7 +715,7 @@ var Text = function (_a) {
     return (jsx(Fragment, { children: jsx("p", __assign({ style: __assign(__assign({ marginTop: top, marginRight: right, marginBottom: bottom, marginLeft: left, color: color, textAlign: center ? 'center' : 'left' }, styles$8[type]), style) }, props, { children: children })) }));
 };
 
-var BottomSheetDocument = function (_a) {
+var BottomSheetPhoto = function (_a) {
     var visible = _a.visible, onClose = _a.onClose, _b = _a.title, title = _b === void 0 ? '' : _b, onUploadBase64 = _a.onUploadBase64;
     var fileInputRef = useRef(null);
     var _c = useState(false), cameraVisible = _c[0], setCameraVisible = _c[1];
@@ -1154,5 +1154,5 @@ var Swipeable = function (_a) {
     return (jsx("div", __assign({ style: style, onTouchStart: handleTouchStart, onTouchEnd: handleTouchEnd }, props, { children: children })));
 };
 
-export { BottomSheet, BottomSheetDocument as BottomSheetPhoto, Button, Colors, Container, Countdown as CountDown, DropDown, Icons, Images as Image, ImageInput, LoadingSpinner, NoRecord, PopUp, PhotoPreviewModal as PreviewPhoto, SearchBox, Swipeable, Text, TextInput, TouchableOpacity, View };
+export { BottomSheet, BottomSheetPhoto, Button, Colors, Container, Countdown as CountDown, DropDown, Icons, Images as Image, ImageInput, LoadingSpinner, NoRecord, PopUp, PhotoPreviewModal as PreviewPhoto, SearchBox, Swipeable, Text, TextInput, TouchableOpacity, View };
 //# sourceMappingURL=index.es.js.map
