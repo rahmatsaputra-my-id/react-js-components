@@ -17,28 +17,32 @@ const BottomSheetPhoto: React.FC<BottomSheetPhotoProps> = ({
   const [paddingBottom, setPaddingBottom] = useState(20);
 
   useEffect(() => {
-    function detectBrowserAndSetPadding() {
-      const userAgent = navigator.userAgent;
+    function detectPadding() {
+      let basePadding = 20;
 
-      if (/iPhone|iPad|iPod/.test(userAgent)) {
-        // iOS devices: consider safe-area-inset-bottom
-        // You can get the env value via CSS, but from JS you might guess or set a default
-        setPaddingBottom(34); // common home indicator height on iPhones with notch
-      } else if (/Android/.test(userAgent)) {
-        // Android might need a different padding, or none
-        setPaddingBottom(16);
-      } else {
-        // Desktop or other browsers
-        setPaddingBottom(20);
+      if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+        basePadding = 34; // default safe area for iPhones with notch
+      } else if (/Android/.test(navigator.userAgent)) {
+        basePadding = 16;
       }
+
+      // Then override with measured safe area inset if available
+      const div = document.createElement('div');
+      div.style.position = 'absolute';
+      div.style.bottom = '0';
+      div.style.height = 'env(safe-area-inset-bottom)';
+      div.style.visibility = 'hidden';
+      document.body.appendChild(div);
+      const computedHeight = window.getComputedStyle(div).height;
+      const insetBottom = parseInt(computedHeight, 10);
+      document.body.removeChild(div);
+
+      setPaddingBottom(Math.max(basePadding, insetBottom || 0));
     }
 
-    detectBrowserAndSetPadding();
-
-    // optionally listen to resize and recalc
-    window.addEventListener('resize', detectBrowserAndSetPadding);
-    return () =>
-      window.removeEventListener('resize', detectBrowserAndSetPadding);
+    detectPadding();
+    window.addEventListener('resize', detectPadding);
+    return () => window.removeEventListener('resize', detectPadding);
   }, []);
 
   useEffect(() => {

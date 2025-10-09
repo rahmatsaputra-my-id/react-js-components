@@ -23,7 +23,7 @@ export const styles: StyleMap = {
     padding: 16,
     boxShadow: `0 -2px 10px ${Colors.blackTransparent15}`,
     animation: 'slideUp 0.3s ease-out',
-    paddingBottom: 'env(safe-area-inset-bottom, 20px)',
+    paddingBottom: `calc(20px + env(safe-area-inset-bottom, 0px))`,
   },
   header: {
     display: 'flex',

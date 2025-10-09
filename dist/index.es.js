@@ -652,7 +652,7 @@ var styles$9 = {
         padding: 16,
         boxShadow: "0 -2px 10px ".concat(Colors.blackTransparent15),
         animation: 'slideUp 0.3s ease-out',
-        paddingBottom: 'env(safe-area-inset-bottom, 20px)',
+        paddingBottom: "calc(20px + env(safe-area-inset-bottom, 0px))",
     },
     header: {
         display: 'flex',
@@ -794,28 +794,29 @@ var BottomSheetPhoto = function (_a) {
     var _c = useState(false), cameraVisible = _c[0], setCameraVisible = _c[1];
     var _d = useState(20), paddingBottom = _d[0], setPaddingBottom = _d[1];
     useEffect(function () {
-        function detectBrowserAndSetPadding() {
-            var userAgent = navigator.userAgent;
-            if (/iPhone|iPad|iPod/.test(userAgent)) {
-                // iOS devices: consider safe-area-inset-bottom
-                // You can get the env value via CSS, but from JS you might guess or set a default
-                setPaddingBottom(34); // common home indicator height on iPhones with notch
+        function detectPadding() {
+            var basePadding = 20;
+            if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+                basePadding = 34; // default safe area for iPhones with notch
             }
-            else if (/Android/.test(userAgent)) {
-                // Android might need a different padding, or none
-                setPaddingBottom(16);
+            else if (/Android/.test(navigator.userAgent)) {
+                basePadding = 16;
             }
-            else {
-                // Desktop or other browsers
-                setPaddingBottom(20);
-            }
+            // Then override with measured safe area inset if available
+            var div = document.createElement('div');
+            div.style.position = 'absolute';
+            div.style.bottom = '0';
+            div.style.height = 'env(safe-area-inset-bottom)';
+            div.style.visibility = 'hidden';
+            document.body.appendChild(div);
+            var computedHeight = window.getComputedStyle(div).height;
+            var insetBottom = parseInt(computedHeight, 10);
+            document.body.removeChild(div);
+            setPaddingBottom(Math.max(basePadding, insetBottom || 0));
         }
-        detectBrowserAndSetPadding();
-        // optionally listen to resize and recalc
-        window.addEventListener('resize', detectBrowserAndSetPadding);
-        return function () {
-            return window.removeEventListener('resize', detectBrowserAndSetPadding);
-        };
+        detectPadding();
+        window.addEventListener('resize', detectPadding);
+        return function () { return window.removeEventListener('resize', detectPadding); };
     }, []);
     useEffect(function () {
         var handleEsc = function (e) {
