@@ -8,7 +8,7 @@ export interface IImageProps {
   left?: number;
   resizeMode?: string;
   right?: number;
-  src: string;
+  src?: string;
   style?: any;
   textAlign?: string;
   top?: number;

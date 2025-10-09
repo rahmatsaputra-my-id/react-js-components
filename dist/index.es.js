@@ -580,8 +580,12 @@ var PhotoPreviewModal = function (_a) {
 };
 
 var IMAGE_URL_WEDDING = 'https://raw.githubusercontent.com/rahmatsaputra-my-id/global-assets/master/my-wedding';
+var IMAGE_URL = 'https://raw.githubusercontent.com/rahmatsaputra-my-id/global-assets/master/image';
 var Icons = {
-    close: "".concat(IMAGE_URL_WEDDING, "/icon-close.png")
+    close: "".concat(IMAGE_URL_WEDDING, "/icon-close.png"),
+    camera: "".concat(IMAGE_URL, "/icon-camera.png"),
+    edit: "".concat(IMAGE_URL, "/icon-edit.png"),
+    send: "".concat(IMAGE_URL, "/icon-send.png"),
 };
 
 var styles$2 = {
@@ -665,19 +669,22 @@ var styles = {
 
 var SearchBox = function (_a) {
     var handleOnSubmitSearch = _a.handleOnSubmitSearch, handleOnClearSearch = _a.handleOnClearSearch, _b = _a.placeholder, placeholder = _b === void 0 ? 'Type to search ...' : _b, value = _a.value, onChange = _a.onChange, props = __rest(_a, ["handleOnSubmitSearch", "handleOnClearSearch", "placeholder", "value", "onChange"]);
-    var renderScreen = function () { return (jsxs(View, __assign({ style: styles.searchContainer }, { children: [jsx(Text, __assign({ style: styles.iconSearch }, { children: "\uD83D\uDD0D" })), jsx(TextInput, __assign({ style: styles.textInputContainer, styleTextInput: styles.textInput, placeholder: placeholder, onKeyPress: function (event) {
-                    if (event.key === 'Enter' && handleOnSubmitSearch) {
-                        handleOnSubmitSearch(value);
-                    }
-                }, value: value, onChange: onChange, onBlur: function () {
-                    if (handleOnSubmitSearch) {
-                        handleOnSubmitSearch(value);
-                    }
-                } }, props)), value && (value === null || value === void 0 ? void 0 : value.length) > 0 ? (jsx(TouchableOpacity, __assign({ style: styles.closeSearchButton, onPress: function () {
-                    if (handleOnClearSearch) {
-                        handleOnClearSearch();
-                    }
-                } }, { children: jsx(Images, { style: styles.closeSearchButtonImage, src: Icons.close }) }))) : null] }))); };
+    var renderScreen = function () {
+        var _a;
+        return (jsxs(View, __assign({ style: styles.searchContainer }, { children: [jsx(Text, __assign({ style: styles.iconSearch }, { children: "\uD83D\uDD0D" })), jsx(TextInput, __assign({ style: styles.textInputContainer, styleTextInput: styles.textInput, placeholder: placeholder, onKeyPress: function (event) {
+                        if (event.key === 'Enter' && handleOnSubmitSearch) {
+                            handleOnSubmitSearch(value);
+                        }
+                    }, value: value, onChange: onChange, onBlur: function () {
+                        if (handleOnSubmitSearch) {
+                            handleOnSubmitSearch(value);
+                        }
+                    } }, props)), value && (value === null || value === void 0 ? void 0 : value.length) > 0 ? (jsx(TouchableOpacity, __assign({ style: styles.closeSearchButton, onPress: function () {
+                        if (handleOnClearSearch) {
+                            handleOnClearSearch();
+                        }
+                    } }, { children: jsx(Images, { style: styles.closeSearchButtonImage, src: (_a = Icons.close) !== null && _a !== void 0 ? _a : '' }) }))) : null] })));
+    };
     return renderScreen();
 };
 
@@ -703,5 +710,5 @@ var Swipeable = function (_a) {
     return (jsx("div", __assign({ style: style, onTouchStart: handleTouchStart, onTouchEnd: handleTouchEnd }, props, { children: children })));
 };
 
-export { Button, Colors, Container, Countdown as CountDown, DropDown, IMAGE_URL_WEDDING, Icons, Images as Image, LoadingSpinner, NoRecord, PopUp, PhotoPreviewModal as PreviewPhoto, SearchBox, Swipeable, Text, TextInput, TouchableOpacity, View };
+export { Button, Colors, Container, Countdown as CountDown, DropDown, Icons, Images as Image, LoadingSpinner, NoRecord, PopUp, PhotoPreviewModal as PreviewPhoto, SearchBox, Swipeable, Text, TextInput, TouchableOpacity, View };
 //# sourceMappingURL=index.es.js.map

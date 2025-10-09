@@ -46,7 +46,10 @@ const SearchBox = ({
               handleOnClearSearch();
             }
           }}>
-          <Image style={styles.closeSearchButtonImage} src={Icons.close} />
+          <Image
+            style={styles.closeSearchButtonImage}
+            src={Icons.close ?? ''}
+          />
         </TouchableOpacity>
       ) : null}
     </View>
