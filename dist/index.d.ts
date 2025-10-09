@@ -1,4 +1,6 @@
 export * from './components/Button';
+export * from './components/BottomSheet';
+export * from './components/BottomSheetPhoto';
 export * from './components/Container';
 export * from './components/CountDown';
 export * from './components/DropDown';
@@ -8,6 +10,7 @@ export * from './components/NoRecord';
 export * from './components/PopUp';
 export * from './components/PreviewPhoto';
 export * from './components/SearchBox';
+export * from './components/ImageInput';
 export * from './components/Swipeable';
 export * from './components/Text';
 export * from './components/TextInput';

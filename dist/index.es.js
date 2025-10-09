@@ -1,5 +1,5 @@
 import { jsx, Fragment, jsxs } from 'react/jsx-runtime';
-import { useState, useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 
 /******************************************************************************
@@ -40,6 +40,44 @@ function __rest(s, e) {
     return t;
 }
 
+function __awaiter(thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+}
+
+function __generator(thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g = Object.create((typeof Iterator === "function" ? Iterator : Object).prototype);
+    return g.next = verb(0), g["throw"] = verb(1), g["return"] = verb(2), typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (g && (g = 0, op[0] && (_ = 0)), _) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+}
+
 typeof SuppressedError === "function" ? SuppressedError : function (error, suppressed, message) {
     var e = new Error(message);
     return e.name = "SuppressedError", e.error = error, e.suppressed = suppressed, e;
@@ -51,14 +89,19 @@ var Colors = {
     black: '#000000',
     black100: '#1A1A1A',
     blackTransparent15: 'rgba(0, 0, 0, 0.15)',
+    blackTransparent5: 'rgba(0, 0, 0, 0.5)',
+    blackTransparent6: 'rgba(0, 0, 0, 0.6)',
+    blackTransparent3: 'rgba(0, 0, 0, 0.3)',
     blackTransparent7: 'rgba(0, 0, 0, 0.7)',
     blackTransparent85: 'rgba(0, 0, 0, 0.85)',
     blue: '#227AEA',
+    blue10: '#007bff',
     blueTransparent: 'rgba(93, 102, 147, 0.5)',
     boxShadow: '1px 2px 9px #000',
     boxShadowCard: '1px 2px 9px rgba(0, 0, 0, 0.3)',
     boxShadowImage: '0px 5px 5px 0px rgba(0, 0, 0, 0.5)',
     brownishGrey: '#646464',
+    brownTransparent: 'rgba(185, 170, 170, 0.6)',
     darkBlue: '#1D242F',
     darkBlueBlack: '#242426',
     darkBlueWhite: '#252F3C',
@@ -76,7 +119,9 @@ var Colors = {
     grey4: '#FCFCFC',
     grey5: '#B0B0B0',
     grey6: '#E7E7E7',
+    grey61: '#EEEEEE',
     grey7: '#E5E5E5',
+    grey74: '#6c757d',
     grey75: '#A7B7C5',
     grey76: '#707072',
     grey8: 'rgba(42, 42, 42, 0.5)',
@@ -134,7 +179,7 @@ var Colors = {
     },
 };
 
-var styles$a = {
+var styles$d = {
     content: {
         display: 'flex',
         justifyContent: 'center',
@@ -150,7 +195,7 @@ var View = function (_a) {
 };
 
 var isMobileDisplay = window.innerWidth <= 768;
-var styles$9 = {
+var styles$c = {
     content: {
         display: 'flex',
         justifyContent: 'center',
@@ -217,8 +262,8 @@ styleInject(css_248z);
 var LoadingSpinner = function (_a) {
     var _b = _a.loadingType, loadingType = _b === void 0 ? false : _b, _c = _a.loadingIcon, loadingIcon = _c === void 0 ? '' : _c;
     var _renderSpinnerComponent = function () { return jsx("div", { className: "loading-spinner" }); };
-    var _renderSpinnerSection = function () { return (jsx(View, __assign({ style: styles$9.loadingSpinnerSectionContainer }, { children: jsx("div", { className: "loading-spinner-section" }) }))); };
-    var _renderSpinnerPage = function () { return (jsx(View, __assign({ style: styles$9.loadingSpinnerPageContainer }, { children: jsxs(View, __assign({ style: styles$9.loadingSpinnerPageContent }, { children: [jsx("div", { className: "loading-spinner-pages" }), loadingIcon ? (jsx("img", { style: styles$9.loadingIcon, src: loadingIcon, alt: '' })) : null] })) }))); };
+    var _renderSpinnerSection = function () { return (jsx(View, __assign({ style: styles$c.loadingSpinnerSectionContainer }, { children: jsx("div", { className: "loading-spinner-section" }) }))); };
+    var _renderSpinnerPage = function () { return (jsx(View, __assign({ style: styles$c.loadingSpinnerPageContainer }, { children: jsxs(View, __assign({ style: styles$c.loadingSpinnerPageContent }, { children: [jsx("div", { className: "loading-spinner-pages" }), loadingIcon ? (jsx("img", { style: styles$c.loadingIcon, src: loadingIcon, alt: '' })) : null] })) }))); };
     return (jsx(Fragment, { children: loadingType === 'page'
             ? _renderSpinnerPage()
             : loadingType === 'section'
@@ -234,28 +279,338 @@ var Button = function (_a) {
                         ? 'transparent'
                         : backgroundColor
                             ? backgroundColor
-                            : Colors.black, border: outlineColor ? '1px solid rgba(0, 0, 0, 1)' : 'none', borderRadius: borderRadius, color: outlineColor ? outlineColor : Colors.white, fontSize: size, fontWeight: bold && 'bold', marginBottom: bottom, marginLeft: left, marginRight: right, marginTop: top, outline: !outlineColor && 'none', padding: padding, textAlign: center ? 'center' : 'left' }, style), styles$a.content), disabled: isLoading || disabled, onClick: onPress, type: 'submit' }, props, { children: [!isLoading ? label : null, isLoading && jsx(LoadingSpinner, { loadingType: false })] })) }));
+                            : Colors.black, border: outlineColor ? '1px solid rgba(0, 0, 0, 1)' : 'none', borderRadius: borderRadius, color: outlineColor ? outlineColor : Colors.white, fontSize: size, fontWeight: bold && 'bold', marginBottom: bottom, marginLeft: left, marginRight: right, marginTop: top, outline: !outlineColor && 'none', padding: padding, textAlign: center ? 'center' : 'left' }, style), styles$d.content), disabled: isLoading || disabled, onClick: onPress, type: 'submit' }, props, { children: [!isLoading ? label : null, isLoading && jsx(LoadingSpinner, { loadingType: false })] })) }));
+};
+
+var styles$b = {
+    backdrop: {
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        height: '100vh',
+        width: '100vw',
+        backgroundColor: 'rgba(0, 0, 0, 0.3)',
+        zIndex: 1000,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'flex-end',
+    },
+    sheet: {
+        backgroundColor: '#fff',
+        width: '100%',
+        maxWidth: 390,
+        borderTopLeftRadius: 16,
+        borderTopRightRadius: 16,
+        padding: 16,
+        boxShadow: '0 -2px 10px rgba(0, 0, 0, 0.15)',
+        animation: 'slideUp 0.3s ease-out',
+    },
+    header: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        borderBottom: '1px solid #eee',
+        paddingBottom: 8,
+        marginBottom: 12,
+    },
+    title: {
+        fontWeight: 'bold',
+        fontSize: 18,
+    },
+    closeButton: {
+        background: 'transparent',
+        border: 'none',
+        fontSize: 24,
+        lineHeight: 1,
+        cursor: 'pointer',
+    },
+    content: {
+        maxHeight: '60vh',
+        overflowY: 'auto',
+    },
+};
+
+var BottomSheet = function (_a) {
+    var visible = _a.visible, onClose = _a.onClose, _b = _a.title, title = _b === void 0 ? '' : _b, children = _a.children;
+    useEffect(function () {
+        var handleEsc = function (e) {
+            if (e.key === 'Escape') {
+                onClose();
+            }
+        };
+        if (visible) {
+            document.body.style.overflow = 'hidden';
+            window.addEventListener('keydown', handleEsc);
+        }
+        return function () {
+            document.body.style.overflow = '';
+            window.removeEventListener('keydown', handleEsc);
+        };
+    }, [visible, onClose]);
+    if (!visible)
+        return null;
+    return ReactDOM.createPortal(jsx("div", __assign({ style: styles$b.backdrop, onClick: onClose }, { children: jsxs("div", __assign({ style: styles$b.sheet, onClick: function (e) { return e.stopPropagation(); } }, { children: [jsxs("div", __assign({ style: styles$b.header }, { children: [jsx("span", __assign({ style: styles$b.title }, { children: title })), jsx("button", __assign({ style: styles$b.closeButton, onClick: onClose }, { children: "\u00D7" }))] })), jsx("div", __assign({ style: styles$b.content }, { children: children }))] })) })), document.body);
+};
+
+var styles$a = {
+    content: {
+        display: 'flex',
+        cursor: 'pointer',
+        flexDirection: 'column',
+    },
+};
+
+var TouchableOpacity = function (_a) {
+    var children = _a.children, onPress = _a.onPress, style = _a.style, props = __rest(_a, ["children", "onPress", "style"]);
+    var handleOnPress = function () {
+        if (onPress)
+            onPress();
+    };
+    return (jsx("div", __assign({ onClick: handleOnPress, style: __assign(__assign({}, styles$a.content), style) }, props, { children: children })));
+};
+
+var cameraStyles = {
+    overlay: {
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        height: '100vh',
+        width: '100vw',
+        backgroundColor: Colors.black,
+        zIndex: 2000,
+        overflow: 'hidden',
+    },
+    video: {
+        width: '100vw',
+        height: '100vh',
+        objectFit: 'cover',
+    },
+    previewImage: {
+        width: '100vw',
+        height: '100vh',
+        objectFit: 'cover',
+    },
+    closeButton: {
+        position: 'absolute',
+        top: 20,
+        right: 20,
+        fontSize: 24,
+        backgroundColor: Colors.blackTransparent5,
+        color: Colors.white,
+        border: 'none',
+        borderRadius: '50%',
+        width: 36,
+        height: 36,
+        cursor: 'pointer',
+        textAlign: 'center',
+        lineHeight: '36px',
+    },
+    innerButton: {
+        height: 60,
+        width: 60,
+        backgroundColor: Colors.white,
+        borderRadius: 100,
+        border: "1px solid ".concat(Colors.blackTransparent6),
+        boxShadow: "0 4px 10px ".concat(Colors.blackTransparent3),
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    sendButtonContainer: {
+        height: 70,
+        width: 70,
+        backgroundColor: Colors.white,
+        border: 'none',
+        borderRadius: 100,
+        cursor: 'pointer',
+        justifyContent: 'center',
+        alignItems: 'center',
+        boxShadow: "0 4px 10px ".concat(Colors.blackTransparent3),
+    },
+    sendButton: {
+        height: 28,
+        width: 28,
+        marginLeft: 6,
+    },
+    floatingBottomButtons: {
+        position: 'absolute',
+        bottom: 60,
+        left: '50%',
+        transform: 'translate(-50%, 0)',
+    },
+    captureButton: {
+        height: 70,
+        width: 70,
+        backgroundColor: Colors.white,
+        borderRadius: 100,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+};
+
+var Images = function (_a) {
+    var _b = _a.bottom, bottom = _b === void 0 ? 0 : _b, _c = _a.center, center = _c === void 0 ? false : _c, _d = _a.height, height = _d === void 0 ? 16 : _d, _e = _a.left, left = _e === void 0 ? 0 : _e, _f = _a.resizeMode, resizeMode = _f === void 0 ? 'contain' : _f, _g = _a.right, right = _g === void 0 ? 0 : _g, _h = _a.style, style = _h === void 0 ? {} : _h, _j = _a.top, top = _j === void 0 ? 0 : _j, _k = _a.width, width = _k === void 0 ? 16 : _k, props = __rest(_a, ["bottom", "center", "height", "left", "resizeMode", "right", "style", "top", "width"]);
+    return (jsx("img", __assign({ style: __assign({ height: height, marginBottom: bottom, marginRight: right, marginLeft: left, marginTop: top, objectFit: resizeMode, textAlign: center ? 'center' : 'left', width: width }, style), alt: '', onError: function (_a) {
+            var currentTarget = _a.currentTarget;
+            currentTarget.onerror = null;
+            currentTarget.src =
+                'https://raw.githubusercontent.com/rahmatsaputra-my-id/global-assets/refs/heads/master/personal-web/image-not-available.png';
+        } }, props)));
+};
+
+var IMAGE_URL_WEDDING = 'https://raw.githubusercontent.com/rahmatsaputra-my-id/global-assets/master/my-wedding';
+var IMAGE_URL = 'https://raw.githubusercontent.com/rahmatsaputra-my-id/global-assets/master/image';
+var Icons = {
+    close: "".concat(IMAGE_URL_WEDDING, "/icon-close.png"),
+    camera: "".concat(IMAGE_URL, "/icon-camera.png"),
+    edit: "".concat(IMAGE_URL, "/icon-edit.png"),
+    send: "".concat(IMAGE_URL, "/icon-send.png"),
+};
+
+var CameraModal = function (_a) {
+    var onClose = _a.onClose, onCapture = _a.onCapture;
+    var videoRef = useRef(null);
+    var canvasRef = useRef(null);
+    var streamRef = useRef(null);
+    var _b = useState(null), capturedImage = _b[0], setCapturedImage = _b[1];
+    var _c = useState(false), isCameraReady = _c[0], setIsCameraReady = _c[1];
+    var stopCamera = function () {
+        var video = videoRef.current;
+        if (video && video.srcObject) {
+            var stream = video.srcObject;
+            stream.getTracks().forEach(function (track) { return track.stop(); });
+            video.pause();
+            video.srcObject = null;
+        }
+        if (streamRef.current) {
+            streamRef.current.getTracks().forEach(function (track) { return track.stop(); });
+            streamRef.current = null;
+        }
+    };
+    var openCamera = function () { return __awaiter(void 0, void 0, void 0, function () {
+        var stream, video_1, err_1;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, navigator.mediaDevices.getUserMedia({ video: true })];
+                case 1:
+                    stream = _a.sent();
+                    video_1 = videoRef.current;
+                    if (!video_1)
+                        return [2 /*return*/];
+                    video_1.srcObject = stream;
+                    streamRef.current = stream;
+                    video_1.onloadedmetadata = function () {
+                        video_1.play();
+                        setIsCameraReady(true);
+                    };
+                    return [3 /*break*/, 3];
+                case 2:
+                    err_1 = _a.sent();
+                    console.error('Error opening camera:', err_1);
+                    onClose();
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
+            }
+        });
+    }); };
+    useEffect(function () {
+        openCamera();
+        window.addEventListener('beforeunload', stopCamera);
+        return function () {
+            stopCamera();
+            window.removeEventListener('beforeunload', stopCamera);
+        };
+    }, []);
+    var handleCapture = function () {
+        var video = videoRef.current;
+        var canvas = canvasRef.current;
+        if (!video || !canvas)
+            return;
+        var context = canvas.getContext('2d');
+        if (!context)
+            return;
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        context.drawImage(video, 0, 0, canvas.width, canvas.height);
+        var base64 = canvas.toDataURL('image/png');
+        setCapturedImage(base64);
+        setTimeout(function () { return stopCamera(); }, 100);
+    };
+    var handleUsePhoto = function () {
+        onCapture(capturedImage);
+        onClose();
+    };
+    var handleRetake = function () {
+        setCapturedImage(null);
+        setIsCameraReady(false);
+        setTimeout(function () { return openCamera(); }, 100);
+    };
+    var handleOnPressClose = function () {
+        if (capturedImage) {
+            handleRetake();
+        }
+        else {
+            stopCamera();
+            onClose();
+        }
+    };
+    return ReactDOM.createPortal(jsxs("div", __assign({ style: cameraStyles.overlay }, { children: [capturedImage ? (jsxs(Fragment, { children: [jsx("img", { src: capturedImage, alt: "Captured", style: cameraStyles.previewImage }), jsx(TouchableOpacity, __assign({ onPress: handleUsePhoto, style: cameraStyles.floatingBottomButtons }, { children: jsx(View, __assign({ style: cameraStyles.captureButton }, { children: jsx(View, __assign({ style: cameraStyles.innerButton }, { children: jsx(Images, { src: Icons.send, style: cameraStyles.sendButton }) })) })) }))] })) : (jsxs(Fragment, { children: [jsx("video", { ref: videoRef, autoPlay: true, playsInline: true, style: cameraStyles.video }), jsx("canvas", { ref: canvasRef, style: { display: 'none' } }), isCameraReady && (jsx(TouchableOpacity, __assign({ onPress: handleCapture, style: cameraStyles.floatingBottomButtons }, { children: jsx(View, __assign({ style: cameraStyles.captureButton }, { children: jsx(View, { style: cameraStyles.innerButton }) })) })))] })), jsx("button", __assign({ onClick: handleOnPressClose, style: cameraStyles.closeButton }, { children: "\u00D7" }))] })), document.body);
+};
+
+var styles$9 = {
+    backdrop: {
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        height: '100vh',
+        width: '100vw',
+        backgroundColor: Colors.blackTransparent3,
+        zIndex: 1000,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'flex-end',
+    },
+    sheet: {
+        backgroundColor: Colors.white,
+        width: '100%',
+        maxWidth: 390,
+        borderTopLeftRadius: 16,
+        borderTopRightRadius: 16,
+        padding: 16,
+        boxShadow: "0 -2px 10px ".concat(Colors.blackTransparent15),
+        animation: 'slideUp 0.3s ease-out',
+    },
+    header: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        borderBottom: "1px solid ".concat(Colors.grey61),
+        paddingBottom: 8,
+        marginBottom: 12,
+    },
+    title: {
+        fontWeight: 'bold',
+        fontSize: 18,
+    },
+    closeButton: {
+        background: 'transparent',
+        border: 'none',
+        fontSize: 24,
+        lineHeight: 1,
+        cursor: 'pointer',
+    },
+    content: {
+        maxHeight: '60vh',
+        overflowY: 'auto',
+    },
+    contentBottomSheet: {
+        marginTop: 8,
+        marginBottom: 16,
+    },
 };
 
 var styles$8 = {
-    container: {
-        flex: 1,
-        minHeight: '100vh',
-        alignItems: 'center',
-    },
-    content: {
-        maxWidth: window.innerWidth > 426 ? 1200 : 425,
-        flex: 1,
-        width: '100%',
-    },
-};
-
-var Container = function (_a) {
-    var children = _a.children, containerStyle = _a.containerStyle, contentStyle = _a.contentStyle;
-    return (jsx(View, __assign({ style: __assign(__assign({}, styles$8.container), { containerStyle: containerStyle }) }, { children: jsx(View, __assign({ style: __assign(__assign({}, styles$8.content), { contentStyle: contentStyle }) }, { children: children })) })));
-};
-
-var styles$7 = {
     h1: {
         fontSize: 32,
     },
@@ -357,7 +712,81 @@ var styles$7 = {
 
 var Text = function (_a) {
     var _b = _a.bottom, bottom = _b === void 0 ? 0 : _b, _c = _a.center, center = _c === void 0 ? false : _c, children = _a.children, _d = _a.color, color = _d === void 0 ? Colors.black : _d, _e = _a.left, left = _e === void 0 ? 0 : _e, _f = _a.right, right = _f === void 0 ? 0 : _f, _g = _a.style, style = _g === void 0 ? {} : _g, _h = _a.top, top = _h === void 0 ? 0 : _h, _j = _a.type, type = _j === void 0 ? 'normal_16' : _j, props = __rest(_a, ["bottom", "center", "children", "color", "left", "right", "style", "top", "type"]);
-    return (jsx(Fragment, { children: jsx("p", __assign({ style: __assign(__assign({ marginTop: top, marginRight: right, marginBottom: bottom, marginLeft: left, color: color, textAlign: center ? 'center' : 'left' }, styles$7[type]), style) }, props, { children: children })) }));
+    return (jsx(Fragment, { children: jsx("p", __assign({ style: __assign(__assign({ marginTop: top, marginRight: right, marginBottom: bottom, marginLeft: left, color: color, textAlign: center ? 'center' : 'left' }, styles$8[type]), style) }, props, { children: children })) }));
+};
+
+var BottomSheetDocument = function (_a) {
+    var visible = _a.visible, onClose = _a.onClose, _b = _a.title, title = _b === void 0 ? '' : _b, onUploadBase64 = _a.onUploadBase64;
+    var fileInputRef = useRef(null);
+    var _c = useState(false), cameraVisible = _c[0], setCameraVisible = _c[1];
+    useEffect(function () {
+        var handleEsc = function (e) {
+            if (e.key === 'Escape')
+                onClose();
+        };
+        if (visible) {
+            document.body.style.overflow = 'hidden';
+            window.addEventListener('keydown', handleEsc);
+        }
+        return function () {
+            document.body.style.overflow = '';
+            window.removeEventListener('keydown', handleEsc);
+        };
+    }, [visible, onClose]);
+    if (!visible && !cameraVisible)
+        return null;
+    var handleUploadDocument = function () {
+        var _a;
+        (_a = fileInputRef.current) === null || _a === void 0 ? void 0 : _a.click();
+    };
+    var handleFileChange = function (e) {
+        var _a;
+        var file = (_a = e.target.files) === null || _a === void 0 ? void 0 : _a[0];
+        if (!file)
+            return;
+        var reader = new FileReader();
+        reader.onloadend = function () {
+            var base64String = reader.result;
+            onUploadBase64 === null || onUploadBase64 === void 0 ? void 0 : onUploadBase64(base64String, file);
+            onClose();
+        };
+        reader.readAsDataURL(file);
+    };
+    var bottomSheetData = [
+        {
+            title: 'Ambil Foto',
+            onPress: function () {
+                onClose();
+                setTimeout(function () { return setCameraVisible(true); }, 300);
+            },
+        },
+        {
+            title: 'Ambil Dari Document',
+            onPress: handleUploadDocument,
+        },
+    ];
+    return (jsxs(Fragment, { children: [jsx("input", { type: "file", accept: ".png,.jpg,.jpeg", ref: fileInputRef, onChange: handleFileChange, style: { display: 'none' } }), cameraVisible && (jsx(CameraModal, { onClose: function () { return setCameraVisible(false); }, onCapture: function (base64) {
+                    onUploadBase64 === null || onUploadBase64 === void 0 ? void 0 : onUploadBase64(base64, null);
+                } })), visible &&
+                ReactDOM.createPortal(jsx("div", __assign({ style: styles$9.backdrop, onClick: onClose }, { children: jsxs("div", __assign({ style: styles$9.sheet, onClick: function (e) { return e.stopPropagation(); } }, { children: [jsxs("div", __assign({ style: styles$9.header }, { children: [jsx("span", __assign({ style: styles$9.title }, { children: title })), jsx("button", __assign({ style: styles$9.closeButton, onClick: onClose }, { children: "\u00D7" }))] })), jsx("div", __assign({ style: styles$9.content }, { children: bottomSheetData.map(function (val, idx) { return (jsx(TouchableOpacity, __assign({ onPress: val.onPress, style: styles$9.contentBottomSheet }, { children: jsx(Text, { children: val.title }) }), idx)); }) }))] })) })), document.body)] }));
+};
+
+var styles$7 = {
+    container: {
+        flex: 1,
+        minHeight: '100vh',
+        alignItems: 'center',
+    },
+    content: {
+        maxWidth: window.innerWidth > 426 ? 1200 : 425,
+        flex: 1,
+        width: '100%',
+    },
+};
+
+var Container = function (_a) {
+    var children = _a.children, containerStyle = _a.containerStyle, contentStyle = _a.contentStyle;
+    return (jsx(View, __assign({ style: __assign(__assign({}, styles$7.container), { containerStyle: containerStyle }) }, { children: jsx(View, __assign({ style: __assign(__assign({}, styles$7.content), { contentStyle: contentStyle }) }, { children: children })) })));
 };
 
 var styles$6 = {
@@ -452,16 +881,6 @@ var DropDown = function (_a) {
             var value = _a.value, label = _a.label;
             return (jsx("option", __assign({ value: value }, { children: label }), idx));
         }) })));
-};
-
-var Images = function (_a) {
-    var _b = _a.bottom, bottom = _b === void 0 ? 0 : _b, _c = _a.center, center = _c === void 0 ? false : _c, _d = _a.height, height = _d === void 0 ? 16 : _d, _e = _a.left, left = _e === void 0 ? 0 : _e, _f = _a.resizeMode, resizeMode = _f === void 0 ? 'contain' : _f, _g = _a.right, right = _g === void 0 ? 0 : _g, _h = _a.style, style = _h === void 0 ? {} : _h, _j = _a.top, top = _j === void 0 ? 0 : _j, _k = _a.width, width = _k === void 0 ? 16 : _k, props = __rest(_a, ["bottom", "center", "height", "left", "resizeMode", "right", "style", "top", "width"]);
-    return (jsx("img", __assign({ style: __assign({ height: height, marginBottom: bottom, marginRight: right, marginLeft: left, marginTop: top, objectFit: resizeMode, textAlign: center ? 'center' : 'left', width: width }, style), alt: '', onError: function (_a) {
-            var currentTarget = _a.currentTarget;
-            currentTarget.onerror = null;
-            currentTarget.src =
-                'https://raw.githubusercontent.com/rahmatsaputra-my-id/global-assets/refs/heads/master/personal-web/image-not-available.png';
-        } }, props)));
 };
 
 var styles$5 = {
@@ -579,33 +998,7 @@ var PhotoPreviewModal = function (_a) {
     return ReactDOM.createPortal(jsx("div", __assign({ onClick: onDismiss, style: styles$3.backdrop }, { children: jsx("div", __assign({ onClick: function (e) { return e.stopPropagation(); }, style: styles$3.modalContent }, { children: imageUrl ? (jsx("img", { src: imageUrl, alt: 'Preview', style: styles$3.image })) : (jsx("p", __assign({ style: styles$3.noImageContainer }, { children: "No image provided" }))) })) })), document.body);
 };
 
-var IMAGE_URL_WEDDING = 'https://raw.githubusercontent.com/rahmatsaputra-my-id/global-assets/master/my-wedding';
-var IMAGE_URL = 'https://raw.githubusercontent.com/rahmatsaputra-my-id/global-assets/master/image';
-var Icons = {
-    close: "".concat(IMAGE_URL_WEDDING, "/icon-close.png"),
-    camera: "".concat(IMAGE_URL, "/icon-camera.png"),
-    edit: "".concat(IMAGE_URL, "/icon-edit.png"),
-    send: "".concat(IMAGE_URL, "/icon-send.png"),
-};
-
 var styles$2 = {
-    content: {
-        display: 'flex',
-        cursor: 'pointer',
-        flexDirection: 'column',
-    },
-};
-
-var TouchableOpacity = function (_a) {
-    var children = _a.children, onPress = _a.onPress, style = _a.style, props = __rest(_a, ["children", "onPress", "style"]);
-    var handleOnPress = function () {
-        if (onPress)
-            onPress();
-    };
-    return (jsx("div", __assign({ onClick: handleOnPress, style: __assign(__assign({}, styles$2.content), style) }, props, { children: children })));
-};
-
-var styles$1 = {
     label: {
         marginBottom: 4,
         fontSize: 16,
@@ -630,11 +1023,11 @@ var styles$1 = {
 
 var TextInput = function (_a) {
     var _b = _a.borderColor, borderColor = _b === void 0 ? Colors.grey2 : _b, _c = _a.borderRadius, borderRadius = _c === void 0 ? 4 : _c, _d = _a.bottom, bottom = _d === void 0 ? 0 : _d, _e = _a.center, center = _e === void 0 ? false : _e, _f = _a.label, label = _f === void 0 ? false : _f, _g = _a.labelError, labelError = _g === void 0 ? false : _g, _h = _a.left, left = _h === void 0 ? 0 : _h, _j = _a.multiline, multiline = _j === void 0 ? false : _j, _k = _a.padding, padding = _k === void 0 ? 0 : _k, _l = _a.right, right = _l === void 0 ? 0 : _l, _m = _a.rows, rows = _m === void 0 ? 10 : _m, _o = _a.style, style = _o === void 0 ? {} : _o, _p = _a.styleLabel, styleLabel = _p === void 0 ? {} : _p, _q = _a.styleTextInput, styleTextInput = _q === void 0 ? {} : _q, _r = _a.top, top = _r === void 0 ? 0 : _r, value = _a.value, onChange = _a.onChange, props = __rest(_a, ["borderColor", "borderRadius", "bottom", "center", "label", "labelError", "left", "multiline", "padding", "right", "rows", "style", "styleLabel", "styleTextInput", "top", "value", "onChange"]);
-    var stylesTextInput = __assign(__assign({ borderColor: borderColor, borderRadius: borderRadius, textAlign: center ? 'center' : 'left', paddingBottom: multiline ? 16 : 8 }, styles$1.textArea), styleTextInput);
-    return (jsxs(View, __assign({ style: __assign({ marginTop: top, marginRight: right, marginBottom: bottom, marginLeft: left, padding: padding }, style) }, { children: [label && (jsx(Text, { style: __assign(__assign({}, styles$1.label), styleLabel), children: label })), multiline ? (jsx("textarea", __assign({ rows: rows, type: 'text', style: stylesTextInput, value: value, onChange: onChange }, props))) : (jsx("input", __assign({ type: 'text', value: value, onChange: onChange, style: stylesTextInput }, props))), labelError ? (jsx(Text, { style: styles$1.labelError, children: labelError })) : null] })));
+    var stylesTextInput = __assign(__assign({ borderColor: borderColor, borderRadius: borderRadius, textAlign: center ? 'center' : 'left', paddingBottom: multiline ? 16 : 8 }, styles$2.textArea), styleTextInput);
+    return (jsxs(View, __assign({ style: __assign({ marginTop: top, marginRight: right, marginBottom: bottom, marginLeft: left, padding: padding }, style) }, { children: [label && (jsx(Text, { style: __assign(__assign({}, styles$2.label), styleLabel), children: label })), multiline ? (jsx("textarea", __assign({ rows: rows, type: 'text', style: stylesTextInput, value: value, onChange: onChange }, props))) : (jsx("input", __assign({ type: 'text', value: value, onChange: onChange, style: stylesTextInput }, props))), labelError ? (jsx(Text, { style: styles$2.labelError, children: labelError })) : null] })));
 };
 
-var styles = {
+var styles$1 = {
     textInputContainer: {
         width: '100%',
     },
@@ -671,7 +1064,7 @@ var SearchBox = function (_a) {
     var handleOnSubmitSearch = _a.handleOnSubmitSearch, handleOnClearSearch = _a.handleOnClearSearch, _b = _a.placeholder, placeholder = _b === void 0 ? 'Type to search ...' : _b, value = _a.value, onChange = _a.onChange, props = __rest(_a, ["handleOnSubmitSearch", "handleOnClearSearch", "placeholder", "value", "onChange"]);
     var renderScreen = function () {
         var _a;
-        return (jsxs(View, __assign({ style: styles.searchContainer }, { children: [jsx(Text, __assign({ style: styles.iconSearch }, { children: "\uD83D\uDD0D" })), jsx(TextInput, __assign({ style: styles.textInputContainer, styleTextInput: styles.textInput, placeholder: placeholder, onKeyPress: function (event) {
+        return (jsxs(View, __assign({ style: styles$1.searchContainer }, { children: [jsx(Text, __assign({ style: styles$1.iconSearch }, { children: "\uD83D\uDD0D" })), jsx(TextInput, __assign({ style: styles$1.textInputContainer, styleTextInput: styles$1.textInput, placeholder: placeholder, onKeyPress: function (event) {
                         if (event.key === 'Enter' && handleOnSubmitSearch) {
                             handleOnSubmitSearch(value);
                         }
@@ -679,12 +1072,61 @@ var SearchBox = function (_a) {
                         if (handleOnSubmitSearch) {
                             handleOnSubmitSearch(value);
                         }
-                    } }, props)), value && (value === null || value === void 0 ? void 0 : value.length) > 0 ? (jsx(TouchableOpacity, __assign({ style: styles.closeSearchButton, onPress: function () {
+                    } }, props)), value && (value === null || value === void 0 ? void 0 : value.length) > 0 ? (jsx(TouchableOpacity, __assign({ style: styles$1.closeSearchButton, onPress: function () {
                         if (handleOnClearSearch) {
                             handleOnClearSearch();
                         }
-                    } }, { children: jsx(Images, { style: styles.closeSearchButtonImage, src: (_a = Icons.close) !== null && _a !== void 0 ? _a : '' }) }))) : null] })));
+                    } }, { children: jsx(Images, { style: styles$1.closeSearchButtonImage, src: (_a = Icons.close) !== null && _a !== void 0 ? _a : '' }) }))) : null] })));
     };
+    return renderScreen();
+};
+
+var styles = {
+    container: {
+        borderRadius: 8,
+        paddingRight: 16,
+        border: "2px solid ".concat(Colors.brownTransparent),
+        flexDirection: 'row',
+        backgroundColor: Colors.white,
+    },
+    containerImage: {
+        height: 80,
+        width: 80,
+        borderTopLeftRadius: 8,
+        borderBottomLeftRadius: 8,
+        backgroundColor: Colors.grey1,
+    },
+    containerText: {
+        justifyContent: 'center',
+        marginLeft: 16,
+        flex: 1,
+    },
+    label: {
+        marginBottom: 4,
+    },
+    image: {
+        width: '100%',
+        height: undefined,
+        marginBottom: 16,
+        borderTopLeftRadius: 8,
+        borderBottomLeftRadius: 8,
+    },
+    iconCamera: {
+        width: 32,
+        height: '100%',
+        alignSelf: 'center',
+    },
+    iconEdit: {
+        width: 24,
+        height: '100%',
+        alignSelf: 'center',
+        marginRight: 16,
+    },
+};
+
+var ImageInput = function (_a) {
+    var label = _a.label, subLabel = _a.subLabel, _b = _a.imageUrl, imageUrl = _b === void 0 ? null : _b, handleOnUpload = _a.handleOnUpload, handleOnPreview = _a.handleOnPreview, containerStyle = _a.containerStyle, _c = _a.isMandatory, isMandatory = _c === void 0 ? false : _c, _d = _a.isEditAble, isEditAble = _d === void 0 ? false : _d;
+    var renderScreen = function () { return (jsxs(View, __assign({ style: __assign(__assign({}, styles.container), containerStyle) }, { children: [jsx(TouchableOpacity, __assign({ style: styles.containerImage, onPress: imageUrl ? handleOnPreview : handleOnUpload }, { children: jsx(Images, { src: imageUrl ? imageUrl : Icons.camera, style: imageUrl ? styles.image : styles.iconCamera }) })), jsxs(View, __assign({ style: styles.containerText }, { children: [label && (jsx(Text, __assign({ type: "bold_16", style: styles.label }, { children: label }))), subLabel && jsx(Text, { children: subLabel }), isMandatory && jsx(Text, __assign({ type: "normal_14_red" }, { children: '*Wajib' }))] })), isEditAble && imageUrl && (jsx(TouchableOpacity, __assign({ onPress: handleOnUpload }, { children: jsx(Images, { src: Icons.edit, style: styles.iconEdit }) })))] }))); };
     return renderScreen();
 };
 
@@ -710,5 +1152,5 @@ var Swipeable = function (_a) {
     return (jsx("div", __assign({ style: style, onTouchStart: handleTouchStart, onTouchEnd: handleTouchEnd }, props, { children: children })));
 };
 
-export { Button, Colors, Container, Countdown as CountDown, DropDown, Icons, Images as Image, LoadingSpinner, NoRecord, PopUp, PhotoPreviewModal as PreviewPhoto, SearchBox, Swipeable, Text, TextInput, TouchableOpacity, View };
+export { BottomSheet, BottomSheetDocument as BottomSheetPhoto, Button, Colors, Container, Countdown as CountDown, DropDown, Icons, Images as Image, ImageInput, LoadingSpinner, NoRecord, PopUp, PhotoPreviewModal as PreviewPhoto, SearchBox, Swipeable, Text, TextInput, TouchableOpacity, View };
 //# sourceMappingURL=index.es.js.map
