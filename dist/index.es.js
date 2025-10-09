@@ -405,16 +405,6 @@ var cameraStyles = {
         textAlign: 'center',
         lineHeight: '36px',
     },
-    innerButton: {
-        height: 60,
-        width: 60,
-        backgroundColor: Colors.white,
-        borderRadius: 100,
-        border: "1px solid ".concat(Colors.blackTransparent6),
-        boxShadow: "0 4px 10px ".concat(Colors.blackTransparent3),
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
     sendButtonContainer: {
         height: 70,
         width: 70,
@@ -440,7 +430,7 @@ var cameraStyles = {
     floatingBottomRotateButtons: {
         position: 'absolute',
         bottom: 60,
-        left: '75%',
+        left: '90%',
         transform: 'translate(-50%, 0)',
     },
     captureButton: {
@@ -450,6 +440,28 @@ var cameraStyles = {
         borderRadius: 100,
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    innerButton: {
+        height: 60,
+        width: 60,
+        backgroundColor: Colors.white,
+        borderRadius: 100,
+        border: "1px solid ".concat(Colors.blackTransparent6),
+        boxShadow: "0 4px 10px ".concat(Colors.blackTransparent3),
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    captureRotateButton: {
+        height: 50,
+        width: 50,
+        backgroundColor: Colors.white,
+        borderRadius: 100,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    rotateButton: {
+        height: 22,
+        width: 22,
     },
 };
 
@@ -615,7 +627,7 @@ var CameraModal = function (_a) {
     var toggleCamera = function () {
         setIsFrontCamera(function (prev) { return !prev; });
     };
-    return ReactDOM.createPortal(jsxs("div", __assign({ style: cameraStyles.overlay }, { children: [capturedImage ? (jsxs(Fragment, { children: [jsx("img", { src: capturedImage, alt: "Captured", style: cameraStyles.previewImage }), jsx(TouchableOpacity, __assign({ onPress: handleUsePhoto, style: cameraStyles.floatingBottomButtons }, { children: jsx(View, __assign({ style: cameraStyles.captureButton }, { children: jsx(View, __assign({ style: cameraStyles.innerButton }, { children: jsx(Images, { src: Icons.send, style: cameraStyles.sendButton }) })) })) }))] })) : (jsxs(Fragment, { children: [jsx("video", { ref: videoRef, autoPlay: true, playsInline: true, style: __assign(__assign({}, cameraStyles.video), { transform: isFrontCamera ? 'scaleX(-1)' : 'none' }) }), jsx("canvas", { ref: canvasRef, style: { display: 'none' } }), isCameraReady && (jsxs(Fragment, { children: [jsx(TouchableOpacity, __assign({ onPress: handleCapture, style: cameraStyles.floatingBottomButtons }, { children: jsx(View, __assign({ style: cameraStyles.captureButton }, { children: jsx(View, { style: cameraStyles.innerButton }) })) })), hasRearCamera && (jsx(TouchableOpacity, __assign({ onPress: toggleCamera, style: cameraStyles.floatingBottomRotateButtons }, { children: jsx(View, __assign({ style: cameraStyles.captureButton }, { children: jsx(View, __assign({ style: cameraStyles.innerButton }, { children: jsx(Images, { src: Icons.rotate, style: cameraStyles.sendButton }) })) })) })))] }))] })), jsx("button", __assign({ onClick: handleOnPressClose, style: cameraStyles.closeButton }, { children: "\u00D7" }))] })), document.body);
+    return ReactDOM.createPortal(jsxs("div", __assign({ style: cameraStyles.overlay }, { children: [capturedImage ? (jsxs(Fragment, { children: [jsx("img", { src: capturedImage, alt: "Captured", style: cameraStyles.previewImage }), jsx(TouchableOpacity, __assign({ onPress: handleUsePhoto, style: cameraStyles.floatingBottomButtons }, { children: jsx(View, __assign({ style: cameraStyles.captureButton }, { children: jsx(View, __assign({ style: cameraStyles.innerButton }, { children: jsx(Images, { src: Icons.send, style: cameraStyles.sendButton }) })) })) }))] })) : (jsxs(Fragment, { children: [jsx("video", { ref: videoRef, autoPlay: true, playsInline: true, style: __assign(__assign({}, cameraStyles.video), { transform: isFrontCamera ? 'scaleX(-1)' : 'none' }) }), jsx("canvas", { ref: canvasRef, style: { display: 'none' } }), isCameraReady && (jsxs(Fragment, { children: [jsx(TouchableOpacity, __assign({ onPress: handleCapture, style: cameraStyles.floatingBottomButtons }, { children: jsx(View, __assign({ style: cameraStyles.captureButton }, { children: jsx(View, { style: cameraStyles.innerButton }) })) })), hasRearCamera && (jsx(TouchableOpacity, __assign({ onPress: toggleCamera, style: cameraStyles.floatingBottomRotateButtons }, { children: jsx(View, __assign({ style: cameraStyles.captureRotateButton }, { children: jsx(Images, { src: Icons.rotate, style: cameraStyles.rotateButton }) })) })))] }))] })), jsx("button", __assign({ onClick: handleOnPressClose, style: cameraStyles.closeButton }, { children: "\u00D7" }))] })), document.body);
 };
 
 var styles$9 = {

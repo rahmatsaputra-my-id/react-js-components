@@ -37,16 +37,6 @@ export const cameraStyles: StyleMap = {
     textAlign: 'center',
     lineHeight: '36px',
   },
-  innerButton: {
-    height: 60,
-    width: 60,
-    backgroundColor: Colors.white,
-    borderRadius: 100,
-    border: `1px solid ${Colors.blackTransparent6}`,
-    boxShadow: `0 4px 10px ${Colors.blackTransparent3}`,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   sendButtonContainer: {
     height: 70,
     width: 70,
@@ -72,7 +62,7 @@ export const cameraStyles: StyleMap = {
   floatingBottomRotateButtons: {
     position: 'absolute',
     bottom: 60,
-    left: '75%',
+    left: '90%',
     transform: 'translate(-50%, 0)',
   },
   captureButton: {
@@ -82,5 +72,27 @@ export const cameraStyles: StyleMap = {
     borderRadius: 100,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  innerButton: {
+    height: 60,
+    width: 60,
+    backgroundColor: Colors.white,
+    borderRadius: 100,
+    border: `1px solid ${Colors.blackTransparent6}`,
+    boxShadow: `0 4px 10px ${Colors.blackTransparent3}`,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  captureRotateButton: {
+    height: 50,
+    width: 50,
+    backgroundColor: Colors.white,
+    borderRadius: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  rotateButton: {
+    height: 22,
+    width: 22,
   },
 };
