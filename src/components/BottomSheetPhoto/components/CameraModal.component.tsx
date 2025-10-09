@@ -14,6 +14,7 @@ const CameraModal: React.FC<CameraModalProps> = ({onClose, onCapture}) => {
 
   const [capturedImage, setCapturedImage] = useState<string | null>(null);
   const [isCameraReady, setIsCameraReady] = useState<boolean>(false);
+  const [isFrontCamera, setIsFrontCamera] = useState<boolean>(true);
 
   const stopCamera = () => {
     const video = videoRef.current;
@@ -31,9 +32,15 @@ const CameraModal: React.FC<CameraModalProps> = ({onClose, onCapture}) => {
 
   const openCamera = async () => {
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({video: true});
+      const constraints = {
+        video: {
+          facingMode: isFrontCamera ? 'user' : 'environment',
+        },
+      };
+      const stream = await navigator.mediaDevices.getUserMedia(constraints);
       const video = videoRef.current;
       if (!video) return;
+
       video.srcObject = stream;
       streamRef.current = stream;
       video.onloadedmetadata = () => {
@@ -65,6 +72,12 @@ const CameraModal: React.FC<CameraModalProps> = ({onClose, onCapture}) => {
 
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
+
+    if (isFrontCamera) {
+      context.translate(canvas.width, 0);
+      context.scale(-1, 1);
+    }
+
     context.drawImage(video, 0, 0, canvas.width, canvas.height);
 
     const base64 = canvas.toDataURL('image/png');
@@ -91,6 +104,12 @@ const CameraModal: React.FC<CameraModalProps> = ({onClose, onCapture}) => {
       stopCamera();
       onClose();
     }
+  };
+
+  const toggleCamera = () => {
+    setIsFrontCamera(prev => !prev);
+    setIsCameraReady(false);
+    setCapturedImage(null);
   };
 
   return ReactDOM.createPortal(
@@ -122,13 +141,20 @@ const CameraModal: React.FC<CameraModalProps> = ({onClose, onCapture}) => {
           />
           <canvas ref={canvasRef} style={{display: 'none'}} />
           {isCameraReady && (
-            <TouchableOpacity
-              onPress={handleCapture}
-              style={cameraStyles.floatingBottomButtons}>
-              <View style={cameraStyles.captureButton}>
-                <View style={cameraStyles.innerButton} />
-              </View>
-            </TouchableOpacity>
+            <>
+              <TouchableOpacity
+                onPress={handleCapture}
+                style={cameraStyles.floatingBottomButtons}>
+                <View style={cameraStyles.captureButton}>
+                  <View style={cameraStyles.innerButton} />
+                </View>
+              </TouchableOpacity>
+              <button
+                onClick={toggleCamera}
+                style={{position: 'absolute', top: 20, right: 20, zIndex: 10}}>
+                Switch Camera
+              </button>
+            </>
           )}
         </>
       )}
