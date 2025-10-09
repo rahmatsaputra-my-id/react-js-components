@@ -80,6 +80,10 @@ const CameraModal: React.FC<CameraModalProps> = ({onClose, onCapture}) => {
 
     context.drawImage(video, 0, 0, canvas.width, canvas.height);
 
+    if (isFrontCamera) {
+      context.setTransform(1, 0, 0, 1, 0, 0);
+    }
+
     const base64 = canvas.toDataURL('image/png');
     setCapturedImage(base64);
 
@@ -108,8 +112,6 @@ const CameraModal: React.FC<CameraModalProps> = ({onClose, onCapture}) => {
 
   const toggleCamera = () => {
     setIsFrontCamera(prev => !prev);
-    setIsCameraReady(false);
-    setCapturedImage(null);
   };
 
   return ReactDOM.createPortal(
@@ -137,7 +139,10 @@ const CameraModal: React.FC<CameraModalProps> = ({onClose, onCapture}) => {
             ref={videoRef}
             autoPlay
             playsInline
-            style={cameraStyles.video}
+            style={{
+              ...cameraStyles.video,
+              transform: isFrontCamera ? 'scaleX(-1)' : 'none',
+            }}
           />
           <canvas ref={canvasRef} style={{display: 'none'}} />
           {isCameraReady && (
@@ -149,9 +154,7 @@ const CameraModal: React.FC<CameraModalProps> = ({onClose, onCapture}) => {
                   <View style={cameraStyles.innerButton} />
                 </View>
               </TouchableOpacity>
-              <button
-                onClick={toggleCamera}
-                style={{position: 'absolute', top: 20, right: 20, zIndex: 10}}>
+              <button onClick={toggleCamera} style={cameraStyles.switchCamera}>
                 Switch Camera
               </button>
             </>

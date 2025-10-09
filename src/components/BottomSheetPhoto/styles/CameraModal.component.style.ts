@@ -77,4 +77,10 @@ export const cameraStyles: StyleMap = {
     justifyContent: 'center',
     alignItems: 'center',
   },
+  switchCamera:{
+    position: 'absolute',
+    bottom: 20,
+    right: 20,
+    zIndex: 10,
+  }
 };
