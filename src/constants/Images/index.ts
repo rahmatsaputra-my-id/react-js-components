@@ -9,5 +9,6 @@ export const Icons: IImagesOption = {
   close: `${IMAGE_URL_WEDDING}/icon-close.png`,
   camera: `${IMAGE_URL}/icon-camera.png`,
   edit: `${IMAGE_URL}/icon-edit.png`,
+  rotate: `${IMAGE_URL}/icon-rotate.png`,
   send: `${IMAGE_URL}/icon-send.png`,
 }

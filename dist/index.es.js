@@ -437,6 +437,12 @@ var cameraStyles = {
         left: '50%',
         transform: 'translate(-50%, 0)',
     },
+    floatingBottomRotateButtons: {
+        position: 'absolute',
+        bottom: 60,
+        left: '75%',
+        transform: 'translate(-50%, 0)',
+    },
     captureButton: {
         height: 70,
         width: 70,
@@ -445,12 +451,6 @@ var cameraStyles = {
         justifyContent: 'center',
         alignItems: 'center',
     },
-    switchCamera: {
-        position: 'absolute',
-        bottom: 20,
-        right: 20,
-        zIndex: 10,
-    }
 };
 
 var Images = function (_a) {
@@ -469,6 +469,7 @@ var Icons = {
     close: "".concat(IMAGE_URL_WEDDING, "/icon-close.png"),
     camera: "".concat(IMAGE_URL, "/icon-camera.png"),
     edit: "".concat(IMAGE_URL, "/icon-edit.png"),
+    rotate: "".concat(IMAGE_URL, "/icon-rotate.png"),
     send: "".concat(IMAGE_URL, "/icon-send.png"),
 };
 
@@ -614,7 +615,7 @@ var CameraModal = function (_a) {
     var toggleCamera = function () {
         setIsFrontCamera(function (prev) { return !prev; });
     };
-    return ReactDOM.createPortal(jsxs("div", __assign({ style: cameraStyles.overlay }, { children: [capturedImage ? (jsxs(Fragment, { children: [jsx("img", { src: capturedImage, alt: "Captured", style: cameraStyles.previewImage }), jsx(TouchableOpacity, __assign({ onPress: handleUsePhoto, style: cameraStyles.floatingBottomButtons }, { children: jsx(View, __assign({ style: cameraStyles.captureButton }, { children: jsx(View, __assign({ style: cameraStyles.innerButton }, { children: jsx(Images, { src: Icons.send, style: cameraStyles.sendButton }) })) })) }))] })) : (jsxs(Fragment, { children: [jsx("video", { ref: videoRef, autoPlay: true, playsInline: true, style: __assign(__assign({}, cameraStyles.video), { transform: isFrontCamera ? 'scaleX(-1)' : 'none' }) }), jsx("canvas", { ref: canvasRef, style: { display: 'none' } }), isCameraReady && (jsxs(Fragment, { children: [jsx(TouchableOpacity, __assign({ onPress: handleCapture, style: cameraStyles.floatingBottomButtons }, { children: jsx(View, __assign({ style: cameraStyles.captureButton }, { children: jsx(View, { style: cameraStyles.innerButton }) })) })), hasRearCamera && (jsx("button", __assign({ onClick: toggleCamera, style: cameraStyles.switchCamera }, { children: "Switch Camera" })))] }))] })), jsx("button", __assign({ onClick: handleOnPressClose, style: cameraStyles.closeButton }, { children: "\u00D7" }))] })), document.body);
+    return ReactDOM.createPortal(jsxs("div", __assign({ style: cameraStyles.overlay }, { children: [capturedImage ? (jsxs(Fragment, { children: [jsx("img", { src: capturedImage, alt: "Captured", style: cameraStyles.previewImage }), jsx(TouchableOpacity, __assign({ onPress: handleUsePhoto, style: cameraStyles.floatingBottomButtons }, { children: jsx(View, __assign({ style: cameraStyles.captureButton }, { children: jsx(View, __assign({ style: cameraStyles.innerButton }, { children: jsx(Images, { src: Icons.send, style: cameraStyles.sendButton }) })) })) }))] })) : (jsxs(Fragment, { children: [jsx("video", { ref: videoRef, autoPlay: true, playsInline: true, style: __assign(__assign({}, cameraStyles.video), { transform: isFrontCamera ? 'scaleX(-1)' : 'none' }) }), jsx("canvas", { ref: canvasRef, style: { display: 'none' } }), isCameraReady && (jsxs(Fragment, { children: [jsx(TouchableOpacity, __assign({ onPress: handleCapture, style: cameraStyles.floatingBottomButtons }, { children: jsx(View, __assign({ style: cameraStyles.captureButton }, { children: jsx(View, { style: cameraStyles.innerButton }) })) })), hasRearCamera && (jsx(TouchableOpacity, __assign({ onPress: toggleCamera, style: cameraStyles.floatingBottomRotateButtons }, { children: jsx(View, __assign({ style: cameraStyles.captureButton }, { children: jsx(View, __assign({ style: cameraStyles.innerButton }, { children: jsx(Images, { src: Icons.rotate, style: cameraStyles.sendButton }) })) })) })))] }))] })), jsx("button", __assign({ onClick: handleOnPressClose, style: cameraStyles.closeButton }, { children: "\u00D7" }))] })), document.body);
 };
 
 var styles$9 = {

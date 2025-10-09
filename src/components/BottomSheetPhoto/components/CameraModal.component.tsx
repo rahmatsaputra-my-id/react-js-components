@@ -189,11 +189,18 @@ const CameraModal: React.FC<CameraModalProps> = ({onClose, onCapture}) => {
               </TouchableOpacity>
 
               {hasRearCamera && (
-                <button
-                  onClick={toggleCamera}
-                  style={cameraStyles.switchCamera}>
-                  Switch Camera
-                </button>
+                <TouchableOpacity
+                  onPress={toggleCamera}
+                  style={cameraStyles.floatingBottomRotateButtons}>
+                  <View style={cameraStyles.captureButton}>
+                    <View style={cameraStyles.innerButton}>
+                      <Image
+                        src={Icons.rotate}
+                        style={cameraStyles.sendButton}
+                      />
+                    </View>
+                  </View>
+                </TouchableOpacity>
               )}
             </>
           )}
