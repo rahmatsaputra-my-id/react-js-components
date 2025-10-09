@@ -12,6 +12,8 @@ export declare const styles: {
         borderTopLeftRadius: number;
         borderBottomLeftRadius: number;
         backgroundColor: "#f2f2f2" | undefined;
+        justifyContent: string;
+        alignItems: string;
     };
     containerText: {
         justifyContent: string;
@@ -24,7 +26,7 @@ export declare const styles: {
     image: {
         width: string;
         height: undefined;
-        marginBottom: number;
+        maxHeight: number;
         borderTopLeftRadius: number;
         borderBottomLeftRadius: number;
     };

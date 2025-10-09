@@ -762,14 +762,14 @@ var BottomSheetDocument = function (_a) {
     };
     var bottomSheetData = [
         {
-            title: 'Ambil Foto',
+            title: 'Camera',
             onPress: function () {
                 onClose();
                 setTimeout(function () { return setCameraVisible(true); }, 300);
             },
         },
         {
-            title: 'Ambil Dari Document',
+            title: 'Document',
             onPress: handleUploadDocument,
         },
     ];
@@ -1103,6 +1103,8 @@ var styles = {
         borderTopLeftRadius: 8,
         borderBottomLeftRadius: 8,
         backgroundColor: Colors.grey1,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     containerText: {
         justifyContent: 'center',
@@ -1115,7 +1117,7 @@ var styles = {
     image: {
         width: '100%',
         height: undefined,
-        marginBottom: 16,
+        maxHeight: 80,
         borderTopLeftRadius: 8,
         borderBottomLeftRadius: 8,
     },
