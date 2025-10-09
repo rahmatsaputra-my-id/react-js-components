@@ -14,6 +14,8 @@ export const styles = {
     borderTopLeftRadius: 8,
     borderBottomLeftRadius: 8,
     backgroundColor: Colors.grey1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   containerText: {
     justifyContent: 'center',
@@ -26,7 +28,7 @@ export const styles = {
   image: {
     width: '100%',
     height: undefined,
-    marginBottom: 16,
+    maxHeight: 80,
     borderTopLeftRadius: 8,
     borderBottomLeftRadius: 8,
   },

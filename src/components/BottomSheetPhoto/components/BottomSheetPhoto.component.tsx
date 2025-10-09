@@ -49,14 +49,14 @@ const BottomSheetDocument: React.FC<BottomSheetPhotoProps> = ({
 
   const bottomSheetData: {title: string; onPress: () => void}[] = [
     {
-      title: 'Ambil Foto',
+      title: 'Camera',
       onPress: () => {
         onClose();
         setTimeout(() => setCameraVisible(true), 300);
       },
     },
     {
-      title: 'Ambil Dari Document',
+      title: 'Document',
       onPress: handleUploadDocument,
     },
   ];
