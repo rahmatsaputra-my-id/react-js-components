@@ -580,6 +580,7 @@ var styles$9 = {
         padding: 16,
         boxShadow: "0 -2px 10px ".concat(Colors.blackTransparent15),
         animation: 'slideUp 0.3s ease-out',
+        paddingBottom: 'env(safe-area-inset-bottom, 20px)',
     },
     header: {
         display: 'flex',
@@ -719,6 +720,31 @@ var BottomSheetPhoto = function (_a) {
     var visible = _a.visible, onClose = _a.onClose, _b = _a.title, title = _b === void 0 ? '' : _b, onUploadBase64 = _a.onUploadBase64;
     var fileInputRef = useRef(null);
     var _c = useState(false), cameraVisible = _c[0], setCameraVisible = _c[1];
+    var _d = useState(20), paddingBottom = _d[0], setPaddingBottom = _d[1];
+    useEffect(function () {
+        function detectBrowserAndSetPadding() {
+            var userAgent = navigator.userAgent;
+            if (/iPhone|iPad|iPod/.test(userAgent)) {
+                // iOS devices: consider safe-area-inset-bottom
+                // You can get the env value via CSS, but from JS you might guess or set a default
+                setPaddingBottom(34); // common home indicator height on iPhones with notch
+            }
+            else if (/Android/.test(userAgent)) {
+                // Android might need a different padding, or none
+                setPaddingBottom(16);
+            }
+            else {
+                // Desktop or other browsers
+                setPaddingBottom(20);
+            }
+        }
+        detectBrowserAndSetPadding();
+        // optionally listen to resize and recalc
+        window.addEventListener('resize', detectBrowserAndSetPadding);
+        return function () {
+            return window.removeEventListener('resize', detectBrowserAndSetPadding);
+        };
+    }, []);
     useEffect(function () {
         var handleEsc = function (e) {
             if (e.key === 'Escape')
@@ -768,7 +794,7 @@ var BottomSheetPhoto = function (_a) {
     return (jsxs(Fragment, { children: [jsx("input", { type: "file", accept: ".png,.jpg,.jpeg", ref: fileInputRef, onChange: handleFileChange, style: { display: 'none' } }), cameraVisible && (jsx(CameraModal, { onClose: function () { return setCameraVisible(false); }, onCapture: function (base64) {
                     onUploadBase64 === null || onUploadBase64 === void 0 ? void 0 : onUploadBase64(base64, null);
                 } })), visible &&
-                ReactDOM.createPortal(jsx("div", __assign({ style: styles$9.backdrop, onClick: onClose }, { children: jsxs("div", __assign({ style: styles$9.sheet, onClick: function (e) { return e.stopPropagation(); } }, { children: [jsxs("div", __assign({ style: styles$9.header }, { children: [jsx("span", __assign({ style: styles$9.title }, { children: title })), jsx("button", __assign({ style: styles$9.closeButton, onClick: onClose }, { children: "\u00D7" }))] })), jsx("div", __assign({ style: styles$9.content }, { children: bottomSheetData.map(function (val, idx) { return (jsx(TouchableOpacity, __assign({ onPress: val.onPress, style: styles$9.contentBottomSheet }, { children: jsx(Text, { children: val.title }) }), idx)); }) }))] })) })), document.body)] }));
+                ReactDOM.createPortal(jsx("div", __assign({ style: styles$9.backdrop, onClick: onClose }, { children: jsxs("div", __assign({ style: __assign(__assign({}, styles$9.sheet), { paddingBottom: paddingBottom }), onClick: function (e) { return e.stopPropagation(); } }, { children: [jsxs("div", __assign({ style: styles$9.header }, { children: [jsx("span", __assign({ style: styles$9.title }, { children: title })), jsx("button", __assign({ style: styles$9.closeButton, onClick: onClose }, { children: "\u00D7" }))] })), jsx("div", __assign({ style: styles$9.content }, { children: bottomSheetData.map(function (val, idx) { return (jsx(TouchableOpacity, __assign({ onPress: val.onPress, style: styles$9.contentBottomSheet }, { children: jsx(Text, { children: val.title }) }), idx)); }) }))] })) })), document.body)] }));
 };
 
 var styles$7 = {

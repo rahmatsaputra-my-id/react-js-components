@@ -14,6 +14,32 @@ const BottomSheetPhoto: React.FC<BottomSheetPhotoProps> = ({
 }) => {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const [cameraVisible, setCameraVisible] = useState<boolean>(false);
+  const [paddingBottom, setPaddingBottom] = useState(20);
+
+  useEffect(() => {
+    function detectBrowserAndSetPadding() {
+      const userAgent = navigator.userAgent;
+
+      if (/iPhone|iPad|iPod/.test(userAgent)) {
+        // iOS devices: consider safe-area-inset-bottom
+        // You can get the env value via CSS, but from JS you might guess or set a default
+        setPaddingBottom(34); // common home indicator height on iPhones with notch
+      } else if (/Android/.test(userAgent)) {
+        // Android might need a different padding, or none
+        setPaddingBottom(16);
+      } else {
+        // Desktop or other browsers
+        setPaddingBottom(20);
+      }
+    }
+
+    detectBrowserAndSetPadding();
+
+    // optionally listen to resize and recalc
+    window.addEventListener('resize', detectBrowserAndSetPadding);
+    return () =>
+      window.removeEventListener('resize', detectBrowserAndSetPadding);
+  }, []);
 
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
@@ -83,7 +109,9 @@ const BottomSheetPhoto: React.FC<BottomSheetPhotoProps> = ({
       {visible &&
         ReactDOM.createPortal(
           <div style={styles.backdrop} onClick={onClose}>
-            <div style={styles.sheet} onClick={e => e.stopPropagation()}>
+            <div
+              style={{...styles.sheet, paddingBottom: paddingBottom}}
+              onClick={e => e.stopPropagation()}>
               <div style={styles.header}>
                 <span style={styles.title}>{title}</span>
                 <button style={styles.closeButton} onClick={onClose}>
