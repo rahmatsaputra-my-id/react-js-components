@@ -23,7 +23,7 @@ const BottomSheetPhoto: React.FC<BottomSheetPhotoProps> = ({
       if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
         basePadding = 80; // default safe area for iPhones with notch
       } else if (/Android/.test(navigator.userAgent)) {
-        basePadding = 40;
+        basePadding = 50;
       }
 
       // Then override with measured safe area inset if available
