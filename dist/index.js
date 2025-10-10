@@ -805,10 +805,10 @@ var BottomSheetPhoto = function (_a) {
         function detectPadding() {
             var basePadding = 20;
             if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
-                basePadding = 70; // default safe area for iPhones with notch
+                basePadding = 80; // default safe area for iPhones with notch
             }
             else if (/Android/.test(navigator.userAgent)) {
-                basePadding = 16;
+                basePadding = 40;
             }
             // Then override with measured safe area inset if available
             var div = document.createElement('div');
