@@ -5,4 +5,5 @@ export interface IIconOption {
     rotate?: string;
     send?: string;
     image_not_available: string;
+    scan_qr?: string;
 }

@@ -472,12 +472,13 @@ var PATH = {
     PERSONAL_WEB: "".concat(BASE_URL, "/personal-web")
 };
 var Icons = {
-    close: "".concat(PATH.WEDDING, "/icon-close.png"),
     camera: "".concat(PATH.IMAGE, "/icon-camera.png"),
+    close: "".concat(PATH.WEDDING, "/icon-close.png"),
     edit: "".concat(PATH.IMAGE, "/icon-edit.png"),
+    image_not_available: "".concat(PATH.PERSONAL_WEB, "/image-not-available.png"),
     rotate: "".concat(PATH.IMAGE, "/icon-rotate.png"),
     send: "".concat(PATH.IMAGE, "/icon-send.png"),
-    image_not_available: "".concat(PATH.PERSONAL_WEB, "/image-not-available.png"),
+    scan_qr: "".concat(PATH.IMAGE, "/icon-scan-qr.png"),
 };
 
 var Images = function (_a) {
