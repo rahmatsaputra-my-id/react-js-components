@@ -4,5 +4,5 @@ export interface IIconOption {
     edit?: string;
     rotate?: string;
     send?: string;
-    image_not_available?: string;
+    image_not_available: string;
 }

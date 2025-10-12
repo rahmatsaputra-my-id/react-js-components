@@ -1,3 +1,4 @@
+import {Icons} from '../../constants/Images';
 import {IImageProps} from './Image.types';
 
 const Images = ({
@@ -27,8 +28,7 @@ const Images = ({
     alt={''}
     onError={({currentTarget}) => {
       currentTarget.onerror = null;
-      currentTarget.src =
-        'https://raw.githubusercontent.com/rahmatsaputra-my-id/global-assets/refs/heads/master/personal-web/image-not-available.png';
+      currentTarget.src = Icons.image_not_available;
     }}
     {...props}
   />

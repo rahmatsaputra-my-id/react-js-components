@@ -465,26 +465,28 @@ var cameraStyles = {
     },
 };
 
+var BASE_URL = 'https://raw.githubusercontent.com/rahmatsaputra-my-id/global-assets/master';
+var PATH = {
+    WEDDING: "".concat(BASE_URL, "/my-wedding"),
+    IMAGE: "".concat(BASE_URL, "/image"),
+    PERSONAL_WEB: "".concat(BASE_URL, "/personal-web")
+};
+var Icons = {
+    close: "".concat(PATH.WEDDING, "/icon-close.png"),
+    camera: "".concat(PATH.IMAGE, "/icon-camera.png"),
+    edit: "".concat(PATH.IMAGE, "/icon-edit.png"),
+    rotate: "".concat(PATH.IMAGE, "/icon-rotate.png"),
+    send: "".concat(PATH.IMAGE, "/icon-send.png"),
+    image_not_available: "".concat(PATH.PERSONAL_WEB, "/image-not-available.png"),
+};
+
 var Images = function (_a) {
     var _b = _a.bottom, bottom = _b === void 0 ? 0 : _b, _c = _a.center, center = _c === void 0 ? false : _c, _d = _a.height, height = _d === void 0 ? 16 : _d, _e = _a.left, left = _e === void 0 ? 0 : _e, _f = _a.resizeMode, resizeMode = _f === void 0 ? 'contain' : _f, _g = _a.right, right = _g === void 0 ? 0 : _g, _h = _a.style, style = _h === void 0 ? {} : _h, _j = _a.top, top = _j === void 0 ? 0 : _j, _k = _a.width, width = _k === void 0 ? 16 : _k, props = __rest(_a, ["bottom", "center", "height", "left", "resizeMode", "right", "style", "top", "width"]);
     return (jsx("img", __assign({ style: __assign({ height: height, marginBottom: bottom, marginRight: right, marginLeft: left, marginTop: top, objectFit: resizeMode, textAlign: center ? 'center' : 'left', width: width }, style), alt: '', onError: function (_a) {
             var currentTarget = _a.currentTarget;
             currentTarget.onerror = null;
-            currentTarget.src =
-                'https://raw.githubusercontent.com/rahmatsaputra-my-id/global-assets/refs/heads/master/personal-web/image-not-available.png';
+            currentTarget.src = Icons.image_not_available;
         } }, props)));
-};
-
-var IMAGE_URL_WEDDING = 'https://raw.githubusercontent.com/rahmatsaputra-my-id/global-assets/master/my-wedding';
-var IMAGE_URL = 'https://raw.githubusercontent.com/rahmatsaputra-my-id/global-assets/master/image';
-var IMAGE_PERSONAL_WEB = 'https://raw.githubusercontent.com/rahmatsaputra-my-id/global-assets/master/personal-web';
-var Icons = {
-    close: "".concat(IMAGE_URL_WEDDING, "/icon-close.png"),
-    camera: "".concat(IMAGE_URL, "/icon-camera.png"),
-    edit: "".concat(IMAGE_URL, "/icon-edit.png"),
-    rotate: "".concat(IMAGE_URL, "/icon-rotate.png"),
-    send: "".concat(IMAGE_URL, "/icon-send.png"),
-    image_not_available: "".concat(IMAGE_PERSONAL_WEB, "/image-not-available.png"),
 };
 
 var CameraModal = function (_a) {
@@ -1080,7 +1082,7 @@ var styles$3 = {
 };
 
 var PhotoPreviewModal = function (_a) {
-    var visible = _a.visible, onDismiss = _a.onDismiss, _b = _a.imageUrl, imageUrl = _b === void 0 ? Icons.image_not_available : _b;
+    var visible = _a.visible, onDismiss = _a.onDismiss, imageUrl = _a.imageUrl;
     useEffect(function () {
         var handleKeyDown = function (e) {
             if (e.key === 'Escape') {
@@ -1096,7 +1098,7 @@ var PhotoPreviewModal = function (_a) {
     }, [visible, onDismiss]);
     if (!visible)
         return null;
-    return ReactDOM.createPortal(jsx("div", __assign({ onClick: onDismiss, style: styles$3.backdrop }, { children: jsx("div", __assign({ onClick: function (e) { return e.stopPropagation(); }, style: styles$3.modalContent }, { children: imageUrl ? (jsx("img", { src: imageUrl, alt: 'Preview', style: styles$3.image })) : (jsx("p", __assign({ style: styles$3.noImageContainer }, { children: "No image provided" }))) })) })), document.body);
+    return ReactDOM.createPortal(jsx("div", __assign({ onClick: onDismiss, style: styles$3.backdrop }, { children: jsx("div", __assign({ onClick: function (e) { return e.stopPropagation(); }, style: styles$3.modalContent }, { children: jsx("img", { src: imageUrl !== null && imageUrl !== void 0 ? imageUrl : Icons.image_not_available, alt: 'Preview', style: styles$3.image }) })) })), document.body);
 };
 
 var styles$2 = {
