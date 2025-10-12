@@ -1,2 +1,2 @@
-import { IImagesOption } from "./Images.types";
-export declare const Icons: IImagesOption;
+import { IIconOption } from './Images.types';
+export declare const Icons: IIconOption;

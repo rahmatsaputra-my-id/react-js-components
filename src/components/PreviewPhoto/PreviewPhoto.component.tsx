@@ -2,11 +2,12 @@ import {useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import {styles} from './PreviewPhoto.styles';
 import {IPreviewPhotoProps} from './PreviewPhoto.types';
+import {Icons} from '../../constants/Images';
 
 const PhotoPreviewModal = ({
   visible,
   onDismiss,
-  imageUrl,
+  imageUrl = Icons.image_not_available,
 }: IPreviewPhotoProps) => {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {

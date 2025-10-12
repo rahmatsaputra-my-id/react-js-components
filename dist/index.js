@@ -485,12 +485,14 @@ var Images = function (_a) {
 
 var IMAGE_URL_WEDDING = 'https://raw.githubusercontent.com/rahmatsaputra-my-id/global-assets/master/my-wedding';
 var IMAGE_URL = 'https://raw.githubusercontent.com/rahmatsaputra-my-id/global-assets/master/image';
+var IMAGE_PERSONAL_WEB = 'https://raw.githubusercontent.com/rahmatsaputra-my-id/global-assets/master/personal-web';
 var Icons = {
     close: "".concat(IMAGE_URL_WEDDING, "/icon-close.png"),
     camera: "".concat(IMAGE_URL, "/icon-camera.png"),
     edit: "".concat(IMAGE_URL, "/icon-edit.png"),
     rotate: "".concat(IMAGE_URL, "/icon-rotate.png"),
     send: "".concat(IMAGE_URL, "/icon-send.png"),
+    image_not_available: "".concat(IMAGE_PERSONAL_WEB, "/image-not-available.png"),
 };
 
 var CameraModal = function (_a) {
@@ -1086,7 +1088,7 @@ var styles$3 = {
 };
 
 var PhotoPreviewModal = function (_a) {
-    var visible = _a.visible, onDismiss = _a.onDismiss, imageUrl = _a.imageUrl;
+    var visible = _a.visible, onDismiss = _a.onDismiss, _b = _a.imageUrl, imageUrl = _b === void 0 ? Icons.image_not_available : _b;
     react.useEffect(function () {
         var handleKeyDown = function (e) {
             if (e.key === 'Escape') {
