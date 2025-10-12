@@ -28,11 +28,19 @@ const PhotoPreviewModal = ({
   return ReactDOM.createPortal(
     <div onClick={onDismiss} style={styles.backdrop}>
       <div onClick={e => e.stopPropagation()} style={styles.modalContent}>
-        <img
-          src={imageUrl ?? Icons.image_not_available}
-          alt={'Preview'}
-          style={styles.image}
-        />
+        {imageUrl ? (
+          <img
+            src={imageUrl}
+            alt={''}
+            onError={({currentTarget}) => {
+              currentTarget.onerror = null;
+              currentTarget.src = Icons.image_not_available;
+            }}
+            style={styles.image}
+          />
+        ) : (
+          <p style={styles.noImageContainer}>No image provided</p>
+        )}
       </div>
     </div>,
     document.body,

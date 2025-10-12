@@ -1106,7 +1106,11 @@ var PhotoPreviewModal = function (_a) {
     }, [visible, onDismiss]);
     if (!visible)
         return null;
-    return ReactDOM__default["default"].createPortal(jsxRuntime.jsx("div", __assign({ onClick: onDismiss, style: styles$3.backdrop }, { children: jsxRuntime.jsx("div", __assign({ onClick: function (e) { return e.stopPropagation(); }, style: styles$3.modalContent }, { children: jsxRuntime.jsx("img", { src: imageUrl !== null && imageUrl !== void 0 ? imageUrl : Icons.image_not_available, alt: 'Preview', style: styles$3.image }) })) })), document.body);
+    return ReactDOM__default["default"].createPortal(jsxRuntime.jsx("div", __assign({ onClick: onDismiss, style: styles$3.backdrop }, { children: jsxRuntime.jsx("div", __assign({ onClick: function (e) { return e.stopPropagation(); }, style: styles$3.modalContent }, { children: imageUrl ? (jsxRuntime.jsx("img", { src: imageUrl, alt: '', onError: function (_a) {
+                    var currentTarget = _a.currentTarget;
+                    currentTarget.onerror = null;
+                    currentTarget.src = Icons.image_not_available;
+                }, style: styles$3.image })) : (jsxRuntime.jsx("p", __assign({ style: styles$3.noImageContainer }, { children: "No image provided" }))) })) })), document.body);
 };
 
 var styles$2 = {
