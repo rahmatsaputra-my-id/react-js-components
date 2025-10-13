@@ -5,7 +5,6 @@ export const styles = {
     width: '100%',
   },
   textInput: {
-    paddingRight: 40,
     paddingLeft: 32,
   },
   searchContainer: {
@@ -20,11 +19,23 @@ export const styles = {
     color: Colors.black,
     justifyContent: 'center',
     zIndex: 4,
-    paddingRight: 16,
+  },
+  scanQrImageContainer: {
+    position: 'absolute',
+    right: 0,
+    height: 38,
+    color: Colors.black,
+    justifyContent: 'center',
+    zIndex: 4,
+    paddingRight: 12,
   },
   closeSearchButtonImage: {
     height: 18,
     width: 18,
+  },
+  scanQrImage: {
+    height: 24,
+    width: 24,
   },
   iconSearch: {
     position: 'absolute',
