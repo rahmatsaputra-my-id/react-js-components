@@ -20,4 +20,5 @@ export interface ITextInputProps {
     top?: number;
     type?: string;
     value?: any;
+    handleOnScanQr?: (data?: string | null) => void;
 }

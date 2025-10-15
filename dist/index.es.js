@@ -29781,18 +29781,53 @@ var styles$1 = {
         paddingTop: 8,
         paddingLeft: 8,
         paddingRight: 8,
-        fontSize: 16
+        fontSize: 16,
     },
     textInput: {
         padding: 8,
-        fontSize: 16
+        fontSize: 16,
+    },
+    container: {
+        justifyContent: 'space-between',
+        position: 'relative',
+    },
+    scanQrImageContainer: {
+        color: Colors.black,
+        height: 36,
+        justifyContent: 'center',
+        paddingRight: 12,
+        position: 'absolute',
+        right: 0,
+        zIndex: 4,
+    },
+    scanQrImageContainerWithLabel: {
+        color: Colors.black,
+        height: 36,
+        justifyContent: 'center',
+        paddingRight: 12,
+        position: 'absolute',
+        right: 0,
+        top: 24,
+        zIndex: 4,
+    },
+    scanQrImage: {
+        height: 24,
+        width: 24,
     },
 };
 
 var TextInput = function (_a) {
-    var _b = _a.borderColor, borderColor = _b === void 0 ? Colors.grey2 : _b, _c = _a.borderRadius, borderRadius = _c === void 0 ? 4 : _c, _d = _a.bottom, bottom = _d === void 0 ? 0 : _d, _e = _a.center, center = _e === void 0 ? false : _e, _f = _a.label, label = _f === void 0 ? false : _f, _g = _a.labelError, labelError = _g === void 0 ? false : _g, _h = _a.left, left = _h === void 0 ? 0 : _h, _j = _a.multiline, multiline = _j === void 0 ? false : _j, _k = _a.padding, padding = _k === void 0 ? 0 : _k, _l = _a.right, right = _l === void 0 ? 0 : _l, _m = _a.rows, rows = _m === void 0 ? 10 : _m, _o = _a.style, style = _o === void 0 ? {} : _o, _p = _a.styleLabel, styleLabel = _p === void 0 ? {} : _p, _q = _a.styleTextInput, styleTextInput = _q === void 0 ? {} : _q, _r = _a.top, top = _r === void 0 ? 0 : _r, value = _a.value, onChange = _a.onChange, props = __rest(_a, ["borderColor", "borderRadius", "bottom", "center", "label", "labelError", "left", "multiline", "padding", "right", "rows", "style", "styleLabel", "styleTextInput", "top", "value", "onChange"]);
-    var stylesTextInput = __assign(__assign({ borderColor: borderColor, borderRadius: borderRadius, textAlign: center ? 'center' : 'left', paddingBottom: multiline ? 16 : 8 }, styles$1.textArea), styleTextInput);
-    return (jsxs(View, __assign({ style: __assign({ marginTop: top, marginRight: right, marginBottom: bottom, marginLeft: left, padding: padding }, style) }, { children: [label && (jsx(Text, { style: __assign(__assign({}, styles$1.label), styleLabel), children: label })), multiline ? (jsx("textarea", __assign({ rows: rows, type: 'text', style: stylesTextInput, value: value, onChange: onChange }, props))) : (jsx("input", __assign({ type: 'text', value: value, onChange: onChange, style: stylesTextInput }, props))), labelError ? (jsx(Text, { style: styles$1.labelError, children: labelError })) : null] })));
+    var _b = _a.borderColor, borderColor = _b === void 0 ? Colors.grey2 : _b, _c = _a.borderRadius, borderRadius = _c === void 0 ? 4 : _c, _d = _a.bottom, bottom = _d === void 0 ? 0 : _d, _e = _a.center, center = _e === void 0 ? false : _e, _f = _a.label, label = _f === void 0 ? false : _f, _g = _a.labelError, labelError = _g === void 0 ? false : _g, _h = _a.left, left = _h === void 0 ? 0 : _h, _j = _a.multiline, multiline = _j === void 0 ? false : _j, _k = _a.padding, padding = _k === void 0 ? 0 : _k, _l = _a.right, right = _l === void 0 ? 0 : _l, _m = _a.rows, rows = _m === void 0 ? 10 : _m, _o = _a.style, style = _o === void 0 ? {} : _o, _p = _a.styleLabel, styleLabel = _p === void 0 ? {} : _p, _q = _a.styleTextInput, styleTextInput = _q === void 0 ? {} : _q, _r = _a.top, top = _r === void 0 ? 0 : _r, value = _a.value, onChange = _a.onChange, handleOnScanQr = _a.handleOnScanQr, props = __rest(_a, ["borderColor", "borderRadius", "bottom", "center", "label", "labelError", "left", "multiline", "padding", "right", "rows", "style", "styleLabel", "styleTextInput", "top", "value", "onChange", "handleOnScanQr"]);
+    var _s = useState(false), isScannerVisible = _s[0], setIsScannerVisible = _s[1];
+    // Add paddingRight if QR scanner button exists
+    var adjustedStyleTextInput = __assign(__assign({}, styleTextInput), { paddingRight: handleOnScanQr ? 40 : styleTextInput.paddingRight });
+    var stylesTextInput = __assign(__assign({ borderColor: borderColor, borderRadius: borderRadius, textAlign: center ? 'center' : 'left', paddingBottom: multiline ? 16 : 8 }, styles$1.textArea), adjustedStyleTextInput);
+    return (jsxs(Fragment, { children: [jsxs(View, __assign({ style: styles$1.container }, { children: [jsxs(View, __assign({ style: __assign({ marginTop: top, marginRight: right, marginBottom: bottom, marginLeft: left, padding: padding }, style) }, { children: [label && (jsx(Text, { style: __assign(__assign({}, styles$1.label), styleLabel), children: label })), jsx(View, { children: multiline ? (jsx("textarea", __assign({ rows: rows, type: 'text', style: stylesTextInput, value: value, onChange: onChange }, props))) : (jsx("input", __assign({ type: 'text', value: value, onChange: onChange, style: stylesTextInput }, props))) }), labelError ? (jsx(Text, { style: styles$1.labelError, children: labelError })) : null] })), handleOnScanQr && (jsx(TouchableOpacity, __assign({ style: label
+                            ? styles$1.scanQrImageContainerWithLabel
+                            : styles$1.scanQrImageContainer, onPress: function () {
+                            handleOnScanQr();
+                            setIsScannerVisible(true);
+                        } }, { children: jsx(Images, { style: styles$1.scanQrImage, src: Icons.scan_qr }) })))] })), isScannerVisible && (jsx(ScannerCamera, { onClose: function () { return setIsScannerVisible(false); }, onCapture: function (data) { return handleOnScanQr && handleOnScanQr(data); } }))] }));
 };
 
 var styles = {

@@ -19,4 +19,31 @@ export declare const styles: {
         padding: number;
         fontSize: number;
     };
+    container: {
+        justifyContent: string;
+        position: string;
+    };
+    scanQrImageContainer: {
+        color: "#000000" | undefined;
+        height: number;
+        justifyContent: string;
+        paddingRight: number;
+        position: string;
+        right: number;
+        zIndex: number;
+    };
+    scanQrImageContainerWithLabel: {
+        color: "#000000" | undefined;
+        height: number;
+        justifyContent: string;
+        paddingRight: number;
+        position: string;
+        right: number;
+        top: number;
+        zIndex: number;
+    };
+    scanQrImage: {
+        height: number;
+        width: number;
+    };
 };

@@ -1,4 +1,4 @@
 /// <reference types="react" />
 import { ITextInputProps } from './TextInput.types';
-declare const TextInput: ({ borderColor, borderRadius, bottom, center, label, labelError, left, multiline, padding, right, rows, style, styleLabel, styleTextInput, top, value, onChange, ...props }: ITextInputProps) => JSX.Element;
+declare const TextInput: React.FC<ITextInputProps>;
 export default TextInput;
