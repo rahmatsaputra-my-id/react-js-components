@@ -1,5 +1,5 @@
 import { jsx, jsxs, Fragment } from 'react/jsx-runtime';
-import { useEffect, useRef, useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 
 /******************************************************************************
@@ -133,6 +133,32 @@ var styles$d = {
 
 var BottomSheet = function (_a) {
     var visible = _a.visible, onClose = _a.onClose, _b = _a.title, title = _b === void 0 ? '' : _b, children = _a.children;
+    var _c = useState(20), paddingBottom = _c[0], setPaddingBottom = _c[1];
+    useEffect(function () {
+        function detectPadding() {
+            var basePadding = 20;
+            if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+                basePadding = 80; // default safe area for iPhones with notch
+            }
+            else if (/Android/.test(navigator.userAgent)) {
+                basePadding = 50;
+            }
+            // Then override with measured safe area inset if available
+            var div = document.createElement('div');
+            div.style.position = 'absolute';
+            div.style.bottom = '0';
+            div.style.height = 'env(safe-area-inset-bottom)';
+            div.style.visibility = 'hidden';
+            document.body.appendChild(div);
+            var computedHeight = window.getComputedStyle(div).height;
+            var insetBottom = parseInt(computedHeight, 10);
+            document.body.removeChild(div);
+            setPaddingBottom(Math.max(basePadding, insetBottom || 0));
+        }
+        detectPadding();
+        window.addEventListener('resize', detectPadding);
+        return function () { return window.removeEventListener('resize', detectPadding); };
+    }, []);
     useEffect(function () {
         var handleEsc = function (e) {
             if (e.key === 'Escape') {
@@ -150,7 +176,7 @@ var BottomSheet = function (_a) {
     }, [visible, onClose]);
     if (!visible)
         return null;
-    return ReactDOM.createPortal(jsx("div", __assign({ style: styles$d.backdrop, onClick: onClose }, { children: jsxs("div", __assign({ style: styles$d.sheet, onClick: function (e) { return e.stopPropagation(); } }, { children: [jsxs("div", __assign({ style: styles$d.header }, { children: [jsx("span", __assign({ style: styles$d.title }, { children: title })), jsx("button", __assign({ style: styles$d.closeButton, onClick: onClose }, { children: "\u00D7" }))] })), jsx("div", __assign({ style: styles$d.content }, { children: children }))] })) })), document.body);
+    return ReactDOM.createPortal(jsx("div", __assign({ style: styles$d.backdrop, onClick: onClose }, { children: jsxs("div", __assign({ style: __assign(__assign({}, styles$d.sheet), { paddingBottom: paddingBottom }), onClick: function (e) { return e.stopPropagation(); } }, { children: [jsxs("div", __assign({ style: styles$d.header }, { children: [jsx("span", __assign({ style: styles$d.title }, { children: title })), jsx("button", __assign({ style: styles$d.closeButton, onClick: onClose }, { children: "\u00D7" }))] })), jsx("div", __assign({ style: styles$d.content }, { children: children }))] })) })), document.body);
 };
 
 var styles$c = {
