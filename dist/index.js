@@ -29534,7 +29534,7 @@ var ScannerCamera = function (_a) {
     var codeReaderRef = react.useRef(null);
     // States
     var _b = react.useState(false), isCameraReady = _b[0], setIsCameraReady = _b[1];
-    var _c = react.useState(true), isFrontCamera = _c[0], setIsFrontCamera = _c[1];
+    var _c = react.useState(false), isFrontCamera = _c[0], setIsFrontCamera = _c[1];
     var _d = react.useState(false), hasRearCamera = _d[0], setHasRearCamera = _d[1];
     var _e = react.useState(true), isScanning = _e[0], setIsScanning = _e[1];
     // Fungsi untuk memainkan suara beep menggunakan Web Audio API
@@ -29700,11 +29700,18 @@ var ScannerCamera = function (_a) {
                         }) || videoDevices.length > 1;
                         setHasRearCamera(rearCameraExists);
                         stream.getTracks().forEach(function (track) { return track.stop(); });
+                        if (rearCameraExists) {
+                            setIsFrontCamera(false);
+                        }
+                        else {
+                            setIsFrontCamera(true);
+                        }
                         return [3 /*break*/, 4];
                     case 3:
                         error_1 = _a.sent();
                         console.warn('Camera permission denied or error:', error_1);
                         setHasRearCamera(false);
+                        setIsFrontCamera(true);
                         return [3 /*break*/, 4];
                     case 4: return [2 /*return*/];
                 }
