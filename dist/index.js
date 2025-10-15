@@ -29712,6 +29712,15 @@ var ScannerCamera = function (_a) {
         }); };
         detectCameras();
     }, []);
+    // Set default camera after detecting rear camera availability
+    react.useEffect(function () {
+        if (hasRearCamera) {
+            setIsFrontCamera(false); // default to rear camera if available
+        }
+        else {
+            setIsFrontCamera(true); // default to front camera otherwise
+        }
+    }, [hasRearCamera]);
     // Effect untuk membuka kamera
     react.useEffect(function () {
         if (codeReaderRef.current) {

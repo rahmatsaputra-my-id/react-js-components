@@ -209,6 +209,15 @@ const ScannerCamera: FC<ScannerCameraProps> = ({onClose, onCapture}) => {
     detectCameras();
   }, []);
 
+  // Set default camera after detecting rear camera availability
+  useEffect(() => {
+    if (hasRearCamera) {
+      setIsFrontCamera(false); // default to rear camera if available
+    } else {
+      setIsFrontCamera(true); // default to front camera otherwise
+    }
+  }, [hasRearCamera]);
+
   // Effect untuk membuka kamera
   useEffect(() => {
     if (codeReaderRef.current) {
