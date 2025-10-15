@@ -15,4 +15,7 @@ export const Icons: IIconOption = {
   rotate: `${PATH.IMAGE}/icon-rotate.png`,
   send: `${PATH.IMAGE}/icon-send.png`,
   scan_qr: `${PATH.IMAGE}/icon-scan-qr.png`,
+  more: `${PATH.IMAGE}/icon-more.png`,
+  flash_on: `${PATH.IMAGE}/icon-flash-on.png`,
+  flash_off: `${PATH.IMAGE}/icon-flash-off.png`,
 }

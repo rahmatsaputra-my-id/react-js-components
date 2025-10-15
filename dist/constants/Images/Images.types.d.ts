@@ -6,4 +6,7 @@ export interface IIconOption {
     send?: string;
     image_not_available: string;
     scan_qr?: string;
+    more?: string;
+    flash_on?: string;
+    flash_off?: string;
 }

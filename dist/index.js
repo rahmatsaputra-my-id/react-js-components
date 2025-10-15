@@ -389,6 +389,9 @@ var Icons = {
     rotate: "".concat(PATH.IMAGE, "/icon-rotate.png"),
     send: "".concat(PATH.IMAGE, "/icon-send.png"),
     scan_qr: "".concat(PATH.IMAGE, "/icon-scan-qr.png"),
+    more: "".concat(PATH.IMAGE, "/icon-more.png"),
+    flash_on: "".concat(PATH.IMAGE, "/icon-flash-on.png"),
+    flash_off: "".concat(PATH.IMAGE, "/icon-flash-off.png"),
 };
 
 var Images = function (_a) {
