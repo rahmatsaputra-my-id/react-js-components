@@ -20,7 +20,7 @@ const ScannerCamera: FC<ScannerCameraProps> = ({onClose, onCapture}) => {
 
   // States
   const [isCameraReady, setIsCameraReady] = useState<boolean>(false);
-  const [isFrontCamera, setIsFrontCamera] = useState<boolean>(false);
+  const [isFrontCamera, setIsFrontCamera] = useState<boolean>(true);
   const [hasRearCamera, setHasRearCamera] = useState<boolean>(false);
   const [isScanning, setIsScanning] = useState<boolean>(true);
 
@@ -200,16 +200,9 @@ const ScannerCamera: FC<ScannerCameraProps> = ({onClose, onCapture}) => {
 
         setHasRearCamera(rearCameraExists);
         stream.getTracks().forEach(track => track.stop());
-
-        if (rearCameraExists) {
-          setIsFrontCamera(false);
-        } else {
-          setIsFrontCamera(true);
-        }
       } catch (error) {
         console.warn('Camera permission denied or error:', error);
         setHasRearCamera(false);
-        setIsFrontCamera(true);
       }
     };
 
