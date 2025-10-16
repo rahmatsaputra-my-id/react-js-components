@@ -1,12 +1,12 @@
-import React, {useState} from 'react';
-import {Icons} from '../../constants/Images';
-import {Image} from '../Image';
-import {TouchableOpacity} from '../TouchableOpacity';
-import {TextInput} from '../TextInput';
-import {Text} from '../Text';
-import {View} from '../View';
+import {useState, KeyboardEvent} from 'react';
+import {SearchBoxProps} from './SearchBox.types';
 import {styles} from './SearchBox.styles';
-import {ISearchBoxProps} from './SearchBox.types';
+import {View} from '../View';
+import {TouchableOpacity} from '../TouchableOpacity';
+import {Text} from '../Text';
+import {TextInput} from '../TextInput';
+import {Image} from '../Image';
+import {Icons} from '../../constants/Images';
 import {ScannerQR} from '../ScannerQR';
 
 const SearchBox = ({
@@ -17,25 +17,30 @@ const SearchBox = ({
   onChange,
   handleOnScanQr,
   ...props
-}: ISearchBoxProps): JSX.Element => {
+}: SearchBoxProps) => {
   const [isScannerVisible, setIsScannerVisible] = useState(false);
 
-  const renderScreen = () => (
+  const handleKeyPress = (event: KeyboardEvent) => {
+    if (event.key === 'Enter' && handleOnSubmitSearch) {
+      handleOnSubmitSearch(value);
+    }
+  };
+
+  return (
     <>
       <View style={styles.searchContainer}>
-        <Text style={styles.iconSearch}>🔍</Text>
+        <TouchableOpacity onPress={() => handleOnSubmitSearch(value)}>
+          <Text style={styles.iconSearch}>🔍</Text>
+        </TouchableOpacity>
+
         <TextInput
           style={styles.textInputContainer}
           styleTextInput={{
             ...styles.textInput,
-            paddingRight: !!handleOnScanQr ? 72 : 40,
+            paddingRight: handleOnScanQr ? 72 : 40,
           }}
           placeholder={placeholder}
-          onKeyPress={(event: any) => {
-            if (event.key === 'Enter' && handleOnSubmitSearch) {
-              handleOnSubmitSearch(value);
-            }
-          }}
+          onKeyPress={handleKeyPress}
           value={value}
           onChange={onChange}
           onBlur={() => {
@@ -46,48 +51,40 @@ const SearchBox = ({
           {...props}
         />
 
-        {value && value?.length > 0 ? (
+        {value?.length > 0 && (
           <TouchableOpacity
-            style={{...styles.closeSearchButton}}
-            onPress={() => {
-              if (handleOnClearSearch) {
-                handleOnClearSearch();
-              }
-            }}>
+            style={styles.closeSearchButton}
+            onPress={handleOnClearSearch}>
             <Image
               style={{
                 ...styles.closeSearchButtonImage,
-                paddingRight: !!handleOnScanQr ? 45 : 16,
+                paddingRight: handleOnScanQr ? 48 : 16,
               }}
               src={Icons.close ?? ''}
             />
           </TouchableOpacity>
-        ) : null}
+        )}
 
-        {handleOnScanQr ? (
+        {handleOnScanQr && (
           <TouchableOpacity
             style={styles.scanQrImageContainer}
             onPress={() => {
-              if (handleOnScanQr) {
-                handleOnScanQr();
-                setIsScannerVisible(true);
-              }
+              handleOnScanQr();
+              setIsScannerVisible(true);
             }}>
             <Image style={styles.scanQrImage} src={Icons.scan_qr} />
           </TouchableOpacity>
-        ) : null}
+        )}
       </View>
 
       {isScannerVisible && (
         <ScannerQR
           onClose={() => setIsScannerVisible(false)}
-          onCapture={data => handleOnScanQr(data)}
+          onCapture={data => handleOnScanQr?.(data)}
         />
       )}
     </>
   );
-
-  return renderScreen();
 };
 
 export default SearchBox;

@@ -1,6 +1,7 @@
-import { Colors } from "../../constants/Colors";
+import type { CSSProperties } from 'react';
+import { Colors } from '../../constants/Colors';
 
-export const styles = {
+export const styles: Record<string, CSSProperties> = {
   textInputContainer: {
     width: '100%',
   },
@@ -8,7 +9,6 @@ export const styles = {
     paddingLeft: 32,
   },
   searchContainer: {
-    flexDirection: 'row',
     justifyContent: 'space-between',
     position: 'relative',
   },
@@ -24,10 +24,10 @@ export const styles = {
     position: 'absolute',
     right: 0,
     height: 38,
-    color: Colors.black,
+    backgroundColor: 'red',
     justifyContent: 'center',
-    zIndex: 4,
-    paddingRight: 12,
+    zIndex: 2,
+    paddingRight: 16,
   },
   closeSearchButtonImage: {
     height: 18,
@@ -38,8 +38,9 @@ export const styles = {
     width: 24,
   },
   iconSearch: {
+    top: 10,
     position: 'absolute',
-    alignSelf: 'center',
+    zIndex: 1,
     paddingLeft: 12,
   },
 };

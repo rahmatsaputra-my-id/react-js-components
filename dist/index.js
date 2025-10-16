@@ -29775,6 +29775,50 @@ var ScannerCamera = function (_a) {
 };
 
 var styles$1 = {
+    textInputContainer: {
+        width: '100%',
+    },
+    textInput: {
+        paddingLeft: 32,
+    },
+    searchContainer: {
+        justifyContent: 'space-between',
+        position: 'relative',
+    },
+    closeSearchButton: {
+        position: 'absolute',
+        right: 0,
+        height: 38,
+        color: Colors.black,
+        justifyContent: 'center',
+        zIndex: 4,
+    },
+    scanQrImageContainer: {
+        position: 'absolute',
+        right: 0,
+        height: 38,
+        backgroundColor: 'red',
+        justifyContent: 'center',
+        zIndex: 2,
+        paddingRight: 16,
+    },
+    closeSearchButtonImage: {
+        height: 18,
+        width: 18,
+    },
+    scanQrImage: {
+        height: 24,
+        width: 24,
+    },
+    iconSearch: {
+        top: 10,
+        position: 'absolute',
+        zIndex: 1,
+        paddingLeft: 12,
+    },
+};
+
+var styles = {
     label: {
         marginBottom: 4,
         fontSize: 16,
@@ -29829,84 +29873,32 @@ var TextInput = function (_a) {
     var _s = react.useState(false), isScannerVisible = _s[0], setIsScannerVisible = _s[1];
     // Add paddingRight if QR scanner button exists
     var adjustedStyleTextInput = __assign(__assign({}, styleTextInput), { paddingRight: handleOnScanQr ? 40 : styleTextInput.paddingRight });
-    var stylesTextInput = __assign(__assign({ borderColor: borderColor, borderRadius: borderRadius, textAlign: center ? 'center' : 'left', paddingBottom: multiline ? 16 : 8 }, styles$1.textArea), adjustedStyleTextInput);
-    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(View, __assign({ style: styles$1.container }, { children: [jsxRuntime.jsxs(View, __assign({ style: __assign({ marginTop: top, marginRight: right, marginBottom: bottom, marginLeft: left, padding: padding }, style) }, { children: [label && (jsxRuntime.jsx(Text, { style: __assign(__assign({}, styles$1.label), styleLabel), children: label })), jsxRuntime.jsx(View, { children: multiline ? (jsxRuntime.jsx("textarea", __assign({ rows: rows, type: 'text', style: stylesTextInput, value: value, onChange: onChange }, props))) : (jsxRuntime.jsx("input", __assign({ type: 'text', value: value, onChange: onChange, style: stylesTextInput }, props))) }), labelError ? (jsxRuntime.jsx(Text, { style: styles$1.labelError, children: labelError })) : null] })), handleOnScanQr && (jsxRuntime.jsx(TouchableOpacity, __assign({ style: label
-                            ? styles$1.scanQrImageContainerWithLabel
-                            : styles$1.scanQrImageContainer, onPress: function () {
+    var stylesTextInput = __assign(__assign({ borderColor: borderColor, borderRadius: borderRadius, textAlign: center ? 'center' : 'left', paddingBottom: multiline ? 16 : 8 }, styles.textArea), adjustedStyleTextInput);
+    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(View, __assign({ style: styles.container }, { children: [jsxRuntime.jsxs(View, __assign({ style: __assign({ marginTop: top, marginRight: right, marginBottom: bottom, marginLeft: left, padding: padding }, style) }, { children: [label && (jsxRuntime.jsx(Text, { style: __assign(__assign({}, styles.label), styleLabel), children: label })), jsxRuntime.jsx(View, { children: multiline ? (jsxRuntime.jsx("textarea", __assign({ rows: rows, type: 'text', style: stylesTextInput, value: value, onChange: onChange }, props))) : (jsxRuntime.jsx("input", __assign({ type: 'text', value: value, onChange: onChange, style: stylesTextInput }, props))) }), labelError ? (jsxRuntime.jsx(Text, { style: styles.labelError, children: labelError })) : null] })), handleOnScanQr && (jsxRuntime.jsx(TouchableOpacity, __assign({ style: label
+                            ? styles.scanQrImageContainerWithLabel
+                            : styles.scanQrImageContainer, onPress: function () {
                             handleOnScanQr();
                             setIsScannerVisible(true);
-                        } }, { children: jsxRuntime.jsx(Images, { style: styles$1.scanQrImage, src: Icons.scan_qr }) })))] })), isScannerVisible && (jsxRuntime.jsx(ScannerCamera, { onClose: function () { return setIsScannerVisible(false); }, onCapture: function (data) { return handleOnScanQr && handleOnScanQr(data); } }))] }));
-};
-
-var styles = {
-    textInputContainer: {
-        width: '100%',
-    },
-    textInput: {
-        paddingLeft: 32,
-    },
-    searchContainer: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        position: 'relative',
-    },
-    closeSearchButton: {
-        position: 'absolute',
-        right: 0,
-        height: 38,
-        color: Colors.black,
-        justifyContent: 'center',
-        zIndex: 4,
-    },
-    scanQrImageContainer: {
-        position: 'absolute',
-        right: 0,
-        height: 38,
-        color: Colors.black,
-        justifyContent: 'center',
-        zIndex: 4,
-        paddingRight: 12,
-    },
-    closeSearchButtonImage: {
-        height: 18,
-        width: 18,
-    },
-    scanQrImage: {
-        height: 24,
-        width: 24,
-    },
-    iconSearch: {
-        position: 'absolute',
-        alignSelf: 'center',
-        paddingLeft: 12,
-    },
+                        } }, { children: jsxRuntime.jsx(Images, { style: styles.scanQrImage, src: Icons.scan_qr }) })))] })), isScannerVisible && (jsxRuntime.jsx(ScannerCamera, { onClose: function () { return setIsScannerVisible(false); }, onCapture: function (data) { return handleOnScanQr && handleOnScanQr(data); } }))] }));
 };
 
 var SearchBox = function (_a) {
-    var handleOnSubmitSearch = _a.handleOnSubmitSearch, handleOnClearSearch = _a.handleOnClearSearch, _b = _a.placeholder, placeholder = _b === void 0 ? 'Type to search ...' : _b, value = _a.value, onChange = _a.onChange, handleOnScanQr = _a.handleOnScanQr, props = __rest(_a, ["handleOnSubmitSearch", "handleOnClearSearch", "placeholder", "value", "onChange", "handleOnScanQr"]);
-    var _c = react.useState(false), isScannerVisible = _c[0], setIsScannerVisible = _c[1];
-    var renderScreen = function () {
-        var _a;
-        return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(View, __assign({ style: styles.searchContainer }, { children: [jsxRuntime.jsx(Text, __assign({ style: styles.iconSearch }, { children: "\uD83D\uDD0D" })), jsxRuntime.jsx(TextInput, __assign({ style: styles.textInputContainer, styleTextInput: __assign(__assign({}, styles.textInput), { paddingRight: !!handleOnScanQr ? 72 : 40 }), placeholder: placeholder, onKeyPress: function (event) {
-                                if (event.key === 'Enter' && handleOnSubmitSearch) {
-                                    handleOnSubmitSearch(value);
-                                }
-                            }, value: value, onChange: onChange, onBlur: function () {
-                                if (handleOnSubmitSearch && !handleOnScanQr) {
-                                    handleOnSubmitSearch(value);
-                                }
-                            } }, props)), value && (value === null || value === void 0 ? void 0 : value.length) > 0 ? (jsxRuntime.jsx(TouchableOpacity, __assign({ style: __assign({}, styles.closeSearchButton), onPress: function () {
-                                if (handleOnClearSearch) {
-                                    handleOnClearSearch();
-                                }
-                            } }, { children: jsxRuntime.jsx(Images, { style: __assign(__assign({}, styles.closeSearchButtonImage), { paddingRight: !!handleOnScanQr ? 45 : 16 }), src: (_a = Icons.close) !== null && _a !== void 0 ? _a : '' }) }))) : null, handleOnScanQr ? (jsxRuntime.jsx(TouchableOpacity, __assign({ style: styles.scanQrImageContainer, onPress: function () {
-                                if (handleOnScanQr) {
-                                    handleOnScanQr();
-                                    setIsScannerVisible(true);
-                                }
-                            } }, { children: jsxRuntime.jsx(Images, { style: styles.scanQrImage, src: Icons.scan_qr }) }))) : null] })), isScannerVisible && (jsxRuntime.jsx(ScannerCamera, { onClose: function () { return setIsScannerVisible(false); }, onCapture: function (data) { return handleOnScanQr(data); } }))] }));
+    var _b;
+    var handleOnSubmitSearch = _a.handleOnSubmitSearch, handleOnClearSearch = _a.handleOnClearSearch, _c = _a.placeholder, placeholder = _c === void 0 ? 'Type to search ...' : _c, value = _a.value, onChange = _a.onChange, handleOnScanQr = _a.handleOnScanQr, props = __rest(_a, ["handleOnSubmitSearch", "handleOnClearSearch", "placeholder", "value", "onChange", "handleOnScanQr"]);
+    var _d = react.useState(false), isScannerVisible = _d[0], setIsScannerVisible = _d[1];
+    var handleKeyPress = function (event) {
+        if (event.key === 'Enter' && handleOnSubmitSearch) {
+            handleOnSubmitSearch(value);
+        }
     };
-    return renderScreen();
+    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(View, __assign({ style: styles$1.searchContainer }, { children: [jsxRuntime.jsx(TouchableOpacity, __assign({ onPress: function () { return handleOnSubmitSearch(value); } }, { children: jsxRuntime.jsx(Text, __assign({ style: styles$1.iconSearch }, { children: "\uD83D\uDD0D" })) })), jsxRuntime.jsx(TextInput, __assign({ style: styles$1.textInputContainer, styleTextInput: __assign(__assign({}, styles$1.textInput), { paddingRight: handleOnScanQr ? 72 : 40 }), placeholder: placeholder, onKeyPress: handleKeyPress, value: value, onChange: onChange, onBlur: function () {
+                            if (handleOnSubmitSearch && !handleOnScanQr) {
+                                handleOnSubmitSearch(value);
+                            }
+                        } }, props)), (value === null || value === void 0 ? void 0 : value.length) > 0 && (jsxRuntime.jsx(TouchableOpacity, __assign({ style: styles$1.closeSearchButton, onPress: handleOnClearSearch }, { children: jsxRuntime.jsx(Images, { style: __assign(__assign({}, styles$1.closeSearchButtonImage), { paddingRight: handleOnScanQr ? 48 : 16 }), src: (_b = Icons.close) !== null && _b !== void 0 ? _b : '' }) }))), handleOnScanQr && (jsxRuntime.jsx(TouchableOpacity, __assign({ style: styles$1.scanQrImageContainer, onPress: function () {
+                            handleOnScanQr();
+                            setIsScannerVisible(true);
+                        } }, { children: jsxRuntime.jsx(Images, { style: styles$1.scanQrImage, src: Icons.scan_qr }) })))] })), isScannerVisible && (jsxRuntime.jsx(ScannerCamera, { onClose: function () { return setIsScannerVisible(false); }, onCapture: function (data) { return handleOnScanQr === null || handleOnScanQr === void 0 ? void 0 : handleOnScanQr(data); } }))] }));
 };
 
 var Swipeable = function (_a) {
