@@ -29797,10 +29797,9 @@ var styles$1 = {
         position: 'absolute',
         right: 0,
         height: 38,
-        backgroundColor: 'red',
         justifyContent: 'center',
         zIndex: 2,
-        paddingRight: 16,
+        marginRight: 16,
     },
     closeSearchButtonImage: {
         height: 18,
