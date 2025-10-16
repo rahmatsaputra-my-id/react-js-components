@@ -85,6 +85,14 @@ const CameraModal: React.FC<CameraModalProps> = ({onClose, onCapture}) => {
   }, []);
 
   useEffect(() => {
+    if (hasRearCamera) {
+      setIsFrontCamera(false); // default to rear camera if available
+    } else {
+      setIsFrontCamera(true); // default to front camera otherwise
+    }
+  }, [hasRearCamera]);
+
+  useEffect(() => {
     openCamera();
     window.addEventListener('beforeunload', stopCamera);
     return () => {

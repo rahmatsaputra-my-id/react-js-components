@@ -511,6 +511,14 @@ var CameraModal = function (_a) {
         detectCameras();
     }, []);
     useEffect(function () {
+        if (hasRearCamera) {
+            setIsFrontCamera(false); // default to rear camera if available
+        }
+        else {
+            setIsFrontCamera(true); // default to front camera otherwise
+        }
+    }, [hasRearCamera]);
+    useEffect(function () {
         openCamera();
         window.addEventListener('beforeunload', stopCamera);
         return function () {
