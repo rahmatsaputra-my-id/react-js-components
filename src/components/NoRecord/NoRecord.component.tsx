@@ -1,6 +1,6 @@
 import {Text} from '../Text';
 import {View} from '../View';
-import {styles} from './NoRecord.styles';
+import {styles} from './NoRecord.component.styles';
 import {INoRecordProps} from './NoRecord.types';
 
 const NoRecord = ({
