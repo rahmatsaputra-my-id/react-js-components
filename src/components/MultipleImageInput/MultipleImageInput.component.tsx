@@ -59,20 +59,6 @@ const MultipleImageInput: React.FC<IMultipleImageInput> = ({
       <View style={{...styles.container, ...style}}>
         <div style={styles.card} {...props}>
           <div style={styles.previewContainer}>
-            <div
-              onClick={() => setIsVisibleBottomSheet(true)}
-              style={styles.addButton}
-              role="button"
-              tabIndex={0}
-              onKeyDown={e => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  setIsVisibleBottomSheet(true);
-                }
-              }}
-              aria-label="Add images">
-              <span style={styles.plusSign}>+</span>
-            </div>
-
             {images.map(({src}, index) => (
               <div key={index} style={styles.previewWrapper}>
                 <button
@@ -95,6 +81,20 @@ const MultipleImageInput: React.FC<IMultipleImageInput> = ({
                 </button>
               </div>
             ))}
+
+            <div
+              onClick={() => setIsVisibleBottomSheet(true)}
+              style={styles.addButton}
+              role="button"
+              tabIndex={0}
+              onKeyDown={e => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  setIsVisibleBottomSheet(true);
+                }
+              }}
+              aria-label="Add images">
+              <span style={styles.plusSign}>+</span>
+            </div>
           </div>
         </div>
 

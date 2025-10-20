@@ -1380,17 +1380,17 @@ var MultipleImageInput = function (_a) {
             return updated;
         });
     };
-    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Text, __assign({ style: styles$4.title }, { children: label })), jsxRuntime.jsxs(View, __assign({ style: __assign(__assign({}, styles$4.container), style) }, { children: [jsxRuntime.jsx("div", __assign({ style: styles$4.card }, props, { children: jsxRuntime.jsxs("div", __assign({ style: styles$4.previewContainer }, { children: [jsxRuntime.jsx("div", __assign({ onClick: function () { return setIsVisibleBottomSheet(true); }, style: styles$4.addButton, role: "button", tabIndex: 0, onKeyDown: function (e) {
-                                        if (e.key === 'Enter' || e.key === ' ') {
-                                            setIsVisibleBottomSheet(true);
-                                        }
-                                    }, "aria-label": "Add images" }, { children: jsxRuntime.jsx("span", __assign({ style: styles$4.plusSign }, { children: "+" })) })), images.map(function (_a, index) {
+    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Text, __assign({ style: styles$4.title }, { children: label })), jsxRuntime.jsxs(View, __assign({ style: __assign(__assign({}, styles$4.container), style) }, { children: [jsxRuntime.jsx("div", __assign({ style: styles$4.card }, props, { children: jsxRuntime.jsxs("div", __assign({ style: styles$4.previewContainer }, { children: [images.map(function (_a, index) {
                                     var src = _a.src;
                                     return (jsxRuntime.jsxs("div", __assign({ style: styles$4.previewWrapper }, { children: [jsxRuntime.jsx("button", __assign({ onClick: function () { return removeImage(index); }, style: styles$4.closeButton, "aria-label": "Remove image" }, { children: "\u00D7" })), jsxRuntime.jsx("img", { src: src, alt: "preview", style: styles$4.previewImage }), jsxRuntime.jsx("button", __assign({ onClick: function () {
                                                     setImagePreview(src);
                                                     setIsPreviewVisible(true);
                                                 }, style: styles$4.eyeButton, "aria-label": "Preview image" }, { children: "\uD83D\uDC41\uFE0F" }))] }), index));
-                                })] })) })), jsxRuntime.jsx(PhotoPreviewModal, { visible: isPreviewVisible, onDismiss: function () { return setIsPreviewVisible(false); }, imageUrl: imagePreview }), jsxRuntime.jsx(BottomSheetPhoto, { visible: isVisibleBottomSheet, onClose: function () { return setIsVisibleBottomSheet(false); }, title: "Pemilihan Gambar", onUploadBase64: function (data) { return handleChange(data); } })] }))] }));
+                                }), jsxRuntime.jsx("div", __assign({ onClick: function () { return setIsVisibleBottomSheet(true); }, style: styles$4.addButton, role: "button", tabIndex: 0, onKeyDown: function (e) {
+                                        if (e.key === 'Enter' || e.key === ' ') {
+                                            setIsVisibleBottomSheet(true);
+                                        }
+                                    }, "aria-label": "Add images" }, { children: jsxRuntime.jsx("span", __assign({ style: styles$4.plusSign }, { children: "+" })) }))] })) })), jsxRuntime.jsx(PhotoPreviewModal, { visible: isPreviewVisible, onDismiss: function () { return setIsPreviewVisible(false); }, imageUrl: imagePreview }), jsxRuntime.jsx(BottomSheetPhoto, { visible: isVisibleBottomSheet, onClose: function () { return setIsVisibleBottomSheet(false); }, title: "Pemilihan Gambar", onUploadBase64: function (data) { return handleChange(data); } })] }))] }));
 };
 
 var styles$3 = {
