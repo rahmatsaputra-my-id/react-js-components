@@ -84,6 +84,83 @@ export declare const styles: {
         fontSize: number;
         fontWeight: string;
     };
+    normal_22: {
+        fontSize: number;
+    };
+    bold_22: {
+        fontSize: number;
+        fontWeight: string;
+    };
+    normal_24: {
+        fontSize: number;
+    };
+    bold_24: {
+        fontSize: number;
+        fontWeight: string;
+    };
+    normal_26: {
+        fontSize: number;
+    };
+    bold_26: {
+        fontSize: number;
+        fontWeight: string;
+    };
+    normal_28: {
+        fontSize: number;
+    };
+    bold_28: {
+        fontSize: number;
+        fontWeight: string;
+    };
+    normal_30: {
+        fontSize: number;
+    };
+    bold_30: {
+        fontSize: number;
+        fontWeight: string;
+    };
+    normal_32: {
+        fontSize: number;
+    };
+    bold_32: {
+        fontSize: number;
+        fontWeight: string;
+    };
+    normal_34: {
+        fontSize: number;
+    };
+    bold_34: {
+        fontSize: number;
+        fontWeight: string;
+    };
+    normal_36: {
+        fontSize: number;
+    };
+    bold_36: {
+        fontSize: number;
+        fontWeight: string;
+    };
+    normal_38: {
+        fontSize: number;
+    };
+    bold_38: {
+        fontSize: number;
+        fontWeight: string;
+    };
+    normal_40: {
+        fontSize: number;
+    };
+    bold_40: {
+        fontSize: number;
+        fontWeight: string;
+    };
+    normal_42: {
+        fontSize: number;
+    };
+    bold_42: {
+        fontSize: number;
+        fontWeight: string;
+    };
     normal_80: {
         fontSize: number;
     };

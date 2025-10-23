@@ -724,6 +724,83 @@ var styles$c = {
         fontSize: 20,
         fontWeight: 'bold',
     },
+    normal_22: {
+        fontSize: 22,
+    },
+    bold_22: {
+        fontSize: 22,
+        fontWeight: 'bold',
+    },
+    normal_24: {
+        fontSize: 24,
+    },
+    bold_24: {
+        fontSize: 24,
+        fontWeight: 'bold',
+    },
+    normal_26: {
+        fontSize: 26,
+    },
+    bold_26: {
+        fontSize: 26,
+        fontWeight: 'bold',
+    },
+    normal_28: {
+        fontSize: 28,
+    },
+    bold_28: {
+        fontSize: 28,
+        fontWeight: 'bold',
+    },
+    normal_30: {
+        fontSize: 30,
+    },
+    bold_30: {
+        fontSize: 30,
+        fontWeight: 'bold',
+    },
+    normal_32: {
+        fontSize: 32,
+    },
+    bold_32: {
+        fontSize: 32,
+        fontWeight: 'bold',
+    },
+    normal_34: {
+        fontSize: 34,
+    },
+    bold_34: {
+        fontSize: 34,
+        fontWeight: 'bold',
+    },
+    normal_36: {
+        fontSize: 36,
+    },
+    bold_36: {
+        fontSize: 36,
+        fontWeight: 'bold',
+    },
+    normal_38: {
+        fontSize: 38,
+    },
+    bold_38: {
+        fontSize: 38,
+        fontWeight: 'bold',
+    },
+    normal_40: {
+        fontSize: 40,
+    },
+    bold_40: {
+        fontSize: 40,
+        fontWeight: 'bold',
+    },
+    normal_42: {
+        fontSize: 42,
+    },
+    bold_42: {
+        fontSize: 42,
+        fontWeight: 'bold',
+    },
     normal_80: {
         fontSize: 80,
     },
