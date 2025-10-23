@@ -18,4 +18,6 @@ export const Icons: IIconOption = {
   more: `${PATH.IMAGE}/icon-more.png`,
   flash_on: `${PATH.IMAGE}/icon-flash-on.png`,
   flash_off: `${PATH.IMAGE}/icon-flash-off.png`,
+  exit: `${PATH.IMAGE}/icon-exit.png`,
+  arrow_right: `${PATH.IMAGE}/icon-arrow-right.png`,
 }

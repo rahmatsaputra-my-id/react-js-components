@@ -429,6 +429,8 @@ var Icons = {
     more: "".concat(PATH.IMAGE, "/icon-more.png"),
     flash_on: "".concat(PATH.IMAGE, "/icon-flash-on.png"),
     flash_off: "".concat(PATH.IMAGE, "/icon-flash-off.png"),
+    exit: "".concat(PATH.IMAGE, "/icon-exit.png"),
+    arrow_right: "".concat(PATH.IMAGE, "/icon-arrow-right.png"),
 };
 
 var Images = function (_a) {

@@ -9,4 +9,6 @@ export interface IIconOption {
   more?: string
   flash_on?: string
   flash_off?: string
+  exit?: string
+  arrow_right?: string
 }
