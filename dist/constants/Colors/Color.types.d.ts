@@ -13,8 +13,9 @@ export interface IColorsOption {
     blue?: '#227AEA';
     blue10?: '#007bff';
     blueTransparent?: 'rgba(93, 102, 147, 0.5)';
+    borderBotom?: '0.5px solid #000';
     boxShadow?: '1px 2px 9px #000';
-    boxShadowCard?: '1px 2px 9px rgba(0, 0, 0, 0.3)';
+    boxShadowCard?: '1px 2px 5px rgba(0, 0, 0, 0.3)';
     boxShadowImage?: '0px 5px 5px 0px rgba(0, 0, 0, 0.5)';
     brownishGrey?: '#646464';
     brownTransparent?: 'rgba(185, 170, 170, 0.6)';
