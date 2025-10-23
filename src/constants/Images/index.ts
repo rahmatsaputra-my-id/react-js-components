@@ -20,4 +20,5 @@ export const Icons: IIconOption = {
   flash_off: `${PATH.IMAGE}/icon-flash-off.png`,
   exit: `${PATH.IMAGE}/icon-exit.png`,
   arrow_right: `${PATH.IMAGE}/icon-arrow-right.png`,
+  arrow_right_thin: `${PATH.IMAGE}/icon-arrow-right-thin.png`,
 }

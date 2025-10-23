@@ -431,6 +431,7 @@ var Icons = {
     flash_off: "".concat(PATH.IMAGE, "/icon-flash-off.png"),
     exit: "".concat(PATH.IMAGE, "/icon-exit.png"),
     arrow_right: "".concat(PATH.IMAGE, "/icon-arrow-right.png"),
+    arrow_right_thin: "".concat(PATH.IMAGE, "/icon-arrow-right-thin.png"),
 };
 
 var Images = function (_a) {

@@ -11,4 +11,5 @@ export interface IIconOption {
   flash_off?: string
   exit?: string
   arrow_right?: string
+  arrow_right_thin?: string
 }
