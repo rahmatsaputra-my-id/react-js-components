@@ -21,4 +21,10 @@ export const Icons: IIconOption = {
   exit: `${PATH.IMAGE}/icon-exit.png`,
   arrow_right: `${PATH.IMAGE}/icon-arrow-right.png`,
   arrow_right_thin: `${PATH.IMAGE}/icon-arrow-right-thin.png`,
+  information: `${PATH.IMAGE}/icon-information.png`,
+  question: `${PATH.IMAGE}/icon-question.png`,
+  langugage: `${PATH.IMAGE}/icon-language.png`,
+  printer: `${PATH.IMAGE}/icon-printer.png`,
+  tax: `${PATH.IMAGE}/icon-tax.png`,
+  terms_and_conditions: `${PATH.IMAGE}/icon-terms-and-conditions.png`,
 }

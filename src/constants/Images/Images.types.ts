@@ -12,4 +12,10 @@ export interface IIconOption {
   exit?: string
   arrow_right?: string
   arrow_right_thin?: string
+  information?: string
+  question?: string
+  langugage?: string
+  printer?: string
+  tax?: string
+  terms_and_conditions?: string
 }

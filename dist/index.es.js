@@ -424,6 +424,12 @@ var Icons = {
     exit: "".concat(PATH.IMAGE, "/icon-exit.png"),
     arrow_right: "".concat(PATH.IMAGE, "/icon-arrow-right.png"),
     arrow_right_thin: "".concat(PATH.IMAGE, "/icon-arrow-right-thin.png"),
+    information: "".concat(PATH.IMAGE, "/icon-information.png"),
+    question: "".concat(PATH.IMAGE, "/icon-question.png"),
+    langugage: "".concat(PATH.IMAGE, "/icon-language.png"),
+    printer: "".concat(PATH.IMAGE, "/icon-printer.png"),
+    tax: "".concat(PATH.IMAGE, "/icon-tax.png"),
+    terms_and_conditions: "".concat(PATH.IMAGE, "/icon-terms-and-conditions.png"),
 };
 
 var Images = function (_a) {
