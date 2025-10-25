@@ -1,6 +1,6 @@
 {
   "name": "@rahmatsaputra-my-id/react-js-components",
-  "version": "0.0.172",
+  "version": "0.0.174",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "files": [
